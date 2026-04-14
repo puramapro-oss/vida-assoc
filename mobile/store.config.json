@@ -1,0 +1,277 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "info": {
+      "fr": {
+        "title": "VIDA — Don, missions, impact",
+        "subtitle": "Chaque geste compte. Vraiment.",
+        "description": "VIDA Association transforme tes intentions en impact réel : missions terrain (déchets, arbres, sang, bénévolat), dons à des associations vérifiées (100 % reversés), rituels collectifs, communauté bienveillante, et un wallet qui te remercie en € pour chaque action.\n\n• Missions vérifiées par photo + GPS\n• 100 % des dons reversés à l'association\n• Rituels collectifs (pleine lune, gratitude, paix)\n• Wallet IBAN dès 5 €\n• Concours hebdomadaires — 10 gagnants\n• Communauté zéro toxicité\n• 16 langues, accessibilité totale\n\nVIDA est une association loi 1901 française. Open-source, sans pub, sans tracking abusif.",
+        "keywords": "don,asso,impact,bénévolat,écologie,planète,solidarité,ONG,karma,gratitude",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Première version publique de VIDA Association. Missions, dons, rituels, communauté, wallet — tout est là."
+      },
+      "en-US": {
+        "title": "VIDA — Donate, missions, impact",
+        "subtitle": "Every action counts. Really.",
+        "description": "VIDA turns your intentions into real impact: field missions (waste pickup, tree planting, blood donation, volunteering), donations to verified non-profits (100% passed through), collective rituals, a kind community, and a wallet that thanks you in € for every action.\n\n• Photo + GPS verified missions\n• 100% of donations forwarded\n• Collective rituals (full moon, gratitude, peace)\n• IBAN payouts from €5\n• Weekly contests — 10 winners\n• Zero-toxicity community\n• 16 languages, full accessibility\n\nVIDA is a French non-profit. Open-source, ad-free, no creepy tracking.",
+        "keywords": "donation,charity,impact,volunteer,ecology,planet,solidarity,NGO,karma,gratitude",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "First public release of VIDA Association. Missions, donations, rituals, community, wallet — all here."
+      },
+      "es-ES": {
+        "title": "VIDA — Donar, misiones, impacto",
+        "subtitle": "Cada gesto cuenta. De verdad.",
+        "description": "VIDA convierte tus intenciones en impacto real: misiones de campo, donaciones a asociaciones verificadas, rituales colectivos, comunidad bondadosa y monedero que te recompensa en €.",
+        "keywords": "donación,ONG,impacto,voluntariado,ecología,solidaridad,planeta,gratitud",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Primera versión pública de VIDA. Misiones, donaciones, rituales, comunidad, monedero."
+      },
+      "de-DE": {
+        "title": "VIDA — Spenden, Missionen, Wirkung",
+        "subtitle": "Jede Geste zählt. Wirklich.",
+        "description": "VIDA verwandelt Absichten in echte Wirkung: Feldmissionen, Spenden an geprüfte Vereine, kollektive Rituale, achtsame Community, Wallet mit Auszahlung in € ab 5 €.",
+        "keywords": "Spende,NGO,Impact,Ehrenamt,Umwelt,Solidarität,Planet,Dankbarkeit",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Erste öffentliche Version von VIDA — Missionen, Spenden, Rituale, Community, Wallet."
+      },
+      "it": {
+        "title": "VIDA — Dona, missioni, impatto",
+        "subtitle": "Ogni gesto conta. Davvero.",
+        "description": "VIDA trasforma le tue intenzioni in impatto reale: missioni sul campo, donazioni a ONG verificate, rituali collettivi, community gentile, wallet con prelievo IBAN da 5 €.",
+        "keywords": "donazione,ONG,impatto,volontariato,ecologia,solidarietà,pianeta,gratitudine",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Prima release pubblica di VIDA — missioni, donazioni, rituali, community, wallet."
+      },
+      "pt-PT": {
+        "title": "VIDA — Doar, missões, impacto",
+        "subtitle": "Cada gesto conta. A sério.",
+        "description": "A VIDA transforma as tuas intenções em impacto real: missões no terreno, doações a ONG verificadas, rituais coletivos, comunidade bondosa, wallet com levantamento IBAN a partir de 5 €.",
+        "keywords": "doação,ONG,impacto,voluntariado,ecologia,solidariedade,planeta,gratidão",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Primeira versão pública da VIDA — missões, doações, rituais, comunidade, wallet."
+      },
+      "nl-NL": {
+        "title": "VIDA — Doneren, missies, impact",
+        "subtitle": "Elke daad telt. Echt.",
+        "description": "VIDA vertaalt jouw intenties in echte impact: veldmissies, donaties aan geverifieerde NGO's, collectieve rituelen, milde community, wallet met IBAN-uitbetaling vanaf €5.",
+        "keywords": "donatie,NGO,impact,vrijwilligerswerk,ecologie,solidariteit,planeet,dankbaarheid",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Eerste publieke release van VIDA — missies, donaties, rituelen, community, wallet."
+      },
+      "pl": {
+        "title": "VIDA — Darowizny, misje, wpływ",
+        "subtitle": "Każdy gest się liczy. Naprawdę.",
+        "description": "VIDA zamienia Twoje intencje w realny wpływ: misje terenowe, darowizny dla zweryfikowanych NGO, rytuały zbiorowe, łagodna społeczność, portfel z wypłatą IBAN od 5 €.",
+        "keywords": "darowizna,NGO,wpływ,wolontariat,ekologia,solidarność,planeta,wdzięczność",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Pierwsze publiczne wydanie VIDA — misje, darowizny, rytuały, społeczność, portfel."
+      },
+      "sv": {
+        "title": "VIDA — Donera, uppdrag, impact",
+        "subtitle": "Varje handling räknas. På riktigt.",
+        "description": "VIDA gör dina intentioner till verklig impact: fältuppdrag, donationer till verifierade NGO:er, kollektiva ritualer, snäll community, plånbok med IBAN-uttag från 5 €.",
+        "keywords": "donation,NGO,impact,volontär,ekologi,solidaritet,planeten,tacksamhet",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Första publika versionen av VIDA — uppdrag, donationer, ritualer, community, plånbok."
+      },
+      "tr": {
+        "title": "VIDA — Bağış, görevler, etki",
+        "subtitle": "Her hareket sayılır. Gerçekten.",
+        "description": "VIDA niyetlerini gerçek etkiye dönüştürür: saha görevleri, doğrulanmış STK'lara bağışlar, kolektif ritüeller, nazik topluluk, 5 €'dan başlayan IBAN cüzdanı.",
+        "keywords": "bağış,STK,etki,gönüllü,ekoloji,dayanışma,gezegen,şükran",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "VIDA'nın ilk halka açık sürümü — görevler, bağışlar, ritüeller, topluluk, cüzdan."
+      },
+      "ar-SA": {
+        "title": "VIDA — تبرّع ومهام وأثر",
+        "subtitle": "كل لفتة تُحدث فرقًا.",
+        "description": "VIDA تحوّل نواياك إلى أثر حقيقي: مهام ميدانية، تبرعات لجمعيات موثّقة، طقوس جماعية، مجتمع لطيف، ومحفظة مع سحب عبر IBAN ابتداءً من 5 €.",
+        "keywords": "تبرع,جمعية,أثر,تطوع,بيئة,تضامن,كوكب,امتنان",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "أول إصدار عام من VIDA — مهام، تبرعات، طقوس، مجتمع، محفظة."
+      },
+      "ru": {
+        "title": "VIDA — Пожертвования, миссии, влияние",
+        "subtitle": "Каждый жест важен. Правда.",
+        "description": "VIDA превращает намерения в реальное влияние: полевые миссии, пожертвования проверенным НКО, коллективные ритуалы, добрая сообщество, кошелёк с выводом IBAN от 5 €.",
+        "keywords": "пожертвование,НКО,влияние,волонтёр,экология,солидарность,планета,благодарность",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "Первый публичный релиз VIDA — миссии, пожертвования, ритуалы, сообщество, кошелёк."
+      },
+      "hi": {
+        "title": "VIDA — दान, मिशन, प्रभाव",
+        "subtitle": "हर इरादा मायने रखता है।",
+        "description": "VIDA आपके इरादों को असली प्रभाव में बदलता है: फ़ील्ड मिशन, सत्यापित NGO को दान, सामूहिक रिचुअल, कोमल समुदाय, IBAN वॉलेट 5 € से।",
+        "keywords": "दान,NGO,प्रभाव,स्वयंसेवक,पर्यावरण,एकजुटता,ग्रह,कृतज्ञता",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "VIDA का पहला सार्वजनिक रिलीज़ — मिशन, दान, रिचुअल, समुदाय, वॉलेट।"
+      },
+      "zh-Hans": {
+        "title": "VIDA — 捐赠、任务、影响力",
+        "subtitle": "每一个善举都重要。真的。",
+        "description": "VIDA 把你的意愿转化为真实影响：实地任务、向已验证 NGO 的捐款、集体仪式、温柔社区，5 € 起 IBAN 钱包。",
+        "keywords": "捐赠,NGO,影响,志愿者,生态,团结,星球,感恩",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "VIDA 首个公开版本 — 任务、捐赠、仪式、社区、钱包。"
+      },
+      "ja": {
+        "title": "VIDA — 寄付・ミッション・インパクト",
+        "subtitle": "すべての行動が意味を持つ。本当に。",
+        "description": "VIDA はあなたの意図を実際のインパクトに変えます：現地ミッション、認証 NGO への寄付、集合的なリチュアル、優しいコミュニティ、5 € から IBAN 出金。",
+        "keywords": "寄付,NGO,インパクト,ボランティア,エコロジー,連帯,地球,感謝",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "VIDA 初公開リリース — ミッション、寄付、リチュアル、コミュニティ、ウォレット。"
+      },
+      "ko": {
+        "title": "VIDA — 기부, 미션, 임팩트",
+        "subtitle": "모든 행동이 중요해. 정말.",
+        "description": "VIDA는 당신의 의도를 진짜 임팩트로 바꿉니다: 현장 미션, 검증된 NGO 기부, 집단 의식, 따뜻한 커뮤니티, 5 € 부터 IBAN 출금.",
+        "keywords": "기부,NGO,임팩트,자원봉사,생태,연대,지구,감사",
+        "marketingUrl": "https://vida-assoc.purama.dev",
+        "supportUrl": "https://vida-assoc.purama.dev/aide",
+        "privacyPolicyUrl": "https://vida-assoc.purama.dev/privacy",
+        "releaseNotes": "VIDA 첫 공개 버전 — 미션, 기부, 의식, 커뮤니티, 지갑."
+      }
+    },
+    "categories": ["LIFESTYLE", "SOCIAL_NETWORKING"],
+    "advisory": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "violenceCartoonOrFantasyProlongedGraphicOrSadistic": "NONE",
+      "gambling": "NONE",
+      "unrestrictedWebAccess": "NONE"
+    },
+    "copyright": "© 2026 Association PURAMA"
+  },
+  "android": {
+    "listings": {
+      "fr-FR": {
+        "title": "VIDA — Don, missions, impact",
+        "shortDescription": "Transforme tes gestes en impact réel : missions, dons, wallet en €.",
+        "fullDescription": "VIDA Association transforme tes intentions en impact réel.\n\n🌱 MISSIONS TERRAIN — Ramasser des déchets, planter un arbre, donner du sang, faire du bénévolat. Chaque mission validée par photo + GPS gonfle ton impact et ton wallet.\n\n❤️ DONS 100 % REVERSÉS — VIDA ne prend AUCUNE commission sur les dons aux autres associations vérifiées.\n\n🕊️ RITUELS COLLECTIFS — Méditations guidées, intentions de paix, gratitude collective. Tu n'es jamais seul·e.\n\n🏆 CONCOURS HEBDO — 10 gagnants chaque semaine. Tu gagnes des tickets en agissant, jamais en payant.\n\n💰 WALLET IBAN dès 5 € — Commissions parrainage, récompenses missions, gains concours. Tout te revient.\n\n💬 COMMUNAUTÉ ZÉRO TOXICITÉ — Modération IA, victoires, gratitudes, questions.\n\n🌍 16 LANGUES + ACCESSIBILITÉ TOTALE\n\nVIDA est une association loi 1901 française, open-source, sans pub, sans tracking abusif. Code source sur github.com/puramapro-oss.",
+        "video": "https://vida-assoc.purama.dev"
+      },
+      "en-US": {
+        "title": "VIDA — Donate, missions, impact",
+        "shortDescription": "Turn actions into real impact: missions, donations, € wallet.",
+        "fullDescription": "VIDA Association turns your intentions into real impact.\n\n🌱 FIELD MISSIONS — Pick up waste, plant a tree, donate blood, volunteer. Photo + GPS validation grows your impact and wallet.\n\n❤️ 100% PASSED-THROUGH DONATIONS — VIDA takes ZERO commission on donations to verified non-profits.\n\n🕊️ COLLECTIVE RITUALS — Guided meditations, peace intentions, gratitude. You're never alone.\n\n🏆 WEEKLY CONTESTS — 10 winners every week. Tickets earned by action, never bought.\n\n💰 IBAN WALLET FROM €5 — Referral commissions, mission rewards, contest winnings. All yours.\n\n💬 ZERO-TOXICITY COMMUNITY — AI moderation, victories, gratitude, questions.\n\n🌍 16 LANGUAGES + FULL ACCESSIBILITY\n\nVIDA is a French non-profit, open-source, ad-free, no creepy tracking. Source on github.com/puramapro-oss.",
+        "video": "https://vida-assoc.purama.dev"
+      },
+      "es-ES": {
+        "title": "VIDA — Donar, misiones, impacto",
+        "shortDescription": "Convierte tus gestos en impacto real: misiones, donaciones, wallet €.",
+        "fullDescription": "VIDA Asociación transforma tus intenciones en impacto real. Misiones de campo, donaciones a asociaciones verificadas, rituales colectivos, comunidad bondadosa, monedero IBAN desde 5 €."
+      },
+      "de-DE": {
+        "title": "VIDA — Spenden, Missionen, Wirkung",
+        "shortDescription": "Verwandle Gesten in echte Wirkung: Missionen, Spenden, € Wallet.",
+        "fullDescription": "VIDA Verein verwandelt Absichten in echte Wirkung. Feldmissionen, Spenden an geprüfte Vereine, kollektive Rituale, achtsame Community, IBAN-Wallet ab 5 €."
+      },
+      "it-IT": {
+        "title": "VIDA — Donare, missioni, impatto",
+        "shortDescription": "Trasforma gesti in impatto reale: missioni, donazioni, wallet €.",
+        "fullDescription": "VIDA Associazione trasforma le tue intenzioni in impatto reale. Missioni sul campo, donazioni a ONG verificate, rituali collettivi, community gentile, wallet IBAN da 5 €."
+      },
+      "pt-PT": {
+        "title": "VIDA — Doar, missões, impacto",
+        "shortDescription": "Transforma gestos em impacto real: missões, doações, wallet €.",
+        "fullDescription": "VIDA Associação transforma intenções em impacto real. Missões no terreno, doações a ONG verificadas, rituais coletivos, comunidade gentil, wallet IBAN a partir de 5 €."
+      },
+      "nl-NL": {
+        "title": "VIDA — Doneren, missies, impact",
+        "shortDescription": "Maak van gebaren echte impact: missies, donaties, € wallet.",
+        "fullDescription": "VIDA Vereniging zet jouw intenties om in echte impact. Veldmissies, donaties aan geverifieerde NGO's, collectieve rituelen, milde community, IBAN-wallet vanaf €5."
+      },
+      "pl-PL": {
+        "title": "VIDA — Darowizny, misje, wpływ",
+        "shortDescription": "Zamień gesty w realny wpływ: misje, darowizny, € portfel.",
+        "fullDescription": "VIDA Stowarzyszenie zamienia intencje w realny wpływ. Misje terenowe, darowizny dla zweryfikowanych NGO, zbiorowe rytuały, łagodna społeczność, portfel IBAN od 5 €."
+      },
+      "sv-SE": {
+        "title": "VIDA — Donera, uppdrag, impact",
+        "shortDescription": "Förvandla handlingar till äkta impact: uppdrag, donationer, € plånbok.",
+        "fullDescription": "VIDA Förening förvandlar intentioner till verklig impact. Fältuppdrag, donationer till verifierade NGO:er, kollektiva ritualer, snäll community, IBAN-plånbok från 5 €."
+      },
+      "tr-TR": {
+        "title": "VIDA — Bağış, görevler, etki",
+        "shortDescription": "Hareketleri gerçek etkiye dönüştür: görevler, bağışlar, € cüzdan.",
+        "fullDescription": "VIDA Derneği niyetlerini gerçek etkiye dönüştürür. Saha görevleri, doğrulanmış STK'lara bağışlar, kolektif ritüeller, nazik topluluk, 5 €'dan IBAN cüzdanı."
+      },
+      "ar": {
+        "title": "VIDA — تبرّع ومهام وأثر",
+        "shortDescription": "حوّل أفعالك إلى أثر حقيقي: مهام، تبرعات، محفظة €.",
+        "fullDescription": "جمعية VIDA تحوّل نواياك إلى أثر حقيقي. مهام ميدانية، تبرعات لجمعيات موثّقة، طقوس جماعية، مجتمع لطيف، محفظة IBAN ابتداءً من 5 €."
+      },
+      "ru-RU": {
+        "title": "VIDA — Пожертвования, миссии, влияние",
+        "shortDescription": "Превращай действия в реальное влияние: миссии, пожертвования, € кошелёк.",
+        "fullDescription": "Ассоциация VIDA превращает намерения в реальное влияние. Полевые миссии, пожертвования проверенным НКО, коллективные ритуалы, добрая сообщество, кошелёк IBAN от 5 €."
+      },
+      "hi-IN": {
+        "title": "VIDA — दान, मिशन, प्रभाव",
+        "shortDescription": "हर क्रिया को असली प्रभाव में बदलें: मिशन, दान, € वॉलेट.",
+        "fullDescription": "VIDA एसोसिएशन आपके इरादों को असली प्रभाव में बदलती है। फ़ील्ड मिशन, सत्यापित NGO को दान, सामूहिक रिचुअल, कोमल समुदाय, 5 € से IBAN वॉलेट।"
+      },
+      "zh-CN": {
+        "title": "VIDA — 捐赠、任务、影响力",
+        "shortDescription": "把行动变成真实影响：任务、捐赠、€ 钱包。",
+        "fullDescription": "VIDA 协会把你的意愿转化为真实影响。实地任务、向已验证 NGO 的捐款、集体仪式、温柔社区，5 € 起 IBAN 钱包。"
+      },
+      "ja-JP": {
+        "title": "VIDA — 寄付・ミッション・インパクト",
+        "shortDescription": "行動を本当のインパクトに：ミッション、寄付、€ ウォレット。",
+        "fullDescription": "VIDA 協会はあなたの意図を実際のインパクトに変えます。現地ミッション、認証 NGO への寄付、集合的なリチュアル、優しいコミュニティ、5 € から IBAN 出金。"
+      },
+      "ko-KR": {
+        "title": "VIDA — 기부, 미션, 임팩트",
+        "shortDescription": "행동을 진짜 임팩트로 바꾸기: 미션, 기부, € 지갑.",
+        "fullDescription": "VIDA 협회는 당신의 의도를 진짜 임팩트로 바꿉니다. 현장 미션, 검증된 NGO 기부, 집단 의식, 따뜻한 커뮤니티, 5 € 부터 IBAN 출금."
+      }
+    },
+    "release": {
+      "track": "production",
+      "status": "completed",
+      "userFraction": 1
+    }
+  }
+}

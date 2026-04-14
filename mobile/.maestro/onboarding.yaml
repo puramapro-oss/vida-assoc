@@ -1,0 +1,28 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Onboarding (cinematic + tuto)
+tags:
+  - onboarding
+---
+- launchApp:
+    clearState: true
+- runFlow: auth.yaml
+- assertVisible:
+    id: "onboarding-cinematic"
+    optional: true
+    timeout: 6000
+- tapOn:
+    id: "cinematic-skip"
+    optional: true
+- assertVisible:
+    text: "Bienvenue dans VIDA"
+    optional: true
+    timeout: 6000
+- repeat:
+    times: 7
+    commands:
+      - tapOn:
+          id: "tutorial-next"
+          optional: true
+- assertVisible:
+    text: "Namaste"
+    timeout: 10000

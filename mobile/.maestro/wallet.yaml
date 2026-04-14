@@ -1,0 +1,19 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Wallet (formulaire retrait)
+tags:
+  - wallet
+---
+- launchApp
+- runFlow: auth.yaml
+- tapOn: "Moi"
+- tapOn: "Wallet & retraits"
+- assertVisible:
+    id: "wallet-amount"
+- tapOn:
+    id: "wallet-amount"
+- inputText: "5"
+- tapOn:
+    id: "wallet-iban"
+- inputText: "FR7630006000011234567890189"
+- assertVisible:
+    id: "wallet-submit"

@@ -1,0 +1,12 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Settings + signOut
+tags:
+  - settings
+---
+- launchApp
+- runFlow: auth.yaml
+- tapOn: "Moi"
+- tapOn: "Réglages"
+- assertVisible: "Réglages"
+- back
+- assertVisible: "Wallet & retraits"

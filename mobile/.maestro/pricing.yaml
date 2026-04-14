@@ -1,0 +1,16 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Upgrade (pricing + Stripe)
+tags:
+  - pricing
+---
+- launchApp
+- runFlow: auth.yaml
+- tapOn: "Moi"
+- tapOn: "Passer à VIDA Premium"
+- assertVisible: "Choisis ton"
+- tapOn:
+    id: "upgrade-interval-monthly"
+- tapOn:
+    id: "upgrade-plan-one"
+- assertVisible:
+    id: "upgrade-checkout"

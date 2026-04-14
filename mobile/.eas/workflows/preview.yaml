@@ -1,0 +1,20 @@
+name: VIDA — preview build (PR / manual)
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  preview_ios:
+    type: build
+    params:
+      platform: ios
+      profile: preview
+
+  preview_android:
+    type: build
+    params:
+      platform: android
+      profile: preview

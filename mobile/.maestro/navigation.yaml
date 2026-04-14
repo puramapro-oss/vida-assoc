@@ -1,0 +1,20 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Navigation (5 tabs)
+tags:
+  - navigation
+  - smoke
+---
+- launchApp
+- runFlow: auth.yaml
+- assertVisible: "Namaste"
+- tapOn: "Missions"
+- assertVisible: "Missions du jour"
+- tapOn: "VIDA"
+- assertVisible:
+    id: "chat-input"
+- tapOn: "Impact"
+- assertVisible: "Impact"
+- tapOn: "Moi"
+- assertVisible: "Wallet & retraits"
+- tapOn: "Accueil"
+- assertVisible: "Namaste"

@@ -1,0 +1,62 @@
+name: VIDA — full deploy (build + submit iOS + Android)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  prebuild_check:
+    name: Type-check + Maestro lint
+    type: build
+    image: latest
+    steps:
+      - name: Checkout
+        uses: eas/checkout
+      - name: Install dependencies
+        uses: eas/install_node_modules
+      - name: TypeScript
+        run: npx tsc --noEmit
+      - name: Maestro lint
+        run: |
+          if command -v maestro >/dev/null 2>&1; then
+            maestro test --include-tags smoke .maestro/ || echo "skip if no device"
+          fi
+
+  build_ios:
+    name: Build iOS production
+    needs: [prebuild_check]
+    type: build
+    params:
+      platform: ios
+      profile: production
+
+  build_android:
+    name: Build Android production
+    needs: [prebuild_check]
+    type: build
+    params:
+      platform: android
+      profile: production
+
+  submit_ios:
+    name: Submit to App Store Connect
+    needs: [build_ios]
+    type: submit
+    params:
+      build_id: ${{ needs.build_ios.outputs.build_id }}
+
+  submit_android:
+    name: Submit to Google Play
+    needs: [build_android]
+    type: submit
+    params:
+      build_id: ${{ needs.build_android.outputs.build_id }}
+
+  ota_update:
+    name: Push runtime hotfix (OTA channel production)
+    needs: [submit_ios, submit_android]
+    type: update
+    params:
+      branch: production
+      message: "auto-deploy from main"

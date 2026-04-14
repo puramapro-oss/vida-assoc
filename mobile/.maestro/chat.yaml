@@ -1,0 +1,18 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Chat IA streaming
+tags:
+  - chat
+---
+- launchApp
+- runFlow: auth.yaml
+- tapOn: "VIDA"
+- assertVisible:
+    id: "chat-input"
+- tapOn:
+    id: "chat-input"
+- inputText: "Suggère-moi une mission facile aujourd'hui"
+- tapOn:
+    id: "chat-send"
+- assertVisible:
+    text: "."
+    timeout: 30000

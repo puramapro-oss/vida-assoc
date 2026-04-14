@@ -1,0 +1,18 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Responsive (scroll + retour)
+tags:
+  - responsive
+---
+- launchApp
+- runFlow: auth.yaml
+- tapOn: "Missions"
+- tapOn:
+    id: "missions-search"
+    optional: true
+- inputText: "déchets"
+- swipe:
+    direction: UP
+- swipe:
+    direction: UP
+- tapOn: "Accueil"
+- assertVisible: "Namaste"

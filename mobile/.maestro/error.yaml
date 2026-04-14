@@ -1,0 +1,19 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Erreur (login mauvais mdp)
+tags:
+  - error
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Bon retour"
+- tapOn:
+    id: "login-email"
+- inputText: "matiss.frasne@gmail.com"
+- tapOn:
+    id: "login-password"
+- inputText: "wrong-pass-1234"
+- tapOn:
+    id: "login-submit"
+- assertVisible:
+    text: "Identifiants incorrects"
+    timeout: 8000

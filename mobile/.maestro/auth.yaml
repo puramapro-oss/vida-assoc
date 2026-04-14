@@ -1,0 +1,20 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Auth (login email)
+tags:
+  - auth
+  - smoke
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Bon retour"
+- tapOn:
+    id: "login-email"
+- inputText: "matiss.frasne@gmail.com"
+- tapOn:
+    id: "login-password"
+- inputText: "${MAESTRO_TEST_PASSWORD}"
+- tapOn:
+    id: "login-submit"
+- assertVisible:
+    text: "Namaste"
+    timeout: 15000

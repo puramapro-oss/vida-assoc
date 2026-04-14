@@ -1,0 +1,13 @@
+appId: dev.purama.vidaassoc
+name: VIDA — Parrainage
+tags:
+  - referral
+---
+- launchApp
+- runFlow: auth.yaml
+- tapOn: "Moi"
+- tapOn: "Parrainage"
+- assertVisible:
+    text: "Mon code"
+    optional: true
+- assertVisible: "Parrainage"
