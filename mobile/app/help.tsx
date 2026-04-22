@@ -8,7 +8,7 @@ import { BRAND, COLORS } from "../src/constants/brand";
 const FAQ = [
   {
     q: "Comment valider une mission ?",
-    a: "Ouvre la mission → Prendre une photo → Envoyer ma preuve. VIDA horodate et géolocalise automatiquement.",
+    a: "Ouvre la mission → Prendre une photo → Envoyer ma preuve. Sangha horodate et géolocalise automatiquement.",
   },
   {
     q: "Où retirer mes gains ?",
@@ -49,7 +49,7 @@ export default function Help() {
           Contact direct
         </Text>
         <Button
-          title="Parler à VIDA (IA)"
+          title="Parler à Sangha (IA)"
           onPress={() => router.push("/(tabs)/chat")}
           style={{ marginTop: 14 }}
         />

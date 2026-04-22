@@ -62,7 +62,7 @@ export async function POST(req: Request) {
   }
 
   const userContext = profile
-    ? `Prénom : ${profile.full_name ?? 'Cœur lumineux'}\nNiveau : ${profile.level ?? 1}\nMissions terminées : ${profile.total_missions_completed ?? 0}\nCrédits VIDA : ${profile.vida_credits ?? 0}`
+    ? `Prénom : ${profile.full_name ?? 'Cœur lumineux'}\nNiveau : ${profile.level ?? 1}\nMissions terminées : ${profile.total_missions_completed ?? 0}\nCrédits Sangha : ${profile.vida_credits ?? 0}`
     : undefined
 
   const anthropic = getAnthropic()

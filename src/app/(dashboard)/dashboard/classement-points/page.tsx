@@ -107,7 +107,7 @@ export default function ClassementPointsPage() {
             Classement des points
           </h1>
           <p className="text-sm text-[var(--text-secondary)]">
-            Top 50 membres VIDA — points gagnés depuis l'inscription.
+            Top 50 membres Sangha — points gagnés depuis l'inscription.
           </p>
         </div>
       </header>

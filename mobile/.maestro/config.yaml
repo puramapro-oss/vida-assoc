@@ -1,4 +1,4 @@
-# Maestro CLI workspace config — VIDA Association mobile
+# Maestro CLI workspace config — Sangha Association mobile
 # Run: `maestro test .maestro/` (full suite) or `maestro test .maestro/auth.yaml`
 # Required env: MAESTRO_TEST_PASSWORD (mot de passe Supabase du compte de test)
 flows:

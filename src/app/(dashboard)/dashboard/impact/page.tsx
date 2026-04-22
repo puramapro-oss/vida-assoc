@@ -141,7 +141,7 @@ export default function ImpactPage() {
             <span className="text-[var(--text-primary)] font-semibold">{nextLevel.name}</span> {nextLevel.emoji}
           </p>
         ) : (
-          <p className="mt-2 text-xs text-[#D4AF37]">Tu as atteint le sommet de la conscience VIDA ✨</p>
+          <p className="mt-2 text-xs text-[#D4AF37]">Tu as atteint le sommet de la conscience Sangha ✨</p>
         )}
       </motion.section>
 
@@ -160,7 +160,7 @@ export default function ImpactPage() {
       <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-[#D4AF37]" /> Impact mondial VIDA (aujourd&apos;hui)
+            <Sparkles className="h-4 w-4 text-[#D4AF37]" /> Impact mondial Sangha (aujourd&apos;hui)
           </h2>
         </div>
         {global ? (
@@ -191,7 +191,7 @@ export default function ImpactPage() {
                 </p>
                 <p className="text-sm text-[var(--text-primary)] font-medium">{c.mission?.title ?? 'Mission validée'}</p>
                 <p className="text-xs text-[var(--text-secondary)]">
-                  {c.status === 'validated' ? '✅ Validée' : c.status === 'pending' ? '⏳ En attente VIDA' : c.status === 'rejected' ? '❌ À retenter' : '⚖️ Litige'}
+                  {c.status === 'validated' ? '✅ Validée' : c.status === 'pending' ? '⏳ En attente Sangha' : c.status === 'rejected' ? '❌ À retenter' : '⚖️ Litige'}
                 </p>
               </li>
             ))}

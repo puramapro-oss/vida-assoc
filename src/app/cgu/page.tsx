@@ -2,8 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales d\'Utilisation — VIDA Association',
-  description: 'CGU de VIDA Association par SASU PURAMA.',
+  title: 'Conditions Générales d\'Utilisation — Sangha',
+  description: 'CGU de Sangha par SASU PURAMA.',
 }
 
 export default function CGU() {
@@ -26,7 +26,7 @@ export default function CGU() {
               1. Acceptation des CGU
             </h2>
             <p>
-              En accédant et en utilisant la plateforme VIDA Association (accessible à <strong className="text-[var(--text-primary)]">vida-assoc.purama.dev</strong>), vous acceptez sans réserve les présentes Conditions Générales d&apos;Utilisation.
+              En accédant et en utilisant la plateforme Sangha (accessible à <strong className="text-[var(--text-primary)]">vida-assoc.purama.dev</strong>), vous acceptez sans réserve les présentes Conditions Générales d&apos;Utilisation.
               Si vous n&apos;acceptez pas ces conditions, vous ne devez pas utiliser le service.
             </p>
             <p className="mt-2">
@@ -39,7 +39,7 @@ export default function CGU() {
               2. Description du service
             </h2>
             <p>
-              VIDA Association est une plateforme SaaS (Software as a Service) proposant un écosystème d&apos;outils d&apos;intelligence artificielle, incluant notamment :
+              Sangha est une plateforme SaaS (Software as a Service) proposant un écosystème d&apos;outils d&apos;intelligence artificielle, incluant notamment :
             </p>
             <ul className="mt-3 space-y-1.5 ml-4 list-disc">
               <li>Chat avec des modèles d&apos;IA multiples (Claude, GPT-4o, Gemini, Mistral, etc.)</li>
@@ -58,7 +58,7 @@ export default function CGU() {
             <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--text-primary)] mb-4">
               3. Création et gestion du compte
             </h2>
-            <p>Pour utiliser VIDA Association, vous devez créer un compte en fournissant une adresse e-mail valide. Vous pouvez également vous connecter via votre compte Google.</p>
+            <p>Pour utiliser Sangha, vous devez créer un compte en fournissant une adresse e-mail valide. Vous pouvez également vous connecter via votre compte Google.</p>
             <p className="mt-2">Vous êtes responsable :</p>
             <ul className="mt-2 space-y-1.5 ml-4 list-disc">
               <li>De la confidentialité de vos identifiants de connexion</li>
@@ -74,7 +74,7 @@ export default function CGU() {
             <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold text-[var(--text-primary)] mb-4">
               4. Utilisation acceptable
             </h2>
-            <p>En utilisant VIDA Association, vous vous engagez à ne pas :</p>
+            <p>En utilisant Sangha, vous vous engagez à ne pas :</p>
             <ul className="mt-3 space-y-1.5 ml-4 list-disc">
               <li>Générer, diffuser ou promouvoir du contenu illégal, haineux, violent, pornographique ou discriminatoire</li>
               <li>Utiliser le service pour du spam, du phishing ou toute activité frauduleuse</li>
@@ -95,10 +95,10 @@ export default function CGU() {
               5. Propriété intellectuelle
             </h2>
             <p>
-              <strong className="text-[var(--text-primary)]">Contenu de la plateforme :</strong> L&apos;ensemble du code, des interfaces, des marques, des logos et contenus de VIDA Association restent la propriété exclusive de SASU PURAMA.
+              <strong className="text-[var(--text-primary)]">Contenu de la plateforme :</strong> L&apos;ensemble du code, des interfaces, des marques, des logos et contenus de Sangha restent la propriété exclusive de SASU PURAMA.
             </p>
             <p className="mt-3">
-              <strong className="text-[var(--text-primary)]">Contenu généré :</strong> Les contenus que vous créez via VIDA Association vous appartiennent, sous réserve des licences des modèles IA utilisés. Vous accordez à SASU PURAMA une licence limitée pour afficher ces contenus dans le cadre du service.
+              <strong className="text-[var(--text-primary)]">Contenu généré :</strong> Les contenus que vous créez via Sangha vous appartiennent, sous réserve des licences des modèles IA utilisés. Vous accordez à SASU PURAMA une licence limitée pour afficher ces contenus dans le cadre du service.
             </p>
             <p className="mt-3">
               <strong className="text-[var(--text-primary)]">Contenu posté sur la Marketplace :</strong> En publiant un agent ou un workflow sur la Marketplace, vous accordez à SASU PURAMA une licence non-exclusive pour le distribuer aux utilisateurs de la plateforme.
@@ -110,7 +110,7 @@ export default function CGU() {
               6. Responsabilité limitée
             </h2>
             <p>
-              VIDA Association fournit des outils d&apos;intelligence artificielle à titre d&apos;assistance. Les résultats générés par l&apos;IA sont fournis à titre indicatif et ne constituent pas un conseil professionnel (juridique, médical, financier, etc.).
+              Sangha fournit des outils d&apos;intelligence artificielle à titre d&apos;assistance. Les résultats générés par l&apos;IA sont fournis à titre indicatif et ne constituent pas un conseil professionnel (juridique, médical, financier, etc.).
             </p>
             <p className="mt-2">
               SASU PURAMA ne saurait être tenue responsable des décisions prises sur la base des résultats générés par l&apos;IA. La responsabilité de SASU PURAMA est limitée au montant total des sommes versées par l&apos;utilisateur au cours des 12 derniers mois.

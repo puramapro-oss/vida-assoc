@@ -1,5 +1,5 @@
 export const BRAND = {
-  name: "VIDA",
+  name: "Sangha",
   tagline: "Ton empreinte. Ta lumière.",
   domain: "vida-assoc.purama.dev",
   appUrl: "https://vida-assoc.purama.dev",

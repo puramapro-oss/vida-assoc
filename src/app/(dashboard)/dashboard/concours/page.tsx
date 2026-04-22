@@ -108,7 +108,7 @@ export default function ConcoursPage() {
           </div>
         </div>
         <p className="mt-4 text-xs text-[var(--text-muted)]">
-          Gagne des tickets en réalisant des missions, en parrainant un ami ou en partageant ton lien VIDA.
+          Gagne des tickets en réalisant des missions, en parrainant un ami ou en partageant ton lien Sangha.
         </p>
       </section>
 

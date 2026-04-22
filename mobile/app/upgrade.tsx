@@ -21,7 +21,7 @@ const PLANS: {
 }[] = [
   {
     id: "one",
-    label: "VIDA One",
+    label: "Sangha One",
     emoji: "🌱",
     monthly: 3,
     yearly: 25.2,
@@ -33,12 +33,12 @@ const PLANS: {
   },
   {
     id: "premium",
-    label: "VIDA Premium",
+    label: "Sangha Premium",
     emoji: "✨",
     monthly: 6.9,
     yearly: 57.98,
     perks: [
-      "Tout VIDA One",
+      "Tout Sangha One",
       "Formations Premium illimitées",
       "Accès anticipé concours spéciaux",
       "Multiplicateur d'impact ×1.5",
@@ -92,7 +92,7 @@ export default function Upgrade() {
       <Stack.Screen
         options={{
           headerShown: true,
-          title: "Passer à VIDA Premium",
+          title: "Passer à Sangha Premium",
           headerStyle: { backgroundColor: COLORS.bg },
           headerTintColor: COLORS.ink,
           headerBackTitle: "Retour",

@@ -1,5 +1,5 @@
 appId: dev.purama.vidaassoc
-name: VIDA — Navigation (5 tabs)
+name: Sangha — Navigation (5 tabs)
 tags:
   - navigation
   - smoke
@@ -9,7 +9,7 @@ tags:
 - assertVisible: "Namaste"
 - tapOn: "Missions"
 - assertVisible: "Missions du jour"
-- tapOn: "VIDA"
+- tapOn: "Sangha"
 - assertVisible:
     id: "chat-input"
 - tapOn: "Impact"

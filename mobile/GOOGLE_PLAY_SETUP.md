@@ -1,4 +1,4 @@
-# Google Play Setup — VIDA Association
+# Google Play Setup — Sangha Association
 
 3 minutes de clics, une seule fois. Une fois fait, `eas submit --platform android --profile production` se débrouille seul à chaque release.
 
@@ -12,7 +12,7 @@ Listing par défaut : `fr-FR` (16 traductions chargées via `store.config.json`)
 1. Ouvre <https://play.google.com/console>
 2. **Toutes les apps → Créer une appli**
 3. Renseigne :
-   - Nom : **VIDA — Don, missions, impact**
+   - Nom : **Sangha — Don, missions, impact**
    - Langue par défaut : **Français (France)**
    - App ou jeu : **Application**
    - Gratuite ou payante : **Gratuite**
@@ -24,7 +24,7 @@ Listing par défaut : `fr-FR` (16 traductions chargées via `store.config.json`)
 
 Va dans **Configuration de l'app → Détails de l'app**, et confirme :
 
-- Nom de l'application : `VIDA — Don, missions, impact`
+- Nom de l'application : `Sangha — Don, missions, impact`
 - Catégorie : **Style de vie**
 - Catégorie secondaire : **Réseaux sociaux**
 
@@ -44,7 +44,7 @@ EAS doit pouvoir publier sans intervention. On lui donne un compte de service `e
 4. Sur le compte créé → **Manage keys → Add key → JSON** → télécharger
 5. Renomme le fichier `google-service-account.json` et place-le à la racine de `mobile/`
 6. **De retour dans Play Console** : sur la ligne `eas-vida-publisher@…` → **Grant access → Inviter** :
-   - Permissions de l'app : `All apps` désactivé, sélectionne **VIDA — Don, missions, impact**
+   - Permissions de l'app : `All apps` désactivé, sélectionne **Sangha — Don, missions, impact**
    - Cocher : **Release manager** (lit/écrit tracks + publish)
 7. **Inviter l'utilisateur**
 

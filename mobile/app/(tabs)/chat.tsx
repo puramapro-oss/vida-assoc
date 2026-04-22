@@ -103,7 +103,7 @@ export default function ChatVida() {
             ? {
                 ...m,
                 content:
-                  "Le lien avec VIDA s'est coupé. Réessaie dans un instant 🌿",
+                  "Le lien avec Sangha s'est coupé. Réessaie dans un instant 🌿",
               }
             : m
         )
@@ -131,7 +131,7 @@ export default function ChatVida() {
               textTransform: "uppercase",
             }}
           >
-            VIDA
+            Sangha
           </Text>
           <Text
             style={{
@@ -156,7 +156,7 @@ export default function ChatVida() {
           ListEmptyComponent={
             <View style={{ gap: 10, marginTop: 10 }}>
               <Text style={{ color: COLORS.muted, fontSize: 13 }}>
-                Pose une question, choisis ton rythme. VIDA t'écoute.
+                Pose une question, choisis ton rythme. Sangha t'écoute.
               </Text>
               {SUGGESTIONS.map((s) => (
                 <Pressable
@@ -223,7 +223,7 @@ export default function ChatVida() {
           <TextInput
             value={input}
             onChangeText={setInput}
-            placeholder="Parle à VIDA…"
+            placeholder="Parle à Sangha…"
             placeholderTextColor={COLORS.dim}
             style={{
               flex: 1,

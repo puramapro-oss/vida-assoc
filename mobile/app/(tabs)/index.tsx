@@ -131,7 +131,7 @@ export default function Home() {
           >
             {credits}
           </Text>
-          <Text style={{ color: COLORS.muted, fontSize: 11 }}>VIDA</Text>
+          <Text style={{ color: COLORS.muted, fontSize: 11 }}>Sangha</Text>
         </Card>
       </View>
 
@@ -200,7 +200,7 @@ export default function Home() {
                     {m.title}
                   </Text>
                   <Text style={{ color: COLORS.muted, fontSize: 12 }}>
-                    +{m.impact_points} impact · +{m.reward_credits} VIDA
+                    +{m.impact_points} impact · +{m.reward_credits} Sangha
                   </Text>
                 </View>
                 <Text style={{ color: COLORS.green, fontSize: 20 }}>→</Text>
@@ -221,7 +221,7 @@ export default function Home() {
           💫 Rituel de ce soir
         </Text>
         <Text style={{ color: COLORS.muted, fontSize: 13, marginTop: 6 }}>
-          Connecte-toi à la communauté VIDA pour un moment de gratitude partagé.
+          Connecte-toi à la communauté Sangha pour un moment de gratitude partagé.
         </Text>
         <Button
           title="Rejoindre le cercle"

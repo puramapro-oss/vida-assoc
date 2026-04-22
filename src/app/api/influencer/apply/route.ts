@@ -86,7 +86,7 @@ export async function POST(req: Request) {
   await admin.from('notifications').insert({
     user_id: user.id,
     type: 'influencer',
-    title: 'Bienvenue dans la famille créateurs VIDA 🎉',
+    title: 'Bienvenue dans la famille créateurs Sangha 🎉',
     body: `Ton lien est prêt : ${promoLink}. Partage-le et reçois 50 % du premier abo + 10 % à vie.`,
     icon: '📣',
     action_url: '/dashboard/influenceur',

@@ -42,7 +42,7 @@ const STEPS: TutoStep[] = [
     id: 'dons',
     emoji: '❤️',
     title: 'Soutiens des associations',
-    body: '100 % de ton don part à l’association choisie. VIDA ne prélève aucune commission sur les dons aux autres.',
+    body: '100 % de ton don part à l’association choisie. Sangha ne prélève aucune commission sur les dons aux autres.',
     cta: 'Suivant',
     Icon: Heart,
   },

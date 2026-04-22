@@ -61,7 +61,7 @@ export default function DashboardHome() {
       </motion.header>
 
       <section className="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <StatCard icon={Leaf} label="Crédits VIDA" value={formatCredits(profile?.vida_credits ?? 0)} color="#10B981" />
+        <StatCard icon={Leaf} label="Crédits Sangha" value={formatCredits(profile?.vida_credits ?? 0)} color="#10B981" />
         <StatCard icon={Heart} label="Missions faites" value={String(profile?.total_missions_completed ?? 0)} color="#D4AF37" />
         <StatCard icon={Trophy} label="Tickets concours" value={String(profile?.contest_tickets ?? 0)} color="#a855f7" />
         <StatCard icon={HandHeart} label="Wallet" value={formatPrice(profile?.wallet_balance_cents ?? 0)} color="#60a5fa" />
@@ -168,6 +168,68 @@ export default function DashboardHome() {
           </div>
         </section>
       )}
+
+      <section className="grid md:grid-cols-3 gap-4">
+        <Link
+          href="/dashboard/referral"
+          className="glass rounded-2xl p-5 hover:border-[#10B981]/40 transition-colors group block"
+        >
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#10B981] to-emerald-600 text-white">
+            <Heart className="h-5 w-5" />
+          </div>
+          <h3 className="mt-3 font-semibold group-hover:text-[#10B981] transition-colors">Parraine et gagne</h3>
+          <p className="text-xs text-[var(--text-muted)] mt-1">
+            50 % du 1<sup>er</sup> abo de ton filleul + 10 % à vie. Ton filleul économise -50 % son 1<sup>er</sup> mois.
+          </p>
+          <span className="mt-3 inline-flex items-center gap-1 text-xs text-[#10B981]">
+            Obtenir mon lien <ArrowRight className="h-3 w-3" />
+          </span>
+        </Link>
+
+        <Link
+          href="/dashboard/influenceur"
+          className="glass rounded-2xl p-5 hover:border-[#D4AF37]/40 transition-colors group block"
+        >
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#D4AF37] to-amber-600 text-white">
+            <Sparkles className="h-5 w-5" />
+          </div>
+          <h3 className="mt-3 font-semibold group-hover:text-[#D4AF37] transition-colors">Programme Ambassadeur</h3>
+          <p className="text-xs text-[var(--text-muted)] mt-1">
+            8 paliers Bronze → Éternel. Carte à vie, commissions héréditaires, Academy 3 niveaux.
+          </p>
+          <span className="mt-3 inline-flex items-center gap-1 text-xs text-[#D4AF37]">
+            Devenir ambassadeur <ArrowRight className="h-3 w-3" />
+          </span>
+        </Link>
+
+        <div className="glass rounded-2xl p-5">
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white">
+            <Globe className="h-5 w-5" />
+          </div>
+          <h3 className="mt-3 font-semibold">L&apos;écosystème Purama</h3>
+          <p className="text-xs text-[var(--text-muted)] mt-1">
+            Apps complémentaires, un seul compte.
+          </p>
+          <div className="mt-3 flex flex-col gap-1.5">
+            <a
+              href="https://dona.purama.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-cyan-400 hover:underline inline-flex items-center gap-1"
+            >
+              DONA — dons sans commission <ArrowRight className="h-3 w-3" />
+            </a>
+            <a
+              href="https://vida-sante.purama.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-cyan-400 hover:underline inline-flex items-center gap-1"
+            >
+              VIDA Santé — bien-être quotidien <ArrowRight className="h-3 w-3" />
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

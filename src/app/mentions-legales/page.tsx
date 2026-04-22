@@ -2,8 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Mentions Légales — VIDA Association',
-  description: 'Mentions légales de VIDA Association par SASU PURAMA.',
+  title: 'Mentions Légales — Sangha',
+  description: 'Mentions légales de Sangha par SASU PURAMA.',
 }
 
 export default function MentionsLegales() {

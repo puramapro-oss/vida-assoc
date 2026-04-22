@@ -99,7 +99,7 @@ export default function AffirmationModal() {
             onClick={close}
             className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#10B981] to-[#D4AF37] px-6 py-3 font-semibold text-[#04120c] hover:opacity-90 transition-opacity"
           >
-            <Heart className="h-4 w-4" /> Merci, VIDA
+            <Heart className="h-4 w-4" /> Merci, Sangha
           </button>
         </motion.div>
       </motion.div>

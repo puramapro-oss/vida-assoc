@@ -35,7 +35,7 @@ const GIFT_POOL: Array<{ weight: number; config: GiftConfig }> = [
     weight: 40,
     config: {
       type: 'points_small',
-      label: 'Crédits VIDA',
+      label: 'Crédits Sangha',
       value: '5–20 crédits',
     },
   },
@@ -91,7 +91,7 @@ const GIFT_POOL: Array<{ weight: number; config: GiftConfig }> = [
     weight: 3,
     config: {
       type: 'points_mega',
-      label: 'Mega crédits VIDA',
+      label: 'Mega crédits Sangha',
       value: '50–100 crédits',
     },
   },

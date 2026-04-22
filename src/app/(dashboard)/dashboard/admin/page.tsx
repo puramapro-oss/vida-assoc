@@ -183,7 +183,7 @@ export default function AdminPage() {
         <EmptyState
           icon="🛡️"
           title="Accès restreint"
-          description="Cette page est réservée à l’équipe VIDA. Si c’est une erreur, contacte-nous depuis /contact."
+          description="Cette page est réservée à l’équipe Sangha. Si c’est une erreur, contacte-nous depuis /contact."
         />
         <Link href="/dashboard" className="mt-4 inline-block">
           <Button variant="secondary">Retour au dashboard</Button>
@@ -205,7 +205,7 @@ export default function AdminPage() {
             <Shield className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Admin VIDA</h1>
+            <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Admin Sangha</h1>
             <p className="text-sm text-[var(--text-secondary)]">Console interne — données en temps réel.</p>
           </div>
         </div>

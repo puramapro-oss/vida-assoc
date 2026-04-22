@@ -130,7 +130,7 @@ export default function WalletPage() {
   if (!user) {
     return (
       <div className="mx-auto max-w-md py-12 text-center">
-        <EmptyState icon="🔒" title="Connecte-toi" description="Accède à ton wallet VIDA après connexion." />
+        <EmptyState icon="🔒" title="Connecte-toi" description="Accède à ton wallet Sangha après connexion." />
         <Button className="mt-4" onClick={() => (window.location.href = '/login?next=/dashboard/wallet')}>
           Se connecter
         </Button>
@@ -327,7 +327,7 @@ export default function WalletPage() {
         <Sparkles className="h-4 w-4 text-[#D4AF37] shrink-0 mt-0.5" />
         <p>
           Ton wallet est alimenté par tes actions concrètes : missions validées, parrainages convertis, gains de concours.
-          Aucune commission VIDA — 100 % de tes gains te reviennent.
+          Aucune commission Sangha — 100 % de tes gains te reviennent.
         </p>
       </footer>
     </div>

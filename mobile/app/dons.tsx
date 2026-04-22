@@ -359,7 +359,7 @@ export default function Dons() {
               textAlign: "center",
             }}
           >
-            Comment fonctionne le don VIDA ? →
+            Comment fonctionne le don Sangha ? →
           </Text>
         </Pressable>
       </Screen>

@@ -7,13 +7,13 @@ import { APP_URL } from '@/lib/constants'
 import { formatPrice } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Associations vérifiées — VIDA',
+  title: 'Associations vérifiées — Sangha',
   description:
-    'Découvre les associations soutenues par la communauté VIDA. Dons sécurisés, impact tracé, transparence totale.',
+    'Découvre les associations soutenues par la communauté Sangha. Dons sécurisés, impact tracé, transparence totale.',
   alternates: { canonical: `${APP_URL}/associations` },
   openGraph: {
-    title: 'Associations vérifiées — VIDA',
-    description: 'Toutes les associations partenaires de VIDA, vérifiées, transparentes.',
+    title: 'Associations vérifiées — Sangha',
+    description: 'Toutes les associations partenaires de Sangha, vérifiées, transparentes.',
     url: `${APP_URL}/associations`,
     type: 'website',
   },
@@ -36,7 +36,7 @@ export default async function AssociationsPublicPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Associations vérifiées VIDA',
+    name: 'Associations vérifiées Sangha',
     description: metadata.description,
     url: `${APP_URL}/associations`,
     mainEntity: {
@@ -72,7 +72,7 @@ export default async function AssociationsPublicPage() {
             Les associations qui changent le monde
           </h1>
           <p className="mt-4 text-lg text-[var(--text-secondary)]">
-            Toutes vérifiées, toutes transparentes. VIDA ne prend <strong className="text-[var(--cyan)]">aucune commission</strong> sur tes dons.
+            Toutes vérifiées, toutes transparentes. Sangha ne prend <strong className="text-[var(--cyan)]">aucune commission</strong> sur tes dons.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">

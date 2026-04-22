@@ -2,8 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Politique de Cookies — VIDA Association',
-  description: 'Politique de cookies de VIDA Association.',
+  title: 'Politique de Cookies — Sangha',
+  description: 'Politique de cookies de Sangha.',
 }
 
 export default function Cookies() {
@@ -36,7 +36,7 @@ export default function Cookies() {
               2. Cookies essentiels uniquement
             </h2>
             <p>
-              VIDA Association utilise <strong className="text-[var(--text-primary)]">exclusivement des cookies essentiels</strong> au bon fonctionnement du service.
+              Sangha utilise <strong className="text-[var(--text-primary)]">exclusivement des cookies essentiels</strong> au bon fonctionnement du service.
               Aucun cookie publicitaire, aucun cookie de tracking tiers, aucun cookie de profilage n&apos;est utilisé.
             </p>
             <p className="mt-3">

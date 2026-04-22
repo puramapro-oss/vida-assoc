@@ -1,4 +1,4 @@
-name: VIDA — full deploy (build + submit iOS + Android)
+name: Sangha — full deploy (build + submit iOS + Android)
 
 on:
   push:

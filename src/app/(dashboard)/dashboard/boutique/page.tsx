@@ -61,9 +61,9 @@ export default function BoutiquePage() {
           <ShoppingBag className="h-5 w-5" />
         </div>
         <div>
-          <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Boutique VIDA</h1>
+          <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Boutique Sangha</h1>
           <p className="text-sm text-[var(--text-secondary)]">
-            Bracelets, livres, soins, purificateurs… Chaque achat reverse 5 à 10 % en crédits VIDA pour les associations.
+            Bracelets, livres, soins, purificateurs… Chaque achat reverse 5 à 10 % en crédits Sangha pour les associations.
           </p>
         </div>
       </header>
@@ -157,7 +157,7 @@ export default function BoutiquePage() {
       <footer className="rounded-2xl border border-white/10 bg-white/5 p-4 text-xs text-[var(--text-muted)] flex items-start gap-2">
         <Gift className="h-4 w-4 text-[var(--green)] shrink-0 mt-0.5" />
         <p>
-          Chaque achat dans la boutique VIDA finance directement les associations partenaires. Le cashback vient gonfler tes
+          Chaque achat dans la boutique Sangha finance directement les associations partenaires. Le cashback vient gonfler tes
           crédits utilisables sur tes prochains dons et formations.
         </p>
       </footer>

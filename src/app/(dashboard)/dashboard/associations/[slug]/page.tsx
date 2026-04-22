@@ -91,7 +91,7 @@ export default function AssociationDetailPage() {
       <section className="rounded-2xl border border-[#D4AF37]/20 bg-gradient-to-br from-[#D4AF37]/10 to-[#10B981]/5 p-5 text-center">
         <Heart className="mx-auto h-8 w-8 text-[#D4AF37]" />
         <h2 className="mt-2 font-[family-name:var(--font-display)] text-xl font-semibold">Soutenir {association.name}</h2>
-        <p className="mt-1 text-sm text-[var(--text-secondary)]">100 % de ton don part à l&apos;association — VIDA prend 0 %.</p>
+        <p className="mt-1 text-sm text-[var(--text-secondary)]">100 % de ton don part à l&apos;association — Sangha prend 0 %.</p>
         <Link href={`/dashboard/dons?asso=${association.slug}`}>
           <Button className="mt-4">Faire un don</Button>
         </Link>

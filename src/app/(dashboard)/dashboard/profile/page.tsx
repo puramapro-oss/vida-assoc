@@ -108,7 +108,7 @@ export default function ProfilePage() {
   if (!user || !profile) {
     return (
       <div className="mx-auto max-w-md py-12 text-center">
-        <EmptyState icon="🔒" title="Connecte-toi" description="Accède à ton profil VIDA après connexion." />
+        <EmptyState icon="🔒" title="Connecte-toi" description="Accède à ton profil Sangha après connexion." />
         <Button className="mt-4" onClick={() => (window.location.href = '/login?next=/dashboard/profile')}>
           Se connecter
         </Button>

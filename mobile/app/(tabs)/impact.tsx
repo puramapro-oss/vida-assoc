@@ -114,7 +114,7 @@ export default function Impact() {
             fontWeight: "700",
           }}
         >
-          🌍 La communauté VIDA
+          🌍 La communauté Sangha
         </Text>
         <Text style={{ color: COLORS.muted, fontSize: 13, marginTop: 4 }}>
           Chaque action, multipliée par tous.

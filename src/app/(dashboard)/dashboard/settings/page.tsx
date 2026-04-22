@@ -152,7 +152,7 @@ export default function SettingsPage() {
   if (!user || !profile) {
     return (
       <div className="mx-auto max-w-md py-12 text-center">
-        <EmptyState icon="🔒" title="Connecte-toi" description="Accède à tes paramètres VIDA après connexion." />
+        <EmptyState icon="🔒" title="Connecte-toi" description="Accède à tes paramètres Sangha après connexion." />
         <Button className="mt-4" onClick={() => (window.location.href = '/login?next=/dashboard/settings')}>
           Se connecter
         </Button>
@@ -173,7 +173,7 @@ export default function SettingsPage() {
       </header>
 
       {/* Theme */}
-      <Section title="Apparence" hint="Choisis le mode qui te fait du bien. VIDA est 100 % dark par défaut.">
+      <Section title="Apparence" hint="Choisis le mode qui te fait du bien. Sangha est 100 % dark par défaut.">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {THEMES.map((t) => {
             const active = theme === t.id
@@ -203,7 +203,7 @@ export default function SettingsPage() {
       </Section>
 
       {/* Language */}
-      <Section title="Langue" hint="VIDA parle 16 langues. Choisis la tienne.">
+      <Section title="Langue" hint="Sangha parle 16 langues. Choisis la tienne.">
         <div className="flex items-center gap-2">
           <Globe2 className="h-4 w-4 text-[var(--text-muted)]" />
           <select
@@ -223,7 +223,7 @@ export default function SettingsPage() {
       </Section>
 
       {/* Notifications */}
-      <Section title="Notifications" hint="VIDA respecte ton rythme. Jamais entre 20 h et 9 h.">
+      <Section title="Notifications" hint="Sangha respecte ton rythme. Jamais entre 20 h et 9 h.">
         <div className="grid gap-3 md:grid-cols-2">
           {NOTIF_MODES.map((n) => {
             const active = notifMode === n.id
@@ -249,7 +249,7 @@ export default function SettingsPage() {
       </Section>
 
       {/* Accessibility */}
-      <Section title="Accessibilité" hint="VIDA s’adapte à ta vie. Choisis le mode le plus confortable.">
+      <Section title="Accessibilité" hint="Sangha s’adapte à ta vie. Choisis le mode le plus confortable.">
         <div className="grid gap-3 md:grid-cols-2">
           {ACCESS_MODES.map((a) => {
             const active = accessMode === a.id
@@ -317,7 +317,7 @@ export default function SettingsPage() {
               <div>
                 <p className="text-sm font-semibold text-[var(--text-primary)]">Abonnement</p>
                 <p className="text-xs text-[var(--text-secondary)]">
-                  {profile.plan === 'free' ? 'Aucun abo actif — active VIDA One dès 3 €/mois.' : `Gérer ton abonnement ${profile.plan.toUpperCase()}`}
+                  {profile.plan === 'free' ? 'Aucun abo actif — active Sangha One dès 3 €/mois.' : `Gérer ton abonnement ${profile.plan.toUpperCase()}`}
                 </p>
               </div>
             </div>
@@ -329,7 +329,7 @@ export default function SettingsPage() {
               <CreditCard className="h-4 w-4 text-[#D4AF37]" />
               <div>
                 <p className="text-sm font-semibold text-[var(--text-primary)]">Changer d’offre</p>
-                <p className="text-xs text-[var(--text-secondary)]">Free · VIDA One · VIDA Premium</p>
+                <p className="text-xs text-[var(--text-secondary)]">Free · Sangha One · Sangha Premium</p>
               </div>
             </div>
           </Link>
@@ -350,7 +350,7 @@ export default function SettingsPage() {
             <div>
               <p className="text-sm font-semibold text-[var(--text-primary)]">Exporter ou supprimer mes données</p>
               <p className="mt-1 text-xs text-[var(--text-secondary)]">
-                Écris à <a href="mailto:matiss.frasne@gmail.com?subject=VIDA%20-%20Droit%20RGPD" className="underline decoration-red-300/60 hover:text-red-300">matiss.frasne@gmail.com</a> avec l’objet « VIDA - Droit RGPD ». Ton profil et toutes tes données sont retirés sous 30 jours, conformément à l’article 17 du RGPD.
+                Écris à <a href="mailto:matiss.frasne@gmail.com?subject=Sangha%20-%20Droit%20RGPD" className="underline decoration-red-300/60 hover:text-red-300">matiss.frasne@gmail.com</a> avec l’objet « Sangha - Droit RGPD ». Ton profil et toutes tes données sont retirés sous 30 jours, conformément à l’article 17 du RGPD.
               </p>
             </div>
           </div>

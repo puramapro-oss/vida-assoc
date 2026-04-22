@@ -99,7 +99,7 @@ export default function Formations() {
               lineHeight: 32,
             }}
           >
-            Formations VIDA{"\n"}pour grandir en conscience.
+            Formations Sangha{"\n"}pour grandir en conscience.
           </Text>
         </View>
 

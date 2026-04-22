@@ -4,7 +4,7 @@ export const runtime = 'edge'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
-  const title = searchParams.get('title') ?? 'VIDA Association'
+  const title = searchParams.get('title') ?? 'Sangha'
   const subtitle = searchParams.get('subtitle') ?? 'Chaque action compte. Chaque don est tracé. Chaque cœur est uni.'
 
   return new ImageResponse(
@@ -36,7 +36,7 @@ export async function GET(request: Request) {
           }}
         >
           <span style={{ fontSize: 48 }}>🌱</span>
-          <span style={{ fontWeight: 800, letterSpacing: 2 }}>VIDA</span>
+          <span style={{ fontWeight: 800, letterSpacing: 2 }}>Sangha</span>
         </div>
         <div
           style={{

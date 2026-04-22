@@ -32,7 +32,7 @@ function Nav() {
           <Link href="/" className="flex items-center gap-2 min-w-0">
             <span className="text-2xl shrink-0" aria-hidden>🌱</span>
             <span className="gradient-text font-[family-name:var(--font-display)] text-lg sm:text-xl font-bold tracking-tight truncate">
-              VIDA
+              Sangha
             </span>
           </Link>
 
@@ -89,81 +89,115 @@ function Nav() {
   )
 }
 
-// ─── Hero ────────────────────────────────────────────────────────────────────
+// ─── Hero (iOS-style: clean, gradient dark, glass) ──────────────────────────
 function Hero() {
   return (
-    <section className="relative overflow-x-clip overflow-hidden pt-32 pb-20 md:pt-40 md:pb-32" data-testid="hero">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 h-[480px] w-[480px] sm:h-[600px] sm:w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#10B981]/10 blur-3xl" />
-        <div className="absolute top-1/3 right-1/4 h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] rounded-full bg-[#D4AF37]/10 blur-3xl" />
+    <section
+      className="relative overflow-x-clip overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32"
+      data-testid="hero"
+    >
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-[-10%] left-1/2 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(16,185,129,0.18),transparent_70%)] blur-2xl" />
+        <div className="absolute top-1/3 right-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(212,175,55,0.12),transparent_70%)] blur-3xl" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(4,18,12,0.4)_60%,var(--bg-void)_100%)]" />
       </div>
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+
+      <div className="relative mx-auto max-w-5xl px-6 sm:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-4 py-1.5 text-xs sm:text-sm text-[#10B981]"
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-1.5 text-[11px] sm:text-xs text-[var(--text-secondary)]"
         >
-          <Sparkles className="h-3.5 w-3.5" />
-          <span>Missions • Dons • Rituels • Impact tracé</span>
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#10B981] opacity-75" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#10B981]" />
+          </span>
+          <span className="tracking-wide uppercase">Sangha · Nouveau</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-6 font-[family-name:var(--font-display)] text-[2.5rem] leading-[1.05] sm:text-6xl md:text-7xl font-bold tracking-tight max-w-4xl mx-auto"
+          transition={{ duration: 0.7, delay: 0.08 }}
+          className="mt-8 font-[family-name:var(--font-display)] text-[44px] leading-[1.02] sm:text-6xl md:text-7xl font-semibold tracking-[-0.03em] max-w-3xl mx-auto"
         >
-          Chaque action compte.{' '}
-          <span className="gradient-text">Chaque cœur est uni.</span>
+          Agir ensemble.{' '}
+          <span className="gradient-text">Changer le monde.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 text-base sm:text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed"
+          transition={{ duration: 0.7, delay: 0.16 }}
+          className="mt-6 text-[17px] sm:text-lg text-[var(--text-secondary)] max-w-xl mx-auto leading-[1.5]"
         >
-          La plateforme où chaque don, chaque mission, chaque geste positif est récompensé,
-          tracé et multiplié.{' '}
-          <strong className="text-[var(--text-primary)]">
-            Toutes les associations qui nous rejoignent, unies sous un seul cœur.
-          </strong>
+          Missions, dons et rituels collectifs — au service de toutes les associations.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+          transition={{ duration: 0.6, delay: 0.24 }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <Link
             href="/signup"
             data-testid="hero-cta-signup"
-            className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#10B981] to-[#D4AF37] px-8 py-4 text-base font-semibold text-[#04120c] shadow-[0_10px_40px_-10px_rgba(16,185,129,0.5)] hover:shadow-[0_20px_60px_-10px_rgba(16,185,129,0.6)] transition-all duration-300"
+            className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white text-[#04120c] px-7 py-3.5 text-[15px] font-semibold shadow-[0_10px_40px_-12px_rgba(255,255,255,0.3)] hover:shadow-[0_20px_60px_-12px_rgba(255,255,255,0.4)] transition-all"
           >
-            Rejoindre VIDA — gratuit
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            Commencer
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             href="#missions"
-            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base text-[var(--text-primary)] hover:bg-white/10 transition-all"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl px-7 py-3.5 text-[15px] text-[var(--text-primary)] hover:bg-white/10 transition-all"
           >
             <PlayCircle className="h-4 w-4" />
-            Voir les missions
+            Voir une mission
           </Link>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs sm:text-sm text-[var(--text-muted)]"
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[12px] sm:text-[13px] text-[var(--text-muted)]"
         >
-          <span className="inline-flex items-center gap-2"><Check className="h-4 w-4 text-[#10B981]" /> 14 jours d&apos;essai Premium</span>
-          <span className="inline-flex items-center gap-2"><Check className="h-4 w-4 text-[#10B981]" /> Sans engagement</span>
-          <span className="inline-flex items-center gap-2"><Check className="h-4 w-4 text-[#10B981]" /> 50 % reversés</span>
-          <span className="inline-flex items-center gap-2"><Check className="h-4 w-4 text-[#10B981]" /> RGPD conforme</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#10B981]" /> Gratuit</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#10B981]" /> Sans carte</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#10B981]" /> 50 % reversés</span>
+          <span className="inline-flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-[#10B981]" /> RGPD</span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-20 mx-auto max-w-xl"
+        >
+          <div className="relative rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl p-8 shadow-[0_40px_120px_-20px_rgba(16,185,129,0.25)]">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-[#10B981] to-[#0ea371] flex items-center justify-center text-xl">🌱</div>
+                <div className="text-left">
+                  <div className="text-sm font-semibold">Mission du jour</div>
+                  <div className="text-xs text-[var(--text-muted)]">À 2 min · Frasne</div>
+                </div>
+              </div>
+              <div className="rounded-full bg-[#10B981]/15 text-[#10B981] text-[11px] font-semibold px-3 py-1">+25 pts</div>
+            </div>
+            <div className="text-left">
+              <div className="text-[15px] text-[var(--text-primary)] leading-snug">Ramasser 10 déchets près du lac et photographier le sac.</div>
+              <div className="mt-4 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div className="h-full w-[64%] rounded-full bg-gradient-to-r from-[#10B981] to-[#D4AF37]" />
+              </div>
+              <div className="mt-2 flex justify-between text-[11px] text-[var(--text-muted)]">
+                <span>6 / 10 déchets</span>
+                <span>64 %</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -174,7 +208,7 @@ function Hero() {
 // Truth-only: pas de chiffres inventés. On montre la promesse, pas des stats fake.
 function Stats() {
   const pillars = [
-    { value: '100 %', label: 'Don VIDA One', desc: 'Reversé intégralement aux associations' },
+    { value: '100 %', label: 'Don Sangha One', desc: 'Reversé intégralement aux associations' },
     { value: '50 %', label: 'Redistribué', desc: 'Des revenus aux associations + utilisateurs' },
     { value: '0 €', label: 'Pour démarrer', desc: 'Inscription gratuite, sans carte' },
     { value: '5 €', label: 'Retrait IBAN', desc: 'Seuil minimum, virement sous 3 jours' },
@@ -199,14 +233,14 @@ function Stats() {
 // ─── Features ────────────────────────────────────────────────────────────────
 function Features() {
   const features = [
-    { icon: Globe, title: 'Missions partout', desc: 'Ramasser des déchets, aider une personne âgée, partager une méditation. Preuve photo, GPS ou validée par VIDA.' },
+    { icon: Globe, title: 'Missions partout', desc: 'Ramasser des déchets, aider une personne âgée, partager une méditation. Preuve photo, GPS ou validée par Sangha.' },
     { icon: HandHeart, title: 'Dons tracés', desc: 'Chaque euro suivi jusqu\'à son usage final. Arrondissement, dons récurrents, dons matériels.' },
     { icon: Sparkles, title: 'Rituels collectifs', desc: 'Méditations simultanées chaque semaine. Paix, gratitude, dépollution, soin collectif.' },
     { icon: Heart, title: 'Impact réel', desc: 'Compteur kg CO₂, arbres plantés, repas distribués, heures bénévoles. Affichage personnel et global.' },
-    { icon: Users, title: 'Associations vérifiées', desc: 'Chaque association rejoint VIDA après vérification. Transparence sur leurs missions et leurs dons reçus.' },
+    { icon: Users, title: 'Associations vérifiées', desc: 'Chaque association rejoint Sangha après vérification. Transparence sur leurs missions et leurs dons reçus.' },
     { icon: Trophy, title: 'Concours hebdo', desc: '10 gagnants chaque semaine. Abonnés Premium : 5x plus de places.' },
-    { icon: BookOpen, title: 'Formations VIDA', desc: 'Gratuites pour les personnes dans le besoin. Adaptées aux handicaps visuels, auditifs, moteurs.' },
-    { icon: ShoppingBag, title: 'Marketplace solidaire', desc: 'Bracelets, purificateurs d\'eau, formations, livres inspirants. Cashback VIDA pour les abonnés.' },
+    { icon: BookOpen, title: 'Formations Sangha', desc: 'Gratuites pour les personnes dans le besoin. Adaptées aux handicaps visuels, auditifs, moteurs.' },
+    { icon: ShoppingBag, title: 'Marketplace solidaire', desc: 'Bracelets, purificateurs d\'eau, formations, livres inspirants. Cashback Sangha pour les abonnés.' },
     { icon: Shield, title: '100 % conforme', desc: 'RGPD, App Store, Play Store. Anti-fraude IA. Chiffrement, export, suppression à tout moment.' },
   ] as const
   return (
@@ -239,10 +273,10 @@ function Features() {
 // ─── How It Works ────────────────────────────────────────────────────────────
 function HowItWorks() {
   const steps = [
-    { num: '1', title: 'Tu t\'inscris', desc: '100 crédits VIDA offerts + 1 ticket concours. En 30 secondes.', icon: Leaf },
-    { num: '2', title: 'Tu choisis une mission', desc: 'Près de chez toi, qui te correspond. VIDA te propose les meilleures selon ton profil.', icon: Globe },
-    { num: '3', title: 'Tu agis et prouves', desc: 'Photo, GPS, validation VIDA. 10 secondes suffisent pour prouver ton action.', icon: Heart },
-    { num: '4', title: 'Tu es récompensé', desc: 'Crédits VIDA, places concours, argent réel. Dès 5 €, retrait IBAN.', icon: Trophy },
+    { num: '1', title: 'Tu t\'inscris', desc: '100 crédits Sangha offerts + 1 ticket concours. En 30 secondes.', icon: Leaf },
+    { num: '2', title: 'Tu choisis une mission', desc: 'Près de chez toi, qui te correspond. Sangha te propose les meilleures selon ton profil.', icon: Globe },
+    { num: '3', title: 'Tu agis et prouves', desc: 'Photo, GPS, validation Sangha. 10 secondes suffisent pour prouver ton action.', icon: Heart },
+    { num: '4', title: 'Tu es récompensé', desc: 'Crédits Sangha, places concours, argent réel. Dès 5 €, retrait IBAN.', icon: Trophy },
   ]
   return (
     <section id="impact" className="py-20 md:py-32 bg-white/[0.02] border-y border-white/[0.06]">
@@ -280,7 +314,7 @@ function Pricing() {
       name: 'Découverte',
       price: '0 €',
       period: 'pour toujours',
-      desc: 'Pour découvrir VIDA sans engagement',
+      desc: 'Pour découvrir Sangha sans engagement',
       features: [
         'Accès lecture complet',
         '3 missions gratuites / mois',
@@ -293,7 +327,7 @@ function Pricing() {
     },
     {
       id: 'one',
-      name: 'VIDA One',
+      name: 'Sangha One',
       price: '3 €',
       period: '/ mois',
       desc: 'L\'abonnement solidaire — 100 % reversés',
@@ -304,21 +338,21 @@ function Pricing() {
         'Concours hebdo inclus',
         'Badge cœur lumineux',
       ],
-      cta: 'Rejoindre VIDA One',
+      cta: 'Rejoindre Sangha One',
       href: '/signup?plan=one',
     },
     {
       id: 'premium',
-      name: 'VIDA Premium',
+      name: 'Sangha Premium',
       price: '6,90 €',
       period: '/ mois',
-      desc: 'Tout VIDA. Récompenses x5.',
+      desc: 'Tout Sangha. Récompenses x5.',
       features: [
-        'Tout VIDA One inclus',
+        'Tout Sangha One inclus',
         'Missions rémunérées illimitées',
         'Rituels collectifs inclus',
         'x5 places concours',
-        'Assistant VIDA illimité',
+        'Assistant Sangha illimité',
         'Formations premium',
         'Cashback 5 % marketplace',
         'Retrait IBAN dès 5 €',
@@ -403,7 +437,7 @@ function AssociationsList() {
             Toutes les causes, <span className="gradient-text">un seul cœur</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Chaque association vérifiée rejoint VIDA gratuitement. Inscris la tienne ou
+            Chaque association vérifiée rejoint Sangha gratuitement. Inscris la tienne ou
             soutiens celles qui agissent déjà — par thème, par pays, près de chez toi.
           </p>
         </ScrollReveal>
@@ -458,11 +492,11 @@ function Promise() {
 function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
   const items = [
-    { q: 'Dois-je payer pour utiliser VIDA ?', a: 'Non. Tu peux rejoindre VIDA gratuitement et faire jusqu\'à 3 missions par mois, donner, consulter toutes les associations. VIDA One (3 €/mois) et VIDA Premium (6,90 €/mois) débloquent l\'accès illimité et des récompenses.' },
-    { q: 'Comment les missions sont-elles vérifiées ?', a: 'Chaque mission demande une preuve : photo horodatée, métadonnées EXIF, GPS, parfois vidéo. VIDA analyse la preuve et valide. En cas de doute : double confirmation mutuelle ou audit humain.' },
-    { q: 'Où va l\'argent de mes dons ?', a: 'Chaque euro est tracé de bout en bout. Les dons aux associations leur sont reversés. Sur VIDA One, 100 % sont redistribués. 50 % des revenus de VIDA sont redistribués mensuellement aux associations et utilisateurs selon leur impact.' },
+    { q: 'Dois-je payer pour utiliser Sangha ?', a: 'Non. Tu peux rejoindre Sangha gratuitement et faire jusqu\'à 3 missions par mois, donner, consulter toutes les associations. Sangha One (3 €/mois) et Sangha Premium (6,90 €/mois) débloquent l\'accès illimité et des récompenses.' },
+    { q: 'Comment les missions sont-elles vérifiées ?', a: 'Chaque mission demande une preuve : photo horodatée, métadonnées EXIF, GPS, parfois vidéo. Sangha analyse la preuve et valide. En cas de doute : double confirmation mutuelle ou audit humain.' },
+    { q: 'Où va l\'argent de mes dons ?', a: 'Chaque euro est tracé de bout en bout. Les dons aux associations leur sont reversés. Sur Sangha One, 100 % sont redistribués. 50 % des revenus de Sangha sont redistribués mensuellement aux associations et utilisateurs selon leur impact.' },
     { q: 'Puis-je retirer mon argent gagné ?', a: 'Oui. Dès 5 € de solde wallet, tu peux demander un virement IBAN dans Paramètres → Wallet. Traitement sous 3 jours ouvrés.' },
-    { q: 'VIDA est-elle accessible aux handicapés ?', a: 'Totalement : modes adaptés handicap visuel, auditif, moteur, enfants, seniors. Voix, contrastes, navigation simplifiée, vibrations, mode multisensoriel désactivable.' },
+    { q: 'Sangha est-elle accessible aux handicapés ?', a: 'Totalement : modes adaptés handicap visuel, auditif, moteur, enfants, seniors. Voix, contrastes, navigation simplifiée, vibrations, mode multisensoriel désactivable.' },
     { q: 'Que deviennent mes données ?', a: 'RGPD intégral. Tu peux exporter ou supprimer toutes tes données en un clic. Aucune revente. DPO : matiss.frasne@gmail.com.' },
   ]
   return (
@@ -515,7 +549,7 @@ function FinalCTA() {
               Prêt à <span className="gradient-text">agir</span> ?
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] max-w-xl mx-auto">
-              Rejoins VIDA gratuitement. Ta première mission t&apos;attend déjà.
+              Rejoins Sangha gratuitement. Ta première mission t&apos;attend déjà.
               100 crédits et un ticket concours offerts.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -524,7 +558,7 @@ function FinalCTA() {
                 data-testid="final-cta-signup"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#10B981] to-[#D4AF37] px-8 py-4 text-base font-semibold text-[#04120c] shadow-lg hover:shadow-xl transition-all"
               >
-                Rejoindre VIDA <ArrowRight className="h-4 w-4" />
+                Rejoindre Sangha <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/aide"
@@ -549,7 +583,7 @@ function Footer() {
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-3">
               <span className="text-2xl" aria-hidden>🌱</span>
-              <span className="gradient-text font-[family-name:var(--font-display)] text-xl font-bold">VIDA</span>
+              <span className="gradient-text font-[family-name:var(--font-display)] text-xl font-bold">Sangha</span>
             </Link>
             <p className="text-sm text-[var(--text-muted)] max-w-xs">
               Une SASU PURAMA et une Association PURAMA (loi 1901) — 8 Rue de la Chapelle, 25560 Frasne.
@@ -589,7 +623,7 @@ function Footer() {
         </div>
         <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[var(--text-muted)] text-center sm:text-left">
-            © 2026 VIDA Association — Tous droits réservés. Fait avec 💚 en France.
+            © 2026 Sangha — Tous droits réservés. Fait avec 💚 en France.
           </p>
           <LocaleSwitcher />
         </div>

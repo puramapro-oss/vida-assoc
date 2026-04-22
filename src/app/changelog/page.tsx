@@ -3,8 +3,8 @@ import { ArrowLeft, Sparkles, Bug, Zap } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Changelog — VIDA Association',
-  description: 'Historique des mises a jour VIDA Association',
+  title: 'Changelog — Sangha',
+  description: 'Historique des mises a jour Sangha',
 }
 
 const ENTRIES = [
@@ -64,7 +64,7 @@ export default function ChangelogPage() {
         </Link>
 
         <h1 className="text-3xl font-bold text-[var(--text-primary)]">Changelog</h1>
-        <p className="mt-2 text-[var(--text-secondary)]">Historique des mises a jour VIDA Association</p>
+        <p className="mt-2 text-[var(--text-secondary)]">Historique des mises a jour Sangha</p>
 
         <div className="mt-8 space-y-10">
           {ENTRIES.map(entry => (

@@ -16,13 +16,13 @@ export const VIDA_STRIPE_PLANS = {
   one: {
     monthly_cents: 300,
     yearly_cents: 2520, // -30%
-    label: 'VIDA One',
+    label: 'Sangha One',
   },
   premium: {
     monthly_cents: 690,
     yearly_cents: 5798, // -30%
     first_month_discount_percent: 10,
-    label: 'VIDA Premium',
+    label: 'Sangha Premium',
   },
 } as const
 
@@ -55,8 +55,8 @@ export async function createCheckoutSession(params: {
           product_data: {
             name: planCfg.label,
             description: params.plan === 'one'
-              ? 'Abonnement VIDA One — 100 % reversés aux associations'
-              : 'Abonnement VIDA Premium — missions illimitées, IA, rituels, concours x5',
+              ? 'Abonnement Sangha One — 100 % reversés aux associations'
+              : 'Abonnement Sangha Premium — missions illimitées, IA, rituels, concours x5',
           },
           recurring: { interval: params.interval === 'monthly' ? 'month' : 'year' },
           unit_amount: amount,
@@ -101,7 +101,7 @@ export async function createDonationCheckoutSession(params: {
           price_data: {
             currency: 'eur',
             product_data: {
-              name: `Don ${params.recipientType === 'vida' ? 'à VIDA' : 'solidaire'}`,
+              name: `Don ${params.recipientType === 'vida' ? 'à Sangha' : 'solidaire'}`,
             },
             unit_amount: params.amountCents,
             recurring: { interval: params.recurring === 'monthly' ? 'month' : 'year' },
@@ -127,7 +127,7 @@ export async function createDonationCheckoutSession(params: {
         price_data: {
           currency: 'eur',
           product_data: {
-            name: `Don ${params.recipientType === 'vida' ? 'à VIDA' : 'solidaire'}`,
+            name: `Don ${params.recipientType === 'vida' ? 'à Sangha' : 'solidaire'}`,
           },
           unit_amount: params.amountCents,
         },

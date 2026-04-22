@@ -1,4 +1,4 @@
-# VIDA-assoc — Mobile P7.3 ship checklist
+# Sangha-assoc — Mobile P7.3 ship checklist
 
 État au 2026-04-11 — `mobile/` est techniquement build-ready (tsc 0, expo-doctor 16/17, dépendances dédupliquées, bundle id corrigé). Les seuls blocages restants sont des credentials Tissma.
 
@@ -20,7 +20,7 @@ Le schéma Postgres `vida_assoc` n'a pas changé (ce n'est pas un bundle id).
    - À renseigner dans `mobile/eas.json` → `submit.production.ios.appleTeamId` **et** dans `~/CLAUDE.md` (clé `APPLE_TEAM_ID`)
 
 3. **App Store Connect — `ascAppId`**
-   - Créer l'app dans App Store Connect avec bundle id `dev.purama.vidaassoc` (nom : `VIDA — Don, missions, impact`, primaire FR)
+   - Créer l'app dans App Store Connect avec bundle id `dev.purama.vidaassoc` (nom : `Sangha — Don, missions, impact`, primaire FR)
    - Récupérer le numérique `ascAppId` (visible dans l'URL ou App Information)
    - Renseigner dans `mobile/eas.json` → `submit.production.ios.ascAppId`
 

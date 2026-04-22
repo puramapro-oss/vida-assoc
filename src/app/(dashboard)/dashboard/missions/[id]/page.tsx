@@ -199,7 +199,7 @@ export default function MissionDetailPage() {
           <p className="mt-1 text-sm text-[var(--text-secondary)]">
             Statut :{' '}
             <span className="font-semibold text-[var(--text-primary)]">
-              {existing.status === 'pending' ? 'En cours de validation par VIDA' : existing.status === 'validated' ? 'Validée' : existing.status === 'rejected' ? 'Refusée' : 'Litige'}
+              {existing.status === 'pending' ? 'En cours de validation par Sangha' : existing.status === 'validated' ? 'Validée' : existing.status === 'rejected' ? 'Refusée' : 'Litige'}
             </span>
           </p>
           {existing.status === 'validated' && existing.reward_paid && (
@@ -229,7 +229,7 @@ export default function MissionDetailPage() {
           <div>
             <p className="text-sm font-semibold text-[var(--text-primary)]">1. Dépose ta preuve</p>
             <p className="text-xs text-[var(--text-secondary)]">
-              Une photo claire — VIDA la valide automatiquement et débloque ta récompense.
+              Une photo claire — Sangha la valide automatiquement et débloque ta récompense.
             </p>
             <label
               htmlFor="proof-file"
@@ -310,7 +310,7 @@ export default function MissionDetailPage() {
 
           {profile?.plan === 'free' && (
             <p className="text-center text-[10px] text-[var(--text-muted)]">
-              Compte Découverte : 3 missions/mois gratuites — passe à VIDA One pour des missions illimitées.
+              Compte Découverte : 3 missions/mois gratuites — passe à Sangha One pour des missions illimitées.
             </p>
           )}
         </section>

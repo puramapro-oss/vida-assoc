@@ -91,7 +91,7 @@ export default function DonsPage() {
           Faire un <span className="text-[#D4AF37]">don</span>
         </h1>
         <p className="mt-2 text-sm text-[var(--text-secondary)]">
-          Chaque euro est tracé. 100 % part à l&apos;association choisie — VIDA prend 0 % sur les dons aux autres.
+          Chaque euro est tracé. 100 % part à l&apos;association choisie — Sangha prend 0 % sur les dons aux autres.
         </p>
       </header>
 

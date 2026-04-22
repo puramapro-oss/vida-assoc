@@ -69,7 +69,7 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
       proof_gps_lat: parsed.data.proof_gps_lat ?? null,
       proof_gps_lng: parsed.data.proof_gps_lng ?? null,
       ai_validation_score: aiScore,
-      ai_validation_notes: autoValidate ? 'Preuve cohérente — validation automatique VIDA.' : 'Preuve en attente de validation par VIDA.',
+      ai_validation_notes: autoValidate ? 'Preuve cohérente — validation automatique Sangha.' : 'Preuve en attente de validation par Sangha.',
       validated_at: autoValidate ? new Date().toISOString() : null,
       reward_paid: autoValidate,
       reward_paid_at: autoValidate ? new Date().toISOString() : null,

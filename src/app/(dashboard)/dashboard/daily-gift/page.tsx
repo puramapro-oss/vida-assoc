@@ -362,7 +362,7 @@ export default function DailyGiftPage() {
                 >
                   {gift.points_earned > 0 && (
                     <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-300">
-                      +{gift.points_earned} crédits VIDA
+                      +{gift.points_earned} crédits Sangha
                     </span>
                   )}
                   {gift.credits_earned > 0 && (

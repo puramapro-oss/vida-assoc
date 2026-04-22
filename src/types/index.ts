@@ -1,4 +1,4 @@
-// VIDA Association — types DB
+// Sangha — types DB
 
 export type Role = 'user' | 'association' | 'enterprise' | 'ong' | 'super_admin'
 export type Plan = 'free' | 'one' | 'premium'

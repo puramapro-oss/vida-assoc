@@ -8,7 +8,7 @@ import { COLORS, BRAND } from "../../src/constants/brand";
 
 const ROWS: { key: string; label: string; icon: string; href: string }[] = [
   { key: "profile", label: "Mon profil", icon: "🧘", href: "/profile" },
-  { key: "upgrade", label: "Passer à VIDA Premium", icon: "✨", href: "/upgrade" },
+  { key: "upgrade", label: "Passer à Sangha Premium", icon: "✨", href: "/upgrade" },
   { key: "wallet", label: "Wallet & retraits", icon: "💰", href: "/wallet" },
   { key: "referral", label: "Parrainage", icon: "✨", href: "/referral" },
   { key: "notifications", label: "Notifications", icon: "🔔", href: "/notifications" },
@@ -86,7 +86,7 @@ export default function ProfileTab() {
                 fontWeight: "600",
               }}
             >
-              VIDA
+              Sangha
             </Text>
             <Text
               style={{

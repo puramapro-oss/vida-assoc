@@ -69,7 +69,7 @@ export default function PricingPage() {
 
         <div className="text-center mt-8 mb-12">
           <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold">
-            Rejoins VIDA a ton <span className="gradient-text">rythme</span>
+            Rejoins Sangha a ton <span className="gradient-text">rythme</span>
           </h1>
           <p className="mt-4 text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
             Gratuit pour toujours. Solidaire à 3 €. Complet à 6,90 €.
@@ -151,7 +151,7 @@ export default function PricingPage() {
                   onClick={() => handleSelectPlan(plan.id as PlanId)}
                   data-testid={`select-plan-${plan.id}`}
                 >
-                  {plan.id === 'free' ? 'Commencer gratuitement' : plan.id === 'premium' ? 'Essayer 14j gratuit' : 'Rejoindre VIDA One'}
+                  {plan.id === 'free' ? 'Commencer gratuitement' : plan.id === 'premium' ? 'Essayer 14j gratuit' : 'Rejoindre Sangha One'}
                 </Button>
               </div>
             )

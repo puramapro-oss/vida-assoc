@@ -246,7 +246,7 @@ export default function Communaute() {
                       }}
                       numberOfLines={1}
                     >
-                      {p.author_name ?? "Âme VIDA"}
+                      {p.author_name ?? "Âme Sangha"}
                     </Text>
                     <Text style={{ color: COLORS.dim, fontSize: 11 }}>
                       {new Date(p.created_at).toLocaleDateString("fr-FR", {

@@ -102,7 +102,7 @@ export default function AidePage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: escName.trim(), email: escEmail.trim(), subject: 'Escalade aide VIDA', message: escMessage.trim() }),
+        body: JSON.stringify({ name: escName.trim(), email: escEmail.trim(), subject: 'Escalade aide Sangha', message: escMessage.trim() }),
       })
       if (!res.ok) throw new Error('Erreur serveur')
       setEscSent(true)
@@ -121,7 +121,7 @@ export default function AidePage() {
           <Link href="/" className="mb-6 inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--cyan)]">
             <ArrowLeft className="h-4 w-4" /> Retour
           </Link>
-          <h1 className="text-3xl font-bold text-[var(--text-primary)]">Centre d&apos;aide VIDA</h1>
+          <h1 className="text-3xl font-bold text-[var(--text-primary)]">Centre d&apos;aide Sangha</h1>
           <p className="mt-2 text-[var(--text-secondary)]">Trouve rapidement une reponse a ta question</p>
 
           {/* Search */}
@@ -261,7 +261,7 @@ export default function AidePage() {
                 <Bot className="h-4 w-4 text-white" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[var(--text-primary)]">Assistant VIDA</p>
+                <p className="text-sm font-semibold text-[var(--text-primary)]">Assistant Sangha</p>
                 <p className="text-xs text-[var(--green)]">En ligne</p>
               </div>
             </div>
@@ -280,7 +280,7 @@ export default function AidePage() {
               <div className="text-center py-8">
                 <Bot className="mx-auto h-10 w-10 text-[var(--cyan)]" />
                 <p className="mt-3 text-sm font-medium text-[var(--text-primary)]">Salut ! Comment puis-je t&apos;aider ?</p>
-                <p className="mt-1 text-xs text-[var(--text-secondary)]">Pose-moi n&apos;importe quelle question sur VIDA</p>
+                <p className="mt-1 text-xs text-[var(--text-secondary)]">Pose-moi n&apos;importe quelle question sur Sangha</p>
                 <div className="mt-4 flex flex-wrap justify-center gap-2">
                   {['Comment fonctionne le parrainage ?', 'Quels sont les plans ?', 'Comment retirer mes gains ?'].map(q => (
                     <button

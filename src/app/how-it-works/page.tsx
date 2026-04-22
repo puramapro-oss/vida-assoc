@@ -3,8 +3,8 @@ import { ArrowLeft, MessageSquare, Sparkles, Bot, Zap, Users, BarChart3 } from '
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Comment ca marche — VIDA Association',
-  description: 'Decouvre comment utiliser VIDA Association, l agregateur multi-IA',
+  title: 'Comment ca marche — Sangha',
+  description: 'Decouvre comment utiliser Sangha, l agregateur multi-IA',
 }
 
 const STEPS = [
@@ -12,7 +12,7 @@ const STEPS = [
     icon: MessageSquare,
     color: '#00d4ff',
     title: '1. Discute avec l IA',
-    description: 'Pose n importe quelle question. VIDA utilise les meilleurs modeles IA pour te donner des reponses precises et detaillees.',
+    description: 'Pose n importe quelle question. Sangha utilise les meilleurs modeles IA pour te donner des reponses precises et detaillees.',
   },
   {
     icon: Sparkles,
@@ -56,7 +56,7 @@ export default function HowItWorksPage() {
 
         <h1 className="text-3xl font-bold text-[var(--text-primary)]">Comment ca marche</h1>
         <p className="mt-2 text-lg text-[var(--text-secondary)]">
-          VIDA reunit plusieurs IA dans une interface unique. 6 etapes pour tout maitriser.
+          Sangha reunit plusieurs IA dans une interface unique. 6 etapes pour tout maitriser.
         </p>
 
         <div className="mt-12 space-y-8">

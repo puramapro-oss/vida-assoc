@@ -43,7 +43,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          'Ce message contient des mots blessants. VIDA est un espace d’amour — réécris-le avec douceur.',
+          'Ce message contient des mots blessants. Sangha est un espace d’amour — réécris-le avec douceur.',
       },
       { status: 422 },
     )

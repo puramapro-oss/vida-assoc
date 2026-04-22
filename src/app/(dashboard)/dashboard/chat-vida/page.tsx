@@ -13,9 +13,9 @@ interface Msg {
 
 const SUGGESTIONS = [
   'Quelle mission me correspond aujourd\'hui ?',
-  'Comment fonctionnent les dons sur VIDA ?',
+  'Comment fonctionnent les dons sur Sangha ?',
   'Comment passer du niveau Graine au niveau Bâtisseur ?',
-  'Explique-moi le parrainage VIDA en 30 secondes',
+  'Explique-moi le parrainage Sangha en 30 secondes',
 ]
 
 export default function ChatVidaPage() {
@@ -54,7 +54,7 @@ export default function ChatVidaPage() {
       })
       if (!res.ok || !res.body) {
         const j = await res.json().catch(() => ({}))
-        throw new Error(j.error || 'VIDA n\'a pas pu répondre.')
+        throw new Error(j.error || 'Sangha n\'a pas pu répondre.')
       }
 
       const reader = res.body.getReader()
@@ -103,9 +103,9 @@ export default function ChatVidaPage() {
     <div className="mx-auto max-w-4xl flex flex-col h-[calc(100vh-9rem)] gap-4" data-testid="chat-vida">
       <header className="space-y-1">
         <h1 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold flex items-center gap-2">
-          <Sparkles className="h-6 w-6 text-[#10B981]" /> VIDA
+          <Sparkles className="h-6 w-6 text-[#10B981]" /> Sangha
         </h1>
-        <p className="text-sm text-[var(--text-secondary)]">Pose toutes tes questions — VIDA répond avec bienveillance.</p>
+        <p className="text-sm text-[var(--text-secondary)]">Pose toutes tes questions — Sangha répond avec bienveillance.</p>
       </header>
 
       <div
@@ -174,7 +174,7 @@ export default function ChatVidaPage() {
             }
           }}
           rows={1}
-          placeholder="Écris à VIDA…"
+          placeholder="Écris à Sangha…"
           data-testid="chat-input"
           className="flex-1 max-h-32 resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[#10B981] focus:outline-none"
         />

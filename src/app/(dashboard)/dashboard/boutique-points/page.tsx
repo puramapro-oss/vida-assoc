@@ -126,7 +126,7 @@ export default function BoutiquePointsPage() {
               Boutique de points
             </h1>
             <p className="text-sm text-[var(--text-secondary)]">
-              Échange tes points VIDA contre des réductions, abonnements et bien plus.
+              Échange tes points Sangha contre des réductions, abonnements et bien plus.
             </p>
           </div>
         </div>

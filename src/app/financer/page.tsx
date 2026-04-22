@@ -108,7 +108,7 @@ export default function FinancerPage() {
     setPdfGenerating(true)
     // Generate a simple text summary as downloadable file
     const lines = [
-      'VIDA Association - Dossier d\u2019aides personnalise',
+      'Sangha - Dossier d\u2019aides personnalise',
       '================================================',
       '',
       `Date : ${new Date().toLocaleDateString('fr-FR')}`,
@@ -126,7 +126,7 @@ export default function FinancerPage() {
         '',
       ].filter(Boolean).join('\n')),
       '',
-      'Ce dossier est genere par VIDA Association (vida-assoc.purama.dev).',
+      'Ce dossier est genere par Sangha (vida-assoc.purama.dev).',
       'Les montants sont indicatifs et dependent de ta situation exacte.',
       'Consulte chaque lien officiel pour faire ta demande.',
     ]
@@ -155,7 +155,7 @@ export default function FinancerPage() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-[var(--text-primary)]">Trouve tes aides</h1>
-              <p className="text-sm text-[var(--text-secondary)]">La plupart des utilisateurs VIDA ne paient rien grace aux aides publiques</p>
+              <p className="text-sm text-[var(--text-secondary)]">La plupart des utilisateurs Sangha ne paient rien grace aux aides publiques</p>
             </div>
           </div>
 
@@ -372,7 +372,7 @@ export default function FinancerPage() {
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/signup" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#10B981] to-[#D4AF37] px-6 py-3 font-semibold text-[#04120c] hover:opacity-90 transition-opacity">
-                Rejoindre VIDA gratuitement <ArrowRight className="h-4 w-4" />
+                Rejoindre Sangha gratuitement <ArrowRight className="h-4 w-4" />
               </Link>
               <button onClick={() => { setStep(1); setMatchedAides([]) }} className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm text-[var(--text-primary)] hover:bg-white/10 transition-colors">
                 Recommencer

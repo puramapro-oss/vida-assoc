@@ -200,7 +200,7 @@ export default function MissionsList() {
                   ✨ +{item.impact_points} impact
                 </Text>
                 <Text style={{ color: COLORS.green, fontSize: 12 }}>
-                  + {item.reward_credits} VIDA
+                  + {item.reward_credits} Sangha
                 </Text>
                 {item.duration_min ? (
                   <Text style={{ color: COLORS.muted, fontSize: 12 }}>

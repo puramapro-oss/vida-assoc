@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "VIDA",
+    "name": "Sangha",
     "slug": "vida-assoc",
     "scheme": "vida",
     "version": "1.0.0",
@@ -20,9 +20,9 @@
       "bundleIdentifier": "dev.purama.vidaassoc",
       "buildNumber": "1",
       "infoPlist": {
-        "NSCameraUsageDescription": "VIDA utilise la caméra pour photographier tes preuves de mission (déchets ramassés, arbre planté…).",
-        "NSPhotoLibraryUsageDescription": "VIDA accède à ta galerie pour charger une photo comme preuve de mission.",
-        "NSLocationWhenInUseUsageDescription": "VIDA horodate la géolocalisation de ta mission pour valider l’impact réel.",
+        "NSCameraUsageDescription": "Sangha utilise la caméra pour photographier tes preuves de mission (déchets ramassés, arbre planté…).",
+        "NSPhotoLibraryUsageDescription": "Sangha accède à ta galerie pour charger une photo comme preuve de mission.",
+        "NSLocationWhenInUseUsageDescription": "Sangha horodate la géolocalisation de ta mission pour valider l’impact réel.",
         "NSUserTrackingUsageDescription": "Ces données nous aident à te proposer des missions près de chez toi — jamais revendues.",
         "ITSAppUsesNonExemptEncryption": false
       },
@@ -68,14 +68,14 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "VIDA accède à ta galerie pour charger une photo comme preuve de mission.",
-          "cameraPermission": "VIDA utilise la caméra pour photographier tes preuves de mission."
+          "photosPermission": "Sangha accède à ta galerie pour charger une photo comme preuve de mission.",
+          "cameraPermission": "Sangha utilise la caméra pour photographier tes preuves de mission."
         }
       ],
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "VIDA horodate ta position lors des missions pour valider l’impact réel."
+          "locationWhenInUsePermission": "Sangha horodate ta position lors des missions pour valider l’impact réel."
         }
       ],
       [

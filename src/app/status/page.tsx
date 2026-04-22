@@ -23,7 +23,7 @@ export default function StatusPage() {
         const data = await res.json()
 
         setServices([
-          { name: 'API VIDA', status: data.status === 'ok' ? 'operational' : 'degraded', latency },
+          { name: 'API Sangha', status: data.status === 'ok' ? 'operational' : 'degraded', latency },
           { name: 'Base de donnees', status: data.database === 'ok' ? 'operational' : 'down', latency: data.dbLatency },
           { name: 'Authentification', status: 'operational' },
           { name: 'Stripe Paiements', status: 'operational' },
@@ -31,7 +31,7 @@ export default function StatusPage() {
         ])
       } catch {
         setServices([
-          { name: 'API VIDA', status: 'down' },
+          { name: 'API Sangha', status: 'down' },
           { name: 'Base de donnees', status: 'down' },
         ])
       }

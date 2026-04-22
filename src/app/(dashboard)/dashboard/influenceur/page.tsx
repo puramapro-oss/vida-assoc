@@ -111,7 +111,7 @@ export default function InfluencerPage() {
   if (!user) {
     return (
       <div className="mx-auto max-w-md py-12 text-center">
-        <EmptyState icon="🔒" title="Connecte-toi" description="Deviens créateur VIDA après connexion." />
+        <EmptyState icon="🔒" title="Connecte-toi" description="Deviens créateur Sangha après connexion." />
         <Button className="mt-4" onClick={() => (window.location.href = '/login?next=/dashboard/influenceur')}>
           Se connecter
         </Button>
@@ -134,7 +134,7 @@ export default function InfluencerPage() {
               <Megaphone className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold">Deviens créateur VIDA</h1>
+              <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold">Deviens créateur Sangha</h1>
               <p className="mt-2 text-sm text-[var(--text-secondary)]">
                 Reçois <strong>{INFLUENCER.commission_first}%</strong> du premier abo + <strong>{INFLUENCER.commission_recurring}%</strong> à vie. Ton lien donne <strong>-{INFLUENCER.promo_discount}%</strong> à tes filleuls.
               </p>
@@ -188,7 +188,7 @@ export default function InfluencerPage() {
                 maxLength={500}
                 rows={3}
                 className="w-full rounded-xl border border-white/10 bg-white/5 p-3 text-sm text-[var(--text-primary)] focus:border-[var(--cyan)] focus:outline-none"
-                placeholder="Pourquoi tu partages VIDA ?"
+                placeholder="Pourquoi tu partages Sangha ?"
               />
             </div>
 
@@ -233,7 +233,7 @@ export default function InfluencerPage() {
             <Megaphone className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Créateur VIDA</h1>
+            <h1 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">Créateur Sangha</h1>
             <p className="text-sm text-[var(--text-secondary)]">
               Actif depuis le {new Date(influencer.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
             </p>
@@ -295,7 +295,7 @@ export default function InfluencerPage() {
             <p className="font-semibold text-[var(--text-primary)]">Commissions en cours</p>
             <p className="mt-1 text-sm text-[var(--text-secondary)]">
               {INFLUENCER.commission_first}% du premier abonnement + {INFLUENCER.commission_recurring}% récurrent à vie.
-              Retrait IBAN dès 5 € via ton <a href="/dashboard/wallet" className="underline">wallet VIDA</a>.
+              Retrait IBAN dès 5 € via ton <a href="/dashboard/wallet" className="underline">wallet Sangha</a>.
             </p>
           </div>
         </div>

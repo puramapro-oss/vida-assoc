@@ -2,8 +2,8 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales de Vente — VIDA Association',
-  description: 'CGV de VIDA Association par SASU PURAMA.',
+  title: 'Conditions Générales de Vente — Sangha',
+  description: 'CGV de Sangha par SASU PURAMA.',
 }
 
 export default function CGV() {
@@ -26,7 +26,7 @@ export default function CGV() {
               1. Objet
             </h2>
             <p>
-              Les présentes Conditions Générales de Vente (CGV) régissent les relations commerciales entre SASU PURAMA (ci-après &quot;le Prestataire&quot;) et tout utilisateur souscrivant à un abonnement payant sur la plateforme VIDA Association (ci-après &quot;le Client&quot;).
+              Les présentes Conditions Générales de Vente (CGV) régissent les relations commerciales entre SASU PURAMA (ci-après &quot;le Prestataire&quot;) et tout utilisateur souscrivant à un abonnement payant sur la plateforme Sangha (ci-après &quot;le Client&quot;).
             </p>
           </section>
 
@@ -74,7 +74,7 @@ export default function CGV() {
               4. Abonnements et reconduction
             </h2>
             <p>
-              Les abonnements VIDA Association sont souscrits pour une durée mensuelle ou annuelle et se renouvellent automatiquement à l&apos;échéance, sauf résiliation préalable.
+              Les abonnements Sangha sont souscrits pour une durée mensuelle ou annuelle et se renouvellent automatiquement à l&apos;échéance, sauf résiliation préalable.
             </p>
             <p className="mt-2">
               Vous recevrez un email de rappel 7 jours avant chaque renouvellement annuel. Vous pouvez modifier ou annuler votre abonnement à tout moment depuis <strong className="text-[var(--text-primary)]">Paramètres → Abonnement</strong>.

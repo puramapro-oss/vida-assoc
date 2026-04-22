@@ -248,7 +248,7 @@ export default function AssociationDetail() {
                           marginTop: 4,
                         }}
                       >
-                        +{m.impact_points} impact · +{m.reward_credits} VIDA
+                        +{m.impact_points} impact · +{m.reward_credits} Sangha
                       </Text>
                     </View>
                   ))

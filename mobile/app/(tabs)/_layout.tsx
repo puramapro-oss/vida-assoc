@@ -96,7 +96,7 @@ function TabsInner() {
       <Tabs.Screen
         name="chat"
         options={{
-          title: "VIDA",
+          title: "Sangha",
           tabBarIcon: ({ focused }) => <TabIcon icon="💬" focused={focused} />,
         }}
       />

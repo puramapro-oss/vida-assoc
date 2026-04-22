@@ -57,7 +57,7 @@ export default function MissionDetail() {
     if (!perm.granted) {
       Alert.alert(
         "Caméra refusée",
-        "VIDA a besoin de la caméra pour valider ta preuve. Active-la dans Réglages."
+        "Sangha a besoin de la caméra pour valider ta preuve. Active-la dans Réglages."
       );
       return;
     }
@@ -221,7 +221,7 @@ export default function MissionDetail() {
               Ta preuve
             </Text>
             <Text style={{ color: COLORS.muted, fontSize: 12, marginTop: 4 }}>
-              Photo + position = +{mission.impact_points} impact & +{mission.reward_credits} VIDA.
+              Photo + position = +{mission.impact_points} impact & +{mission.reward_credits} Sangha.
             </Text>
             {photo ? (
               <Image

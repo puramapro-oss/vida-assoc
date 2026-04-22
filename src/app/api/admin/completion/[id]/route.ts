@@ -57,7 +57,7 @@ export async function POST(
       .from('mission_completions')
       .update({
         status: 'rejected',
-        ai_validation_notes: parsed.data.reason ?? 'Rejet manuel par l’équipe VIDA.',
+        ai_validation_notes: parsed.data.reason ?? 'Rejet manuel par l’équipe Sangha.',
         reviewed_by: user.id,
         validated_at: new Date().toISOString(),
       })
@@ -119,7 +119,7 @@ export async function POST(
     .from('mission_completions')
     .update({
       status: 'validated',
-      ai_validation_notes: parsed.data.reason ?? 'Validé manuellement par l’équipe VIDA.',
+      ai_validation_notes: parsed.data.reason ?? 'Validé manuellement par l’équipe Sangha.',
       reviewed_by: user.id,
       validated_at: new Date().toISOString(),
       reward_paid: true,
@@ -158,7 +158,7 @@ export async function POST(
     user_id: completion.user_id,
     type: 'reward',
     title: 'Mission validée 🎉',
-    body: `Bravo ! Tu as reçu ${credits} crédits VIDA${cents > 0 ? ` + ${(cents / 100).toFixed(2).replace('.', ',')} €` : ''}.`,
+    body: `Bravo ! Tu as reçu ${credits} crédits Sangha${cents > 0 ? ` + ${(cents / 100).toFixed(2).replace('.', ',')} €` : ''}.`,
     icon: '✨',
     action_url: '/dashboard/wallet',
   })

@@ -17,13 +17,13 @@ interface Step {
 const STEPS: Step[] = [
   {
     title: '1. Ton cœur lumineux',
-    body: 'Chaque action sur VIDA nourrit ton cœur : missions accomplies, dons, rituels, soutien. Retrouve ton niveau et ton impact sur la page Impact.',
+    body: 'Chaque action sur Sangha nourrit ton cœur : missions accomplies, dons, rituels, soutien. Retrouve ton niveau et ton impact sur la page Impact.',
     icon: <Heart className="h-5 w-5 text-pink-300" />,
     href: '/dashboard/impact',
   },
   {
     title: '2. Explore les missions',
-    body: 'Plusieurs catégories : dépollution, plantation, aide aux aînés, méditation, soutien scolaire. Filtre par envie, prouve avec une photo, reçois des crédits VIDA ou des euros.',
+    body: 'Plusieurs catégories : dépollution, plantation, aide aux aînés, méditation, soutien scolaire. Filtre par envie, prouve avec une photo, reçois des crédits Sangha ou des euros.',
     icon: <Compass className="h-5 w-5 text-[var(--cyan)]" />,
     href: '/dashboard/missions',
   },
@@ -35,7 +35,7 @@ const STEPS: Step[] = [
   },
   {
     title: '4. Vis les rituels collectifs',
-    body: 'Pleine lune, portails énergétiques, rituels de paix… VIDA te guide étape par étape. Plus tu participes, plus ton énergie grandit.',
+    body: 'Pleine lune, portails énergétiques, rituels de paix… Sangha te guide étape par étape. Plus tu participes, plus ton énergie grandit.',
     icon: <Sparkles className="h-5 w-5 text-[#D4AF37]" />,
     href: '/dashboard/rituels',
   },
@@ -53,13 +53,13 @@ const STEPS: Step[] = [
   },
   {
     title: '7. Parraine, et reçois',
-    body: 'Un lien unique à partager. 50 % du premier abonnement + 10 % à vie, crédités dans ton wallet ou en crédits VIDA.',
+    body: 'Un lien unique à partager. 50 % du premier abonnement + 10 % à vie, crédités dans ton wallet ou en crédits Sangha.',
     icon: <Share2 className="h-5 w-5 text-sky-300" />,
     href: '/dashboard/referral',
   },
   {
     title: '8. Apprends à ton rythme',
-    body: 'Formations VIDA : gestes concrets, écologie, entraide, bien-être. Gratuit avec Premium.',
+    body: 'Formations Sangha : gestes concrets, écologie, entraide, bien-être. Gratuit avec Premium.',
     icon: <BookOpen className="h-5 w-5 text-emerald-300" />,
     href: '/dashboard/formations',
   },
@@ -67,19 +67,19 @@ const STEPS: Step[] = [
 
 const FAQ: Array<{ q: string; a: string }> = [
   {
-    q: 'VIDA prend-il une commission sur mes retraits ?',
+    q: 'Sangha prend-il une commission sur mes retraits ?',
     a: 'Jamais. 100 % de tes gains t’arrivent (retrait SEPA, 2-5 jours ouvrés).',
   },
   {
-    q: 'Comment VIDA vérifie mes missions ?',
+    q: 'Comment Sangha vérifie mes missions ?',
     a: 'IA + photo + GPS. Une mission ≥ 75 % de confiance est validée automatiquement. Les autres sont revues sous 24 h.',
   },
   {
     q: 'Mes dons vont où ?',
-    a: 'Directement à l’association, via Stripe. VIDA prend 0 % sur les dons aux associations partenaires.',
+    a: 'Directement à l’association, via Stripe. Sangha prend 0 % sur les dons aux associations partenaires.',
   },
   {
-    q: 'Est-ce que VIDA parle toutes les langues ?',
+    q: 'Est-ce que Sangha parle toutes les langues ?',
     a: 'Oui — 16 langues activables dans les paramètres.',
   },
   {
@@ -102,7 +102,7 @@ export default function GuidePage() {
             <HelpCircle className="h-6 w-6" />
           </div>
           <div>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold">Guide VIDA</h1>
+            <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold">Guide Sangha</h1>
             <p className="mt-1 text-sm text-[var(--text-secondary)]">Tout ce qu’il faut pour vivre l’expérience pleinement.</p>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function GuidePage() {
         <Link href="/dashboard/chat-vida" className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 hover:border-[var(--cyan)]/40">
           <MessageCircle className="h-5 w-5 text-[var(--cyan)]" />
           <div>
-            <p className="text-sm font-semibold">Demande à VIDA</p>
+            <p className="text-sm font-semibold">Demande à Sangha</p>
             <p className="text-xs text-[var(--text-secondary)]">Un expert, 24/7, en français.</p>
           </div>
         </Link>
@@ -183,7 +183,7 @@ export default function GuidePage() {
       <footer className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-[var(--text-secondary)]">
         <Leaf className="h-5 w-5 shrink-0 text-emerald-300" />
         <p>
-          VIDA t’accompagne dans ton élévation. Ton rythme est le bon. Commence par une mission douce, écris un mot sur le mur, allume une intention. Le reste vient tout seul.
+          Sangha t’accompagne dans ton élévation. Ton rythme est le bon. Commence par une mission douce, écris un mot sur le mur, allume une intention. Le reste vient tout seul.
         </p>
       </footer>
     </div>

@@ -6,12 +6,12 @@ import { formatPrice } from '@/lib/utils'
 import { APP_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Impact global — VIDA Association',
+  title: 'Impact global — Sangha',
   description:
-    'L’impact réel de la communauté VIDA : arbres plantés, déchets ramassés, personnes aidées, dons reversés. Transparence totale.',
+    'L’impact réel de la communauté Sangha : arbres plantés, déchets ramassés, personnes aidées, dons reversés. Transparence totale.',
   alternates: { canonical: `${APP_URL}/impact-global` },
   openGraph: {
-    title: 'Impact global — VIDA',
+    title: 'Impact global — Sangha',
     description: 'Chaque action de la communauté, comptabilisée et transparente.',
     url: `${APP_URL}/impact-global`,
     type: 'website',
@@ -57,7 +57,7 @@ export default async function ImpactGlobalPage() {
   }
 
   const stats: Stat[] = [
-    { icon: <Users className="h-5 w-5" />,     label: 'Voyageurs VIDA',   value: totalUsers.toLocaleString('fr-FR') },
+    { icon: <Users className="h-5 w-5" />,     label: 'Voyageurs Sangha',   value: totalUsers.toLocaleString('fr-FR') },
     { icon: <Sparkles className="h-5 w-5" />,  label: 'Missions accomplies', value: totalMissions.toLocaleString('fr-FR') },
     { icon: <HandHeart className="h-5 w-5" />, label: 'Dons reversés',      value: formatPrice(totalDonations),       accent: 'text-[#D4AF37]' },
     { icon: <Heart className="h-5 w-5" />,     label: 'Impact cumulé',      value: totalImpact.toLocaleString('fr-FR') },
@@ -75,7 +75,7 @@ export default async function ImpactGlobalPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'VIDA Association',
+    name: 'Sangha',
     url: APP_URL,
     description: metadata.description,
     foundingDate: '2025',
@@ -100,10 +100,10 @@ export default async function ImpactGlobalPage() {
           </div>
           <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-[var(--text-primary)]">
             L’impact réel<br />
-            <span className="gradient-text">de la communauté VIDA</span>
+            <span className="gradient-text">de la communauté Sangha</span>
           </h1>
           <p className="mt-4 text-lg text-[var(--text-secondary)]">
-            Chaque mission, chaque don, chaque rituel comptabilisé. VIDA rend des comptes, tous les jours.
+            Chaque mission, chaque don, chaque rituel comptabilisé. Sangha rend des comptes, tous les jours.
           </p>
         </header>
 
@@ -140,7 +140,7 @@ export default async function ImpactGlobalPage() {
 
         <footer className="rounded-3xl border border-white/10 bg-white/5 p-6 text-sm text-[var(--text-secondary)]">
           <p>
-            VIDA reverse <strong>100 %</strong> de tes dons aux associations partenaires, <strong>0 commission</strong>. Les missions rémunérées sont payées via le wallet VIDA, retirable en euros dès 5 €. La communauté valide collectivement les impacts, vérifiés par IA + GPS + photo.
+            Sangha reverse <strong>100 %</strong> de tes dons aux associations partenaires, <strong>0 commission</strong>. Les missions rémunérées sont payées via le wallet Sangha, retirable en euros dès 5 €. La communauté valide collectivement les impacts, vérifiés par IA + GPS + photo.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link href="/associations" className="inline-flex items-center gap-1 text-sm text-[var(--cyan)] hover:underline">
@@ -150,7 +150,7 @@ export default async function ImpactGlobalPage() {
               Prochains rituels →
             </Link>
             <Link href="/login?next=/dashboard" className="inline-flex items-center gap-1 text-sm text-[#D4AF37] hover:underline">
-              Rejoindre VIDA →
+              Rejoindre Sangha →
             </Link>
           </div>
         </footer>

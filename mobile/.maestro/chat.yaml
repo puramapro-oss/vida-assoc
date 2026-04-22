@@ -1,11 +1,11 @@
 appId: dev.purama.vidaassoc
-name: VIDA — Chat IA streaming
+name: Sangha — Chat IA streaming
 tags:
   - chat
 ---
 - launchApp
 - runFlow: auth.yaml
-- tapOn: "VIDA"
+- tapOn: "Sangha"
 - assertVisible:
     id: "chat-input"
 - tapOn:

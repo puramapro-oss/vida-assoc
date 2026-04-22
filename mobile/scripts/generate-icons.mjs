@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generate VIDA app icons from Pollinations master image.
+// Generate Sangha app icons from Pollinations master image.
 // Usage: node scripts/generate-icons.mjs
 import { writeFile, mkdir } from "node:fs/promises";
 import { resolve, dirname } from "node:path";

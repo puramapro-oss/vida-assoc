@@ -1,6 +1,6 @@
 {
-  "name": "VIDA Association",
-  "short_name": "VIDA",
+  "name": "Sangha",
+  "short_name": "Sangha",
   "description": "Agis pour le vivant. Missions, dons, rituels, impact réel.",
   "start_url": "/dashboard",
   "display": "standalone",

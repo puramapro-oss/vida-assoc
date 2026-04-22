@@ -18,12 +18,12 @@ const TIERS = [
 
 export default function Referral() {
   const { profile } = useAuth();
-  const code = profile?.referral_code ?? "VIDA";
+  const code = profile?.referral_code ?? "Sangha";
   const link = `${BRAND.appUrl}/r/${code}`;
 
   async function shareLink() {
     await Share.share({
-      message: `Rejoins VIDA avec moi 🌱 https://${BRAND.domain}/r/${code}`,
+      message: `Rejoins Sangha avec moi 🌱 https://${BRAND.domain}/r/${code}`,
       url: link,
     });
   }

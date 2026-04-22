@@ -6,13 +6,13 @@ import type { Ritual } from '@/types'
 import { APP_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Rituels collectifs — VIDA',
+  title: 'Rituels collectifs — Sangha',
   description:
-    'Calendrier public des rituels collectifs VIDA : pleine lune, portails \u00e9nerg\u00e9tiques, rituels de paix et d\u2019amour. Rejoins la vibration.',
+    'Calendrier public des rituels collectifs Sangha : pleine lune, portails \u00e9nerg\u00e9tiques, rituels de paix et d\u2019amour. Rejoins la vibration.',
   alternates: { canonical: `${APP_URL}/rituels-publics` },
   openGraph: {
-    title: 'Rituels collectifs VIDA',
-    description: 'Vis les rituels collectifs en direct avec la communauté VIDA.',
+    title: 'Rituels collectifs Sangha',
+    description: 'Vis les rituels collectifs en direct avec la communauté Sangha.',
     url: `${APP_URL}/rituels-publics`,
     type: 'website',
   },
@@ -72,7 +72,7 @@ export default async function PublicRitualsPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Rituels collectifs VIDA',
+    name: 'Rituels collectifs Sangha',
     itemListElement: rituals.map((r, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -84,7 +84,7 @@ export default async function PublicRitualsPage() {
         eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
         eventStatus: r.status === 'live' ? 'https://schema.org/EventScheduled' : 'https://schema.org/EventScheduled',
         location: { '@type': 'VirtualLocation', url: `${APP_URL}/dashboard/rituels` },
-        organizer: { '@type': 'Organization', name: 'VIDA Association' },
+        organizer: { '@type': 'Organization', name: 'Sangha' },
       },
     })),
   }
@@ -106,7 +106,7 @@ export default async function PublicRitualsPage() {
             La communauté en vibration
           </h1>
           <p className="mt-4 text-lg text-[var(--text-secondary)]">
-            Chaque semaine, VIDA rassemble la famille autour d'une intention. Gratuit, guidé, bienveillant.
+            Chaque semaine, Sangha rassemble la famille autour d'une intention. Gratuit, guidé, bienveillant.
           </p>
           <div className="mt-6">
             <Link
@@ -121,7 +121,7 @@ export default async function PublicRitualsPage() {
         {rituals.length === 0 ? (
           <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center text-sm text-[var(--text-muted)]">
             <Sparkles className="mx-auto mb-3 h-6 w-6 text-[#D4AF37]" />
-            Le prochain rituel est en préparation. Reviens dans quelques heures — la famille VIDA se retrouve régulièrement.
+            Le prochain rituel est en préparation. Reviens dans quelques heures — la famille Sangha se retrouve régulièrement.
           </div>
         ) : (
           <ul className="space-y-4">

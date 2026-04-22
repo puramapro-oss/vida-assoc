@@ -63,7 +63,7 @@ export default function SignupPage() {
       toast.error('Erreur lors de la creation du compte : ' + (error.message ?? 'Reessaie plus tard'))
       return
     }
-    toast.success('Bienvenue dans VIDA. Ton mouvement commence 💚')
+    toast.success('Bienvenue dans Sangha. Ton mouvement commence 💚')
     router.push('/dashboard')
   }
 
@@ -74,7 +74,7 @@ export default function SignupPage() {
         <div className="mb-8 text-center">
           <Link href="/" className="inline-flex items-center gap-2">
             <span className="text-3xl" aria-hidden>🌱</span>
-            <span className="gradient-text font-[family-name:var(--font-display)] text-3xl font-bold">VIDA</span>
+            <span className="gradient-text font-[family-name:var(--font-display)] text-3xl font-bold">Sangha</span>
           </Link>
           <p className="mt-3 text-sm text-[var(--text-secondary)]">
             Unis pour le bien commun. 100 crédits offerts, 1 ticket concours.

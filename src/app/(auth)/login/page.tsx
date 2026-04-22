@@ -50,7 +50,7 @@ function LoginForm() {
         <div className="mb-8 text-center">
           <Link href="/" className="inline-flex items-center gap-2">
             <span className="text-3xl" aria-hidden>🌱</span>
-            <span className="gradient-text font-[family-name:var(--font-display)] text-3xl font-bold">VIDA</span>
+            <span className="gradient-text font-[family-name:var(--font-display)] text-3xl font-bold">Sangha</span>
           </Link>
           <p className="mt-3 text-sm text-[var(--text-secondary)]">
             Content de te revoir. Ton cœur a manqué au mouvement 💚

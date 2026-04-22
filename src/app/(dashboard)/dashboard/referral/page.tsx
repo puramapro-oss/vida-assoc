@@ -25,7 +25,7 @@ interface Tier {
 
 const TIERS: Tier[] = [
   { id: 'graine',   label: 'Graine',   emoji: '🌱', threshold: 0,   bonus: 'Bienvenue dans la famille',           glow: 'from-emerald-500/20 to-emerald-500/0' },
-  { id: 'bronze',   label: 'Bronze',   emoji: '🥉', threshold: 5,   bonus: '+500 crédits VIDA',                  glow: 'from-amber-700/30 to-amber-700/0' },
+  { id: 'bronze',   label: 'Bronze',   emoji: '🥉', threshold: 5,   bonus: '+500 crédits Sangha',                  glow: 'from-amber-700/30 to-amber-700/0' },
   { id: 'argent',   label: 'Argent',   emoji: '🥈', threshold: 10,  bonus: '+5 € wallet + ticket concours',        glow: 'from-slate-300/30 to-slate-300/0' },
   { id: 'or',       label: 'Or',       emoji: '🥇', threshold: 25,  bonus: 'Premium offert 1 mois',                glow: 'from-yellow-400/30 to-yellow-400/0' },
   { id: 'platine',  label: 'Platine',  emoji: '💠', threshold: 50,  bonus: '+50 € wallet + page perso',            glow: 'from-cyan-300/30 to-cyan-300/0' },
@@ -126,7 +126,7 @@ export default function ReferralPage() {
         <EmptyState
           icon="🔒"
           title="Connecte-toi pour parrainer"
-          description="Crée ton compte VIDA pour obtenir ton lien et tes récompenses."
+          description="Crée ton compte Sangha pour obtenir ton lien et tes récompenses."
         />
         <Button className="mt-4" onClick={() => (window.location.href = '/login?next=/dashboard/referral')}>
           Se connecter
@@ -274,7 +274,7 @@ export default function ReferralPage() {
           <EmptyState
             icon="🌱"
             title="Personne encore"
-            description="Partage ton lien sur WhatsApp ou Instagram pour démarrer ton arbre VIDA."
+            description="Partage ton lien sur WhatsApp ou Instagram pour démarrer ton arbre Sangha."
           />
         ) : (
           <div className="rounded-2xl border border-white/10 bg-white/5 divide-y divide-white/5">

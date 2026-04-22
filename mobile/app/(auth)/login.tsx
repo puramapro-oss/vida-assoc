@@ -137,7 +137,7 @@ export default function Login() {
           <Text style={{ color: COLORS.muted, fontSize: 13 }}>
             Pas encore de compte ?{" "}
             <Text style={{ color: COLORS.green, fontWeight: "700" }}>
-              Rejoindre VIDA
+              Rejoindre Sangha
             </Text>
           </Text>
         </Link>

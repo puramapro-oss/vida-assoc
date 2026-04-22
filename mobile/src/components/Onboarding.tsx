@@ -29,7 +29,7 @@ const STEPS: Step[] = [
   {
     id: "welcome",
     emoji: "🌱",
-    title: "Bienvenue dans VIDA",
+    title: "Bienvenue dans Sangha",
     body: "Ici, chaque action compte. Tu vas découvrir un espace pour transformer tes intentions en impact réel.",
     cta: "Commencer",
   },
@@ -44,7 +44,7 @@ const STEPS: Step[] = [
     id: "dons",
     emoji: "❤️",
     title: "Soutiens des associations",
-    body: "100 % de ton don part à l'association choisie. VIDA ne prélève aucune commission sur les dons aux autres.",
+    body: "100 % de ton don part à l'association choisie. Sangha ne prélève aucune commission sur les dons aux autres.",
     cta: "Suivant",
   },
   {
@@ -417,7 +417,7 @@ function Cinematic({ onFinish }: { onFinish: () => void }) {
               transform: [{ translateY: titleY }],
             }}
           >
-            Bienvenue dans VIDA
+            Bienvenue dans Sangha
           </Animated.Text>
           <Animated.Text
             style={{

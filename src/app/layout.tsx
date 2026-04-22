@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'VIDA Association — Chaque action compte. Toutes les associations unies.',
+  title: 'Sangha — Chaque action compte. Toutes les associations unies.',
   description: 'La plateforme mondiale où chaque don, chaque mission et chaque action positive est récompensée, tracée et multipliée. Toutes les associations du monde unies sous un seul cœur.',
   metadataBase: new URL('https://vida-assoc.purama.dev'),
   manifest: '/manifest.json',
@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
   },
   openGraph: {
-    title: 'VIDA — Chaque action compte',
+    title: 'Sangha — Chaque action compte',
     description: 'Missions, dons, rituels, impact réel. Associations du monde unies sous un seul cœur. Dès 3€/mois intégralement reversés.',
     url: 'https://vida-assoc.purama.dev',
-    siteName: 'VIDA Association',
+    siteName: 'Sangha',
     locale: 'fr_FR',
     type: 'website',
     images: [
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: '/api/og',
         width: 1200,
         height: 630,
-        alt: 'VIDA Association — unis pour le bien commun',
+        alt: 'Sangha — unis pour le bien commun',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'VIDA Association',
+    title: 'Sangha',
     description: 'Chaque action positive est tracée, récompensée, multipliée.',
     images: ['/api/og'],
   },

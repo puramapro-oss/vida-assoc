@@ -1,14 +1,14 @@
 export const SUPER_ADMIN_EMAIL = 'matiss.frasne@gmail.com'
 
-export const APP_NAME = 'VIDA Association'
-export const APP_SHORT_NAME = 'VIDA'
+export const APP_NAME = 'Sangha'
+export const APP_SHORT_NAME = 'Sangha'
 export const APP_SLUG = 'vida-assoc'
 export const APP_DOMAIN = 'vida-assoc.purama.dev'
 export const APP_URL = 'https://vida-assoc.purama.dev'
 export const APP_COLOR = '#10B981'
 export const APP_COLOR_SECONDARY = '#D4AF37'
 export const APP_SCHEMA = 'vida_assoc'
-export const AI_NAME = 'VIDA'
+export const AI_NAME = 'Sangha'
 
 export const COMPANY_INFO = {
   name: 'SASU PURAMA',
@@ -20,10 +20,10 @@ export const COMPANY_INFO = {
   founder: 'Matiss Dornier',
 }
 
-// Abonnements VIDA (SASU VIDA Stripe)
+// Abonnements Sangha (SASU Sangha Stripe)
 // Prix concurrents analysés : GoFundMe/HelloAsso/Lilo (0-3€/mois), apps bien-être 5-15€/mois
-// VIDA One = 3€/mois destiné intégralement aux associations
-// VIDA Premium = 6.90€/mois (accès total, dashboards, IA illimitée, 5x concours)
+// Sangha One = 3€/mois destiné intégralement aux associations
+// Sangha Premium = 6.90€/mois (accès total, dashboards, IA illimitée, 5x concours)
 // Annuel -30%, premier mois -10%, essai 14 jours
 export const PLANS = {
   free: {
@@ -41,7 +41,7 @@ export const PLANS = {
   },
   one: {
     id: 'one',
-    label: 'VIDA One',
+    label: 'Sangha One',
     price_monthly: 300, // 3€
     price_yearly: 2520, // 25.20€ (-30%)
     first_month_discount: 0, // déjà prix mini — 100% reversé
@@ -56,19 +56,19 @@ export const PLANS = {
   },
   premium: {
     id: 'premium',
-    label: 'VIDA Premium',
+    label: 'Sangha Premium',
     price_monthly: 690, // 6.90€
     price_yearly: 5798, // 57.98€ (-30%)
     first_month_discount: 10, // -10% premier mois
     features: [
-      'Tout VIDA One inclus',
+      'Tout Sangha One inclus',
       'Missions rémunérées illimitées',
       'Rituels collectifs inclus',
       'x5 places aux concours (hebdo / mensuels / annuels)',
-      'Assistant VIDA illimité (chat expert)',
-      'Accès aux formations VIDA',
+      'Assistant Sangha illimité (chat expert)',
+      'Accès aux formations Sangha',
       'Dashboard impact avancé',
-      'Cashback 5 % sur le marketplace VIDA',
+      'Cashback 5 % sur le marketplace Sangha',
       'Retrait IBAN dès 5 €',
     ],
     popular: true,
@@ -77,7 +77,7 @@ export const PLANS = {
 
 export type PlanId = keyof typeof PLANS
 
-// VIDA Credits : monnaie interne non convertible en euros pour les gratuits
+// Sangha Credits : monnaie interne non convertible en euros pour les gratuits
 // 100 crédits = 1€ d'équivalent pour les promos / marketplace
 export const VIDA_CREDIT_TO_EUR = 0.01
 export const WALLET_MIN_WITHDRAWAL = 5 // euros
@@ -93,7 +93,7 @@ export const LEVELS = [
   { id: 5, name: 'Lumière', min: 10000, max: Number.MAX_SAFE_INTEGER, emoji: '✨', color: '#D4AF37' },
 ] as const
 
-// Récompenses mission (VIDA crédits) — fallback quand pas de paiement cash
+// Récompenses mission (Sangha crédits) — fallback quand pas de paiement cash
 export const MISSION_REWARDS = {
   min_credits: 20,
   max_credits: 2000,
@@ -108,7 +108,7 @@ export const MISSION_REWARDS = {
   help_person: 250,
 } as const
 
-// Pourcentage commission VIDA sur chaque type de source
+// Pourcentage commission Sangha sur chaque type de source
 export const COMMISSIONS = {
   donation_to_other_asso: 5, // 5% sur dons vers autre asso
   user_mission: 20, // 20% sur missions entre particuliers (escrow)
@@ -176,8 +176,8 @@ export const MISSION_CATEGORIES = [
   { id: 'sport', name: 'Sport', icon: '🏃', color: '#14b8a6', description: 'Marche, course, fitness' },
   { id: 'meditation', name: 'Méditation', icon: '🧘', color: '#d946ef', description: 'Méditation guidée, pleine conscience' },
   { id: 'rituel_collectif', name: 'Rituel collectif', icon: '🕯️', color: '#eab308', description: 'Participer aux rituels hebdo' },
-  { id: 'pub_vida', name: 'Pub VIDA', icon: '📣', color: '#10B981', description: 'Parler de VIDA, partager, noter' },
-  { id: 'notation_app', name: 'Notation app', icon: '⭐', color: '#fbbf24', description: 'Noter les apps VIDA' },
+  { id: 'pub_vida', name: 'Pub Sangha', icon: '📣', color: '#10B981', description: 'Parler de Sangha, partager, noter' },
+  { id: 'notation_app', name: 'Notation app', icon: '⭐', color: '#fbbf24', description: 'Noter les apps Sangha' },
   { id: 'parrainage_story', name: 'Story parrainage', icon: '📱', color: '#ec4899', description: 'Story avec lien' },
   { id: 'video_promo', name: 'Vidéo promo', icon: '🎬', color: '#f43f5e', description: 'Créer vidéo courte' },
   { id: 'dons_personnes', name: 'Dons aux personnes', icon: '💝', color: '#e11d48', description: 'Donner matériel à ceux dans le besoin' },

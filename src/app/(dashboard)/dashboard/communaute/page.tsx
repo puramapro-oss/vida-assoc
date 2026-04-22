@@ -171,7 +171,7 @@ export default function CommunityPage() {
       <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
         {!user ? (
           <div className="flex items-center justify-between gap-3">
-            <p className="text-sm text-[var(--text-secondary)]">Connecte-toi pour partager avec la famille VIDA.</p>
+            <p className="text-sm text-[var(--text-secondary)]">Connecte-toi pour partager avec la famille Sangha.</p>
             <Button size="sm" onClick={() => (window.location.href = '/login?next=/dashboard/communaute')}>
               Se connecter
             </Button>

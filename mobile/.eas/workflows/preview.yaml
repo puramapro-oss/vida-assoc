@@ -1,4 +1,4 @@
-name: VIDA — preview build (PR / manual)
+name: Sangha — preview build (PR / manual)
 
 on:
   pull_request:

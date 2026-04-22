@@ -1,5 +1,5 @@
 appId: dev.purama.vidaassoc
-name: VIDA — Onboarding (cinematic + tuto)
+name: Sangha — Onboarding (cinematic + tuto)
 tags:
   - onboarding
 ---
@@ -14,7 +14,7 @@ tags:
     id: "cinematic-skip"
     optional: true
 - assertVisible:
-    text: "Bienvenue dans VIDA"
+    text: "Bienvenue dans Sangha"
     optional: true
     timeout: 6000
 - repeat:

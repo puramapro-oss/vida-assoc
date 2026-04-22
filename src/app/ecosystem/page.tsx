@@ -3,7 +3,7 @@ import { ArrowLeft, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Ecosysteme Purama — VIDA Association',
+  title: 'Ecosysteme Purama — Sangha',
   description: 'Decouvre toutes les apps de l ecosysteme Purama',
 }
 
@@ -11,7 +11,7 @@ const APPS = [
   { name: 'MIDAS', slug: 'midas', color: '#F59E0B', description: 'Trading & Finance IA', icon: '📈' },
   { name: 'SUTRA', slug: 'sutra', color: '#8B5CF6', description: 'Creation Video IA', icon: '🎬' },
   { name: 'KAÏA', slug: 'kaia', color: '#06B6D4', description: 'Meditation & Bien-etre', icon: '🧘' },
-  { name: 'VIDA', slug: 'vida_sante', color: '#10B981', description: 'Sante & Nutrition', icon: '💚' },
+  { name: 'Sangha', slug: 'vida_sante', color: '#10B981', description: 'Sante & Nutrition', icon: '💚' },
   { name: 'Lingora', slug: 'lingora', color: '#3B82F6', description: 'Apprentissage Langues', icon: '🌍' },
   { name: 'KASH', slug: 'kash', color: '#F59E0B', description: 'Finances Personnelles', icon: '💰' },
   { name: 'PRANA', slug: 'prana', color: '#F472B6', description: 'Fitness & Sport', icon: '🏋️' },
@@ -35,7 +35,7 @@ export default function EcosystemPage() {
 
         <h1 className="text-3xl font-bold text-[var(--text-primary)]">Ecosysteme Purama</h1>
         <p className="mt-2 text-[var(--text-secondary)]">
-          Un compte unique, des dizaines d&apos;apps IA specialisees. Utilise VIDA pour tout, ou explore chaque domaine en profondeur.
+          Un compte unique, des dizaines d&apos;apps IA specialisees. Utilise Sangha pour tout, ou explore chaque domaine en profondeur.
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -99,7 +99,7 @@ export default function Boutique() {
               textTransform: "uppercase",
             }}
           >
-            Cashback VIDA sur chaque achat
+            Cashback Sangha sur chaque achat
           </Text>
           <Text
             style={{

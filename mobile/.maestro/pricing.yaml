@@ -1,12 +1,12 @@
 appId: dev.purama.vidaassoc
-name: VIDA — Upgrade (pricing + Stripe)
+name: Sangha — Upgrade (pricing + Stripe)
 tags:
   - pricing
 ---
 - launchApp
 - runFlow: auth.yaml
 - tapOn: "Moi"
-- tapOn: "Passer à VIDA Premium"
+- tapOn: "Passer à Sangha Premium"
 - assertVisible: "Choisis ton"
 - tapOn:
     id: "upgrade-interval-monthly"

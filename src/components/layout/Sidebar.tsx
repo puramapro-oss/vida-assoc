@@ -34,7 +34,7 @@ const SECONDARY_NAV: NavItem[] = [
   { href: '/dashboard/boutique', icon: ShoppingBag, label: 'Boutique', testId: 'nav-boutique' },
   { href: '/dashboard/formations', icon: BookOpen, label: 'Formations', testId: 'nav-formations' },
   { href: '/dashboard/communaute', icon: Users, label: 'Communauté', testId: 'nav-communaute' },
-  { href: '/dashboard/chat-vida', icon: MessageCircle, label: 'Assistant VIDA', testId: 'nav-chat-vida' },
+  { href: '/dashboard/chat-vida', icon: MessageCircle, label: 'Assistant Sangha', testId: 'nav-chat-vida' },
   { href: '/dashboard/referral', icon: Share2, label: 'Parrainage', testId: 'nav-referral' },
   { href: '/dashboard/influenceur', icon: Megaphone, label: 'Influenceur', testId: 'nav-influenceur' },
   { href: '/dashboard/wallet', icon: Wallet, label: 'Wallet', testId: 'nav-wallet' },
