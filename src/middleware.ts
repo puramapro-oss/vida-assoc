@@ -6,7 +6,7 @@ const PUBLIC_PATHS = [
   '/impact-global', '/rituels-publics', '/status', '/changelog',
   '/privacy', '/terms', '/legal', '/offline', '/login', '/signup', '/register',
   '/mentions-legales', '/politique-confidentialite', '/cgv', '/cgu',
-  '/aide', '/contact', '/accessibilite', '/forgot-password', '/financer',
+  '/aide', '/contact', '/accessibilite', '/forgot-password', '/financer', '/fiscal',
 ]
 
 function isPublicPath(pathname: string): boolean {

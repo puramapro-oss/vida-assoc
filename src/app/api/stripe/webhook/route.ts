@@ -53,6 +53,64 @@ async function handleSubscriptionUpsert(sub: Stripe.Subscription) {
   )
 }
 
+/**
+ * Phase 1 : allouer prime de bienvenue au paiement d'abonnement
+ * (conforme alignement prime ↔ abonnement, V4.1 §🎁 anti-fraude).
+ * Phase 2 bascule via env PRIME_MODE=phase2.
+ */
+async function handleInvoicePaid(invoice: Stripe.Invoice) {
+  if (invoice.billing_reason !== 'subscription_create' && invoice.billing_reason !== 'subscription_cycle') return
+  const amount = invoice.amount_paid ?? 0
+  if (amount <= 0) return
+
+  const service = createServiceClient()
+  const customerId = typeof invoice.customer === 'string' ? invoice.customer : invoice.customer?.id
+  if (!customerId) return
+
+  const { data: profile } = await service
+    .from('profiles')
+    .select('id, created_at')
+    .eq('stripe_customer_id', customerId)
+    .maybeSingle()
+  if (!profile) return
+
+  // Prime Phase 1 = 50% du premier paiement, plafond 10€ (1000 cents)
+  const isFirst = invoice.billing_reason === 'subscription_create'
+  const primeCents = isFirst ? Math.min(Math.floor(amount * 0.5), 1000) : Math.floor(amount * 0.05)
+  if (primeCents <= 0) return
+
+  const unlockable = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+  const mode = (process.env.PRIME_MODE === 'phase2' ? 'phase2' : 'phase1') as 'phase1' | 'phase2'
+
+  await service.from('prime_allocations').insert({
+    user_id: profile.id,
+    amount_cents: primeCents,
+    mode,
+    source_event: 'subscription_paid',
+    source_ref: invoice.id,
+    unlockable_at: unlockable,
+    status: 'pending',
+    metadata: {
+      invoice_amount_cents: amount,
+      billing_reason: invoice.billing_reason,
+    },
+  })
+}
+
+async function handleConnectAccountUpdated(account: Stripe.Account) {
+  const service = createServiceClient()
+  await service
+    .from('connect_accounts')
+    .update({
+      status: account.charges_enabled && account.payouts_enabled ? 'enabled' : account.requirements?.disabled_reason ? 'restricted' : 'pending',
+      charges_enabled: account.charges_enabled ?? false,
+      payouts_enabled: account.payouts_enabled ?? false,
+      onboarded_at: account.details_submitted ? new Date().toISOString() : null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('stripe_account_id', account.id)
+}
+
 async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const service = createServiceClient()
   const stripe = getStripe()
@@ -123,7 +181,10 @@ export async function POST(req: Request) {
         await handleSubscriptionUpsert(event.data.object)
         break
       case 'invoice.payment_succeeded':
-        // could trigger 10% asso/reward pool here in P3
+        await handleInvoicePaid(event.data.object)
+        break
+      case 'account.updated':
+        await handleConnectAccountUpdated(event.data.object as Stripe.Account)
         break
       default:
         break
