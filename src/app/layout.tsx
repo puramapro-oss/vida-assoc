@@ -8,6 +8,7 @@ import CookieBanner from '@/components/shared/CookieBanner'
 import CursorGlow from '@/components/layout/CursorGlow'
 import FloatingLeaves from '@/components/layout/FloatingLeaves'
 import SkipToContent from '@/components/shared/SkipToContent'
+import { SpiritualLayer } from '@/components/shared/SpiritualLayer'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -98,6 +99,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             {children}
           </ErrorBoundary>
           <CookieBanner />
+          <SpiritualLayer />
         </NextIntlClientProvider>
         <Toaster
           position="top-right"
