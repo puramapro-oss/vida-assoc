@@ -7,6 +7,7 @@ const PUBLIC_PATHS = [
   '/privacy', '/terms', '/legal', '/offline', '/login', '/signup', '/register',
   '/mentions-legales', '/politique-confidentialite', '/cgv', '/cgu',
   '/aide', '/contact', '/accessibilite', '/forgot-password', '/financer', '/fiscal',
+  '/karma-regulation',
 ]
 
 function isPublicPath(pathname: string): boolean {
