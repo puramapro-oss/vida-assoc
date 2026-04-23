@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: `Fiscalité — Zéro paperasse | ${APP_NAME}`,
-  description: `${APP_NAME} est tiers déclarant URSSAF. Tu gagnes, on déclare, tu reçois ton Factur-X. 4 profils fiscaux auto-détectés.`,
+  description: `${APP_NAME} te fournit un Factur-X conforme pour chaque versement. 4 profils fiscaux auto-détectés (occ/BNC/AE/entreprise).`,
 }
 
 export default function FiscalPublicPage() {
@@ -14,13 +14,13 @@ export default function FiscalPublicPage() {
       <section className="mx-auto max-w-4xl px-6 py-16 md:py-24">
         <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-3 py-1 text-xs text-cyan-400">
           <Shield className="h-3 w-3" />
-          100% légal — conforme URSSAF + Chorus Pro
+          100% légal — Factur-X conforme Chorus Pro
         </div>
         <h1 className="mt-6 text-4xl md:text-6xl font-bold font-[family-name:var(--font-display)] leading-tight">
-          Tu gagnes. <span className="gradient-text">On déclare.</span>
+          Tu gagnes. <span className="gradient-text">On te fournit Factur-X.</span>
         </h1>
         <p className="mt-5 text-lg text-[var(--text-secondary)] max-w-2xl">
-          {APP_NAME} est un tiers déclarant URSSAF. Zéro paperasse, zéro stress fiscal. 4 profils détectés automatiquement à
+          {APP_NAME} te fournit automatiquement le bon format de facture pour déclarer sereinement. 4 profils détectés automatiquement à
           l&apos;onboarding : particulier occasionnel, BNC, auto-entrepreneur, entreprise.
         </p>
 
@@ -33,7 +33,7 @@ export default function FiscalPublicPage() {
           <Profile
             title="BNC (Bénéfices Non Commerciaux)"
             threshold="305€ à 77 700€ / an"
-            desc="On déclare pour toi à l'URSSAF via la Tierce Déclaration. Factur-X PDF+XML auto."
+            desc="Factur-X PDF+XML auto. Tu déclares en BNC (case 5NP) sur impots.gouv.fr."
           />
           <Profile
             title="Auto-entrepreneur"

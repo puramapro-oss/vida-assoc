@@ -60,7 +60,7 @@ export default function FiscalPage() {
           <h1 className="text-2xl font-semibold">Mon espace fiscal</h1>
         </div>
         <p className="text-sm text-[var(--text-muted)]">
-          Sangha est un tiers déclarant URSSAF. Tu gagnes, on déclare, tu reçois ton Factur-X. Zéro paperasse.
+          Sangha te génère un Factur-X (PDF + XML) pour chaque versement. Tu déclares sur impots.gouv.fr — zéro erreur de format.
         </p>
       </motion.section>
 
@@ -114,7 +114,7 @@ export default function FiscalPage() {
         <h2 className="font-semibold mb-2">Cadre légal</h2>
         <ul className="text-xs text-[var(--text-muted)] space-y-1.5">
           <li>• Stripe Connect Express (STEL, licence EMI passportée, validée ACPR).</li>
-          <li>• Sangha = tiers déclarant URSSAF (mandat user, pas d&apos;agrément).</li>
+          <li>• Sangha fournit Factur-X conforme Chorus Pro — tu restes seul·e déclarant·e.</li>
           <li>• Factur-X conforme norme Chorus Pro (PDF/A-3 + XML).</li>
           <li>• Données fiscales chiffrées, RGPD, conservation 10 ans.</li>
         </ul>

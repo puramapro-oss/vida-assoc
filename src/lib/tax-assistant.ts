@@ -51,8 +51,8 @@ export function getRetraitMessage(profile: FiscalProfile, cumul_cents: number): 
       }
     case 'bnc':
       return {
-        headline: '📋 Sangha déclare pour toi à l\'URSSAF',
-        body: `Tu as cumulé ${cumul}€ cette année. Au-dessus de 305€ annuels, l'URSSAF est notifiée via la Tierce Déclaration (on s'en occupe). Tu recevras ton Factur-X PDF automatiquement — zéro paperasse.`,
+        headline: '📋 Factur-X prête pour ta déclaration BNC',
+        body: `Tu as cumulé ${cumul}€ cette année. Au-dessus de 305€ annuels, tu dois déclarer ces revenus en BNC sur ta déclaration d'impôts (case 5NP). Sangha te fournit le Factur-X PDF — la déclaration reste à faire sur impots.gouv.fr.`,
         action_required: 'declaration',
       }
     case 'autoentrepreneur':

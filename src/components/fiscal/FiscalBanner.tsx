@@ -22,9 +22,9 @@ export function FiscalBanner({ profile, cumulCents = 0 }: FiscalBannerProps) {
           <FileText className="h-5 w-5" />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold">Fiscalité — tu gagnes, on déclare</h3>
+          <h3 className="font-semibold">Fiscalité — tu gagnes, on te fournit Factur-X</h3>
           <p className="text-sm text-[var(--text-muted)] mt-1">
-            Zéro paperasse. Sangha s&apos;occupe de l&apos;URSSAF pour toi.
+            Factur-X PDF + XML générés automatiquement. Tu déclares sur impots.gouv.fr.
             {profile && cumulCents > 0 ? ` Tu as cumulé ${cumul}€ cette année.` : ' Active ton espace fiscal en 1 min.'}
           </p>
           <Link
