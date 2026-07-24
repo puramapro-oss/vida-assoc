@@ -25,7 +25,9 @@ export function useReferral() {
   }, [user, supabase])
 
   useEffect(() => {
-    fetchCount()
+    queueMicrotask(() => {
+      fetchCount()
+    })
   }, [fetchCount])
 
   let tier = 'debutant'
