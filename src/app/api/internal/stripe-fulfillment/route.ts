@@ -157,7 +157,14 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 }
 
 export async function POST(req: Request) {
-  const sig = req.headers.get('stripe-signature')
+  // 1. Internal secret auth (from karma dispatcher)
+  const internalSecret = req.headers.get('x-internal-secret')
+  if (internalSecret !== process.env.INTERNAL_WEBHOOK_SECRET) {
+    return NextResponse.json({ error: 'Non autorisé' }, { status: 401 })
+  }
+
+  // 2. Defense-in-depth: still verify Stripe signature
+  const sig = req.headers.get('x-stripe-signature')
   const secret = process.env.STRIPE_WEBHOOK_SECRET
   if (!sig || !secret) return NextResponse.json({ error: 'Webhook misconfigured' }, { status: 400 })
 

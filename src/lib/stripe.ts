@@ -67,12 +67,14 @@ export async function createCheckoutSession(params: {
     subscription_data: {
       trial_period_days: params.trialDays ?? 14,
       metadata: {
+        app_slug: 'vida-assoc',
         plan: params.plan,
         interval: params.interval,
         ...(params.referralCode ? { referral_code: params.referralCode } : {}),
       },
     },
     metadata: {
+      app_slug: 'vida-assoc',
       plan: params.plan,
       interval: params.interval,
       ...(params.referralCode ? { referral_code: params.referralCode } : {}),
@@ -110,9 +112,15 @@ export async function createDonationCheckoutSession(params: {
         },
       ],
       customer_email: params.customerEmail,
+      subscription_data: {
+        metadata: {
+          app_slug: 'vida-assoc',
+        },
+      },
       success_url: params.successUrl,
       cancel_url: params.cancelUrl,
       metadata: {
+        app_slug: 'vida-assoc',
         type: 'donation',
         recipient_type: params.recipientType,
         recipient_id: params.recipientId ?? '',
@@ -138,6 +146,7 @@ export async function createDonationCheckoutSession(params: {
     success_url: params.successUrl,
     cancel_url: params.cancelUrl,
     metadata: {
+      app_slug: 'vida-assoc',
       type: 'donation',
       recipient_type: params.recipientType,
       recipient_id: params.recipientId ?? '',
