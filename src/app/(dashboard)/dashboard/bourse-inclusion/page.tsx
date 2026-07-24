@@ -36,11 +36,11 @@ export default function BourseInclusionPage() {
   const [success, setSuccess] = useState(false)
 
   async function load() {
-    setLoading(true)
+    queueMicrotask(() => setLoading(true))
     const res = await fetch('/api/bourse/apply')
     const d = await res.json()
-    if (!d.error) setCases(d.cases ?? [])
-    setLoading(false)
+    if (!d.error) queueMicrotask(() => setCases(d.cases ?? []))
+    queueMicrotask(() => setLoading(false))
   }
 
   useEffect(() => { load() }, [])

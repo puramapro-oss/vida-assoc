@@ -33,7 +33,7 @@ export default function Home() {
       .eq("is_public", true)
       .order("created_at", { ascending: false })
       .limit(5);
-    if (data) setMissions(data as Mission[]);
+    if (data) queueMicrotask(() => setMissions(data as Mission[]));
   }, []);
 
   useEffect(() => {

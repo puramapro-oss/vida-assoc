@@ -23,7 +23,7 @@ export function SpiritualLayer() {
   useEffect(() => {
     try {
       const stored = localStorage.getItem('sangha-spiritual-layer')
-      if (stored === 'off') setEnabled(false)
+      if (stored === 'off') queueMicrotask(() => setEnabled(false))
     } catch { /* storage may fail in private mode */ }
   }, [])
 

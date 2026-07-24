@@ -66,7 +66,7 @@ export default function Referral() {
           Invite une âme
         </Text>
         <Text style={{ color: COLORS.muted, fontSize: 13, marginTop: 6 }}>
-          Chaque filleul qui s'inscrit débloque des récompenses pour toi et
+          Chaque filleul qui s&apos;inscrit débloque des récompenses pour toi et
           soutient une asso.
         </Text>
         <View style={{ gap: 10, marginTop: 16 }}>

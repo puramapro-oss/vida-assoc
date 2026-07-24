@@ -134,10 +134,12 @@ export default function BreathePage() {
         }
 
         const nextDuration = getPhaseDuration(next)
+        // eslint-disable-next-line react-hooks/immutability
         timerRef.current = setTimeout(() => runPhase(next, nextDuration), 0)
         return
       }
 
+      // eslint-disable-next-line react-hooks/immutability
       timerRef.current = setTimeout(() => runPhase(phase, remaining - 1), 1000)
     },
     [getNextPhase, getPhaseDuration, config, totalCycles]

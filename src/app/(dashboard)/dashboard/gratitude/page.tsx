@@ -187,7 +187,7 @@ export default function GratitudePage() {
               className={`text-xs font-semibold px-2.5 py-1 rounded-full ${todayCount >= 3 ? 'bg-white/5 text-[var(--text-muted)]' : 'bg-[#10B981]/10 text-[#10B981]'}`}
               aria-live="polite"
             >
-              {todayCount}/3 aujourd'hui
+              {todayCount}/3 aujourd&apos;hui
             </span>
           </div>
 
@@ -260,7 +260,7 @@ export default function GratitudePage() {
           aria-label="Gratitudes d'aujourd'hui"
         >
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#10B981]">
-            Aujourd'hui
+            Aujourd&apos;hui
           </h2>
           <ul className="space-y-3">
             <AnimatePresence initial={false}>

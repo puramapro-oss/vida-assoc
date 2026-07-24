@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   Wallet, ArrowDownToLine, ArrowUpRight, ShieldCheck,
@@ -289,9 +290,9 @@ export default function WalletPage() {
       <section>
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold">Historique</h2>
-          <a href="/dashboard/missions" className="inline-flex items-center gap-1 text-xs text-[var(--cyan)] hover:underline">
+          <Link href="/dashboard/missions" className="inline-flex items-center gap-1 text-xs text-[var(--cyan)] hover:underline">
             Gagner plus <ArrowUpRight className="h-3 w-3" />
-          </a>
+          </Link>
         </div>
         {transactions.length === 0 ? (
           <EmptyState

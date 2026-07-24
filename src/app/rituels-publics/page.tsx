@@ -106,7 +106,7 @@ export default async function PublicRitualsPage() {
             La communauté en vibration
           </h1>
           <p className="mt-4 text-lg text-[var(--text-secondary)]">
-            Chaque semaine, Sangha rassemble la famille autour d'une intention. Gratuit, guidé, bienveillant.
+            Chaque semaine, Sangha rassemble la famille autour d&apos;une intention. Gratuit, guidé, bienveillant.
           </p>
           <div className="mt-6">
             <Link

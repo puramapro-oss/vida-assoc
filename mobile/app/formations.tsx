@@ -53,7 +53,7 @@ export default function Formations() {
       .limit(60);
     if (filter !== "tous") q = q.eq("target_audience", filter);
     const { data } = await q;
-    if (data) setList(data as Formation[]);
+    if (data) queueMicrotask(() => setList(data as Formation[]));
   }, [filter]);
 
   useEffect(() => {

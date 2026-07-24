@@ -228,7 +228,7 @@ export default function FormationDetail() {
               <View style={{ marginTop: 12, gap: 10 }}>
                 {(formation.modules ?? []).length === 0 ? (
                   <Text style={{ color: COLORS.dim, fontSize: 13 }}>
-                    Cette formation est délivrée d'un seul tenant.
+                    Cette formation est délivrée d&apos;un seul tenant.
                   </Text>
                 ) : (
                   (formation.modules ?? []).map((m, i) => (

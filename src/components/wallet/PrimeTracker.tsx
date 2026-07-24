@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Gift, Lock, Unlock } from 'lucide-react'
 
@@ -15,9 +16,13 @@ export function PrimeTracker({ totalAllocatedCents, totalUnlockedCents, nextUnlo
   const unlocked = (totalUnlockedCents / 100).toFixed(2)
   const pending = ((totalAllocatedCents - totalUnlockedCents) / 100).toFixed(2)
 
-  const daysLeft = nextUnlockAt
-    ? Math.max(0, Math.ceil((new Date(nextUnlockAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
-    : null
+  const [now] = useState(() => Date.now())
+  const daysLeft = useMemo(() =>
+    nextUnlockAt
+      ? Math.max(0, Math.ceil((new Date(nextUnlockAt).getTime() - now) / (1000 * 60 * 60 * 24)))
+      : null,
+    [nextUnlockAt, now]
+  )
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-2xl p-5">

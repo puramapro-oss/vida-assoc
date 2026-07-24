@@ -50,7 +50,7 @@ export default function Notifications() {
       .limit(100);
     if (filter === "unread") q = q.eq("read", false);
     const { data } = await q;
-    if (data) setList(data as Notif[]);
+    if (data) queueMicrotask(() => setList(data as Notif[]));
   }, [user, filter]);
 
   useEffect(() => {

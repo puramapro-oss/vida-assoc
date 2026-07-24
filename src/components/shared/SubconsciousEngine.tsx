@@ -20,9 +20,9 @@ export function SubconsciousEngine({ trigger, onDismiss }: SubconsciousEnginePro
 
   useEffect(() => {
     if (!trigger) return
-    setMessage(getEmpowermentMessage(trigger))
+    queueMicrotask(() => setMessage(getEmpowermentMessage(trigger)))
     const timeout = setTimeout(() => {
-      setMessage(null)
+      queueMicrotask(() => setMessage(null))
       onDismiss?.()
     }, 4500)
     return () => clearTimeout(timeout)

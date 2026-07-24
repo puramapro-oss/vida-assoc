@@ -107,7 +107,7 @@ export default function Dons() {
               textTransform: "uppercase",
             }}
           >
-            100 % à l'association
+            100 % à l&apos;association
           </Text>
           <Text
             style={{

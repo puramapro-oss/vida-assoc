@@ -156,7 +156,7 @@ export default function ChatVida() {
           ListEmptyComponent={
             <View style={{ gap: 10, marginTop: 10 }}>
               <Text style={{ color: COLORS.muted, fontSize: 13 }}>
-                Pose une question, choisis ton rythme. Sangha t'écoute.
+                Pose une question, choisis ton rythme. Sangha t&apos;écoute.
               </Text>
               {SUGGESTIONS.map((s) => (
                 <Pressable

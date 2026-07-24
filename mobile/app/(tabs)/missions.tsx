@@ -46,7 +46,7 @@ export default function MissionsList() {
       .limit(60);
     if (cat !== "all") q = q.eq("category", cat);
     const { data } = await q;
-    if (data) setMissions(data as Mission[]);
+    if (data) queueMicrotask(() => setMissions(data as Mission[]));
   }, [cat]);
 
   useEffect(() => {

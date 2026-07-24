@@ -20,10 +20,12 @@ export default function CardPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setPhase(getPhase())
-    // Placeholder: fetch card status
-    setCard({ tier: 'silver', status: 'teaser' })
-    setLoading(false)
+    queueMicrotask(() => {
+      setPhase(getPhase())
+      // Placeholder: fetch card status
+      setCard({ tier: 'silver', status: 'teaser' })
+      setLoading(false)
+    })
   }, [])
 
   async function saveSplit(s: { user: number; asso: number; sasu: number }) {

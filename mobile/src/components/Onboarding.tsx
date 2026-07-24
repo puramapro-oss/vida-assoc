@@ -294,12 +294,12 @@ export function Onboarding() {
 
 function Cinematic({ onFinish }: { onFinish: () => void }) {
   const { width } = useWindowDimensions();
-  const fade = useRef(new Animated.Value(0)).current;
-  const scale = useRef(new Animated.Value(0.6)).current;
-  const titleY = useRef(new Animated.Value(16)).current;
-  const titleOpacity = useRef(new Animated.Value(0)).current;
-  const subtitleY = useRef(new Animated.Value(12)).current;
-  const subtitleOpacity = useRef(new Animated.Value(0)).current;
+  const fade = useMemo(() => new Animated.Value(0), []);
+  const scale = useMemo(() => new Animated.Value(0.6), []);
+  const titleY = useMemo(() => new Animated.Value(16), []);
+  const titleOpacity = useMemo(() => new Animated.Value(0), []);
+  const subtitleY = useMemo(() => new Animated.Value(12), []);
+  const subtitleOpacity = useMemo(() => new Animated.Value(0), []);
 
   useEffect(() => {
     Animated.parallel([

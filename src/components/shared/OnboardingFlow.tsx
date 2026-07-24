@@ -92,13 +92,15 @@ export default function OnboardingFlow() {
     const introSeen = localStorage.getItem(STORAGE_INTRO) === '1' || profile.onboarded
     const tutoDone = localStorage.getItem(STORAGE_TUTO) === '1' || profile.tutorial_completed
 
-    if (!introSeen) {
-      setPhase('cinematic')
-    } else if (!tutoDone) {
-      setPhase('tutorial')
-    } else {
-      setPhase('done')
-    }
+    queueMicrotask(() => {
+      if (!introSeen) {
+        setPhase('cinematic')
+      } else if (!tutoDone) {
+        setPhase('tutorial')
+      } else {
+        setPhase('done')
+      }
+    })
   }, [user, profile])
 
   const current = useMemo(() => STEPS[stepIdx], [stepIdx])

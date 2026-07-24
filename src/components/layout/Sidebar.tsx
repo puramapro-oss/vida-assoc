@@ -63,7 +63,7 @@ export default function Sidebar() {
   const { profile, signOut } = useAuth()
   const [collapsed, setCollapsed] = useState(false)
   const [quoteIdx, setQuoteIdx] = useState(0)
-  useEffect(() => { setQuoteIdx(Math.floor(Math.random() * WISDOM_QUOTES.length)) }, [])
+  useEffect(() => { queueMicrotask(() => setQuoteIdx(Math.floor(Math.random() * WISDOM_QUOTES.length))) }, [])
   const isSuperAdmin = profile?.email === SUPER_ADMIN_EMAIL || profile?.role === 'super_admin'
   const navItems = isSuperAdmin ? [...PRIMARY_NAV, ...SECONDARY_NAV, ADMIN_ITEM] : [...PRIMARY_NAV, ...SECONDARY_NAV]
 

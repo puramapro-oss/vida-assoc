@@ -24,18 +24,20 @@ export default function Karma() {
   const [lastResult, setLastResult] = useState<{ won: boolean; points: number; cents: number } | null>(null);
 
   async function load() {
-    setLoading(true);
+    queueMicrotask(() => setLoading(true));
     try {
       const res = await fetch(`${BRAND.appUrl}/api/karma/play`, {
         headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
       });
       const d = await res.json();
       if (!d.error) {
-        setGames(d.games ?? []);
-        setTickets(d.tickets ?? 0);
+        queueMicrotask(() => {
+          setGames(d.games ?? []);
+          setTickets(d.tickets ?? 0);
+        });
       }
     } catch { /* network */ }
-    setLoading(false);
+    queueMicrotask(() => setLoading(false));
   }
 
   useEffect(() => { load(); }, [session]);

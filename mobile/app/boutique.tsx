@@ -64,7 +64,7 @@ export default function Boutique() {
       .limit(50);
     if (category !== "tous") q = q.eq("category", category);
     const { data } = await q;
-    if (data) setProducts(data as Product[]);
+    if (data) queueMicrotask(() => setProducts(data as Product[]));
   }, [category]);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export default function Boutique() {
               lineHeight: 32,
             }}
           >
-            Acheter, c'est{"\n"}déjà donner.
+            Acheter, c&apos;est{"\n"}déjà donner.
           </Text>
         </View>
 
@@ -158,7 +158,7 @@ export default function Boutique() {
         {products.length === 0 ? (
           <Card>
             <Text style={{ color: COLORS.muted, fontSize: 13 }}>
-              Aucun produit dans cette catégorie pour l'instant.
+              Aucun produit dans cette catégorie pour l&apos;instant.
             </Text>
           </Card>
         ) : (

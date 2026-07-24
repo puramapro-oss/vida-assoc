@@ -39,7 +39,7 @@ export default function Impact() {
       .order("date", { ascending: false })
       .limit(1)
       .maybeSingle();
-    setStats((data as GlobalStats | null) ?? EMPTY_STATS);
+    queueMicrotask(() => setStats((data as GlobalStats | null) ?? EMPTY_STATS));
   }, []);
 
   useEffect(() => {

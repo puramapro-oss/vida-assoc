@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Trophy, ArrowLeft } from 'lucide-react'
@@ -136,26 +136,27 @@ export default function ResultatsPage() {
 }
 
 function Confetti() {
-  const pieces = Array.from({ length: 30 })
+  const [pieces] = useState(() =>
+    Array.from({ length: 30 }, (_, i) => ({
+      left: Math.random() * 100,
+      delay: Math.random() * 0.6,
+      dur: 1.8 + Math.random(),
+      color: ['#FBBF24', '#10B981', '#06B6D4', '#A78BFA', '#F472B6'][i % 5],
+    }))
+  )
+
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
-      {pieces.map((_, i) => {
-        const left = Math.random() * 100
-        const delay = Math.random() * 0.6
-        const dur = 1.8 + Math.random()
-        const colors = ['#FBBF24', '#10B981', '#06B6D4', '#A78BFA', '#F472B6']
-        const color = colors[i % colors.length]
-        return (
-          <motion.span
-            key={i}
-            initial={{ y: -40, opacity: 0, rotate: 0 }}
-            animate={{ y: '110vh', opacity: [0, 1, 1, 0], rotate: 360 }}
-            transition={{ duration: dur, delay, ease: 'easeIn' }}
-            className="absolute top-0 h-2 w-2 rounded-sm"
-            style={{ left: `${left}%`, backgroundColor: color }}
-          />
-        )
-      })}
+      {pieces.map((p, i) => (
+        <motion.span
+          key={i}
+          initial={{ y: -40, opacity: 0, rotate: 0 }}
+          animate={{ y: '110vh', opacity: [0, 1, 1, 0], rotate: 360 }}
+          transition={{ duration: p.dur, delay: p.delay, ease: 'easeIn' }}
+          className="absolute top-0 h-2 w-2 rounded-sm"
+          style={{ left: `${p.left}%`, backgroundColor: p.color }}
+        />
+      ))}
     </div>
   )
 }

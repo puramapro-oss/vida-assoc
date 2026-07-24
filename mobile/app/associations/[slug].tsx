@@ -51,7 +51,7 @@ export default function AssociationDetail() {
       .maybeSingle();
     if (!data) return;
     const a = data as Asso;
-    setAsso(a);
+    queueMicrotask(() => setAsso(a));
     const { data: m } = await supabase
       .schema("vida_assoc")
       .from("missions")
@@ -60,7 +60,7 @@ export default function AssociationDetail() {
       .eq("is_active", true)
       .order("created_at", { ascending: false })
       .limit(10);
-    if (m) setMissions(m as Mission[]);
+    if (m) queueMicrotask(() => setMissions(m as Mission[]));
   }, [slug]);
 
   useEffect(() => {
@@ -68,9 +68,9 @@ export default function AssociationDetail() {
   }, [load]);
 
   async function onRefresh() {
-    setRefreshing(true);
+    queueMicrotask(() => setRefreshing(true));
     await load();
-    setRefreshing(false);
+    queueMicrotask(() => setRefreshing(false));
   }
 
   return (

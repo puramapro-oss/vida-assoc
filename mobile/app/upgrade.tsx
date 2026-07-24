@@ -120,7 +120,7 @@ export default function Upgrade() {
               lineHeight: 34,
             }}
           >
-            Choisis ton{"\n"}rythme d'engagement.
+            Choisis ton{"\n"}rythme d&apos;engagement.
           </Text>
         </View>
 

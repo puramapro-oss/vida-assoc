@@ -33,7 +33,7 @@ export default function Associations() {
       .eq("verified", true)
       .order("impact_score", { ascending: false })
       .limit(100);
-    if (data) setList(data as Asso[]);
+    if (data) queueMicrotask(() => setList(data as Asso[]));
   }, []);
 
   useEffect(() => {

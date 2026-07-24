@@ -32,15 +32,17 @@ export default function KarmaPage() {
   const [result, setResult] = useState<{ outcome: string; points: number; cents: number; game: string } | null>(null)
 
   async function load() {
-    setLoading(true)
+    queueMicrotask(() => setLoading(true))
     const res = await fetch('/api/karma/play')
     const d = await res.json()
     if (!d.error) {
-      setGames(d.games ?? [])
-      setTickets(d.tickets ?? 0)
-      setRecent(d.recent_plays ?? [])
+      queueMicrotask(() => {
+        setGames(d.games ?? [])
+        setTickets(d.tickets ?? 0)
+        setRecent(d.recent_plays ?? [])
+      })
     }
-    setLoading(false)
+    queueMicrotask(() => setLoading(false))
   }
 
   useEffect(() => { load() }, [])

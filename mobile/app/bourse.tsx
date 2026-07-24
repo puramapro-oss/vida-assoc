@@ -38,15 +38,15 @@ export default function Bourse() {
   const [sent, setSent] = useState(false);
 
   async function load() {
-    setLoading(true);
+    queueMicrotask(() => setLoading(true));
     try {
       const res = await fetch(`${BRAND.appUrl}/api/bourse/apply`, {
         headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
       });
       const d = await res.json();
-      if (!d.error) setCases(d.cases ?? []);
+      if (!d.error) queueMicrotask(() => setCases(d.cases ?? []));
     } catch { /* network */ }
-    setLoading(false);
+    queueMicrotask(() => setLoading(false));
   }
 
   useEffect(() => { load(); }, [session]);

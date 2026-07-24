@@ -18,9 +18,9 @@ export function useMultisensorialEnabled() {
   const [enabled, setEnabledState] = useState(false)
 
   useEffect(() => {
-    setEnabledState(readEnabled())
+    queueMicrotask(() => setEnabledState(readEnabled()))
     const onStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY) setEnabledState(e.newValue !== '0')
+      if (e.key === STORAGE_KEY) queueMicrotask(() => setEnabledState(e.newValue !== '0'))
     }
     window.addEventListener('storage', onStorage)
     return () => window.removeEventListener('storage', onStorage)

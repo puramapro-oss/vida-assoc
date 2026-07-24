@@ -55,8 +55,10 @@ export default function Concours() {
       .limit(30);
     if (data) {
       const c = data as Contest[];
-      setLive(c.filter((x) => x.status === "live"));
-      setUpcoming(c.filter((x) => x.status === "upcoming"));
+      queueMicrotask(() => {
+        setLive(c.filter((x) => x.status === "live"));
+        setUpcoming(c.filter((x) => x.status === "upcoming"));
+      });
     }
   }, []);
 
@@ -200,7 +202,7 @@ export default function Concours() {
                     </Text>
                   </View>
                   <Text style={{ color: COLORS.muted, fontSize: 12 }}>
-                    Jusqu'au {formatDate(c.end_date)}
+                    Jusqu&apos;au {formatDate(c.end_date)}
                   </Text>
                 </View>
               </View>
@@ -223,7 +225,7 @@ export default function Concours() {
           <View style={{ gap: 12, marginTop: 14 }}>
             {upcoming.length === 0 ? (
               <Text style={{ color: COLORS.dim, fontSize: 13 }}>
-                Aucun concours programmé pour l'instant. Reviens vite ✨
+                Aucun concours programmé pour l&apos;instant. Reviens vite ✨
               </Text>
             ) : (
               upcoming.map((c) => (
