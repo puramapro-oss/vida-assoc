@@ -155,7 +155,7 @@ export default function DailyGiftPage() {
   }, [user])
 
   useEffect(() => {
-    loadStatus()
+    queueMicrotask(() => loadStatus())
   }, [loadStatus])
 
   // ── Open chest ──────────────────────────────────────────────────────────────

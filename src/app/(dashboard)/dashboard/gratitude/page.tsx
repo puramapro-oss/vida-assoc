@@ -84,7 +84,7 @@ export default function GratitudePage() {
   }, [user])
 
   useEffect(() => {
-    if (!authLoading && user) fetchEntries()
+    if (!authLoading && user) queueMicrotask(() => fetchEntries())
   }, [authLoading, user, fetchEntries])
 
   // Today's count

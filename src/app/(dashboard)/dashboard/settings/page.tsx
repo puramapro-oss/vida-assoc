@@ -73,17 +73,19 @@ export default function SettingsPage() {
 
   useEffect(() => {
     if (!profile) return
-    setTheme(profile.theme ?? 'dark')
-    setLang(((profile.lang as LangCode) ?? 'fr'))
-    setNotifMode(profile.notification_mode ?? 'normal')
-    setAccessMode(profile.accessibility_mode ?? 'standard')
-    setMultisensorial(Boolean(profile.multisensorial_enabled))
-    try {
-      window.localStorage.setItem(
-        'vida-multisensorial',
-        profile.multisensorial_enabled ? '1' : '0'
-      )
-    } catch {}
+    queueMicrotask(() => {
+      setTheme(profile.theme ?? 'dark')
+      setLang(((profile.lang as LangCode) ?? 'fr'))
+      setNotifMode(profile.notification_mode ?? 'normal')
+      setAccessMode(profile.accessibility_mode ?? 'standard')
+      setMultisensorial(Boolean(profile.multisensorial_enabled))
+      try {
+        window.localStorage.setItem(
+          'vida-multisensorial',
+          profile.multisensorial_enabled ? '1' : '0'
+        )
+      } catch {}
+    })
   }, [profile])
 
   const dirty = useMemo(() => {

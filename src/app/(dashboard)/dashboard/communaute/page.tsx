@@ -133,7 +133,7 @@ export default function CommunityPage() {
 
   async function toggleLike(post: PostRow) {
     if (!user) {
-      window.location.href = '/login?next=/dashboard/communaute'
+      window.location.assign('/login?next=/dashboard/communaute')
       return
     }
     const next = !post.liked

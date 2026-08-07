@@ -34,7 +34,7 @@ export default function ChatVidaPage() {
   async function send(content: string) {
     if (!content.trim() || streaming) return
     if (!user) {
-      window.location.href = '/login?next=/dashboard/chat-vida'
+      window.location.assign('/login?next=/dashboard/chat-vida')
       return
     }
     setError(null)

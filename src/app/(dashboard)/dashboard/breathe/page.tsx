@@ -185,7 +185,7 @@ export default function BreathePage() {
   useEffect(() => {
     if (appState === 'done') {
       clearTimer()
-      saveSession()
+      queueMicrotask(() => saveSession())
     }
   }, [appState, clearTimer, saveSession])
 

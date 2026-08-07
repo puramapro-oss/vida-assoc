@@ -1,1 +1,2 @@
-module.exports = require("uuid").v4
+import { v4 } from "uuid"
+export default v4

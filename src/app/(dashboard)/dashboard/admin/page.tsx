@@ -47,7 +47,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!user || !isSuperAdmin) {
-      setLoading(false)
+      queueMicrotask(() => setLoading(false))
       return
     }
     const sb = createClient()

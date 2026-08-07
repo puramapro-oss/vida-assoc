@@ -36,13 +36,13 @@ export default function ProfilePage() {
 
   useEffect(() => {
     if (!profile) return
-    setForm({
+    queueMicrotask(() => setForm({
       full_name: profile.full_name ?? '',
       avatar_url: profile.avatar_url ?? '',
       city: profile.city ?? '',
       country: profile.country ?? '',
       region: profile.region ?? '',
-    })
+    }))
   }, [profile])
 
   const level = useMemo(() => levelFromImpactScore(profile?.impact_score ?? 0), [profile?.impact_score])

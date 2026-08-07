@@ -44,7 +44,7 @@ export default function InfluencerPage() {
 
   useEffect(() => {
     if (!user) {
-      setLoading(false)
+      queueMicrotask(() => setLoading(false))
       return
     }
     const sb = createClient()
@@ -67,7 +67,7 @@ export default function InfluencerPage() {
   }, [profile?.full_name, user?.email])
 
   useEffect(() => {
-    if (!influencer && !code) setCode(suggestion)
+    if (!influencer && !code) queueMicrotask(() => setCode(suggestion))
   }, [influencer, suggestion, code])
 
   async function submitApply() {

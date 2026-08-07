@@ -34,7 +34,7 @@ export default function PricingPage() {
       })
       const data = await res.json()
       if (data.url) {
-        window.location.href = data.url
+        window.location.assign(data.url)
       } else {
         toast.error(data.error ?? 'Impossible de démarrer le paiement. Réessaie dans un instant.')
       }
