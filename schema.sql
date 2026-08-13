@@ -63,6 +63,14 @@ CREATE TABLE IF NOT EXISTS vida_assoc.profiles (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+-- Idempotence webhook Stripe : empeche un event redeliverre par Stripe/karma
+-- de re-executer le handler (double-credit asso/prime, cf task_plan.md P3).
+CREATE TABLE IF NOT EXISTS vida_assoc.stripe_events (
+  event_id TEXT PRIMARY KEY,
+  type TEXT,
+  processed_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
 CREATE INDEX IF NOT EXISTS idx_profiles_email ON vida_assoc.profiles(email);
 CREATE INDEX IF NOT EXISTS idx_profiles_referral_code ON vida_assoc.profiles(referral_code);
 CREATE INDEX IF NOT EXISTS idx_profiles_stripe_customer ON vida_assoc.profiles(stripe_customer_id);
