@@ -72,6 +72,8 @@ export async function payoutToBank(params: {
     currency: 'eur',
     destination: params.accountId,
     description: params.description ?? 'Sangha payout',
+  }, {
+    idempotencyKey: `transfer:${params.accountId}:${params.amountCents}:${new Date().toISOString().slice(0, 10)}`,
   })
 }
 

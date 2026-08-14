@@ -81,6 +81,8 @@ export async function createCheckoutSession(params: {
     },
     success_url: params.successUrl,
     cancel_url: params.cancelUrl,
+  }, {
+    idempotencyKey: `checkout:${params.customerId ?? params.customerEmail ?? 'anon'}:${params.plan}:${params.interval}:${new Date().toISOString().slice(0, 10)}`,
   })
 }
 
@@ -125,6 +127,8 @@ export async function createDonationCheckoutSession(params: {
         recipient_type: params.recipientType,
         recipient_id: params.recipientId ?? '',
       },
+    }, {
+      idempotencyKey: `checkout:donation-sub:${params.customerEmail ?? 'anon'}:${params.recipientType}:${params.recipientId ?? 'none'}:${params.amountCents}:${new Date().toISOString().slice(0, 10)}`,
     })
   }
   return stripe.checkout.sessions.create({
@@ -151,6 +155,8 @@ export async function createDonationCheckoutSession(params: {
       recipient_type: params.recipientType,
       recipient_id: params.recipientId ?? '',
     },
+  }, {
+    idempotencyKey: `checkout:donation-once:${params.customerEmail ?? 'anon'}:${params.recipientType}:${params.recipientId ?? 'none'}:${params.amountCents}:${new Date().toISOString().slice(0, 10)}`,
   })
 }
 
