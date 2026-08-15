@@ -95,6 +95,41 @@ async function handleInvoicePaid(invoice: Stripe.Invoice) {
       billing_reason: invoice.billing_reason,
     },
   })
+
+  // Commission de parrainage N1 = 50% du 1er paiement (résolution CLAUDE.md §9.2,
+  // "carte à vie" = éligibilité du parrain dure tant que le compte existe, pas une
+  // commission récurrente à chaque renouvellement — ancien modèle "surplus CPA"
+  // explicitement obsolète). Ne s'applique qu'au tout premier paiement de l'abonnement.
+  // `recurring`/`cross_app`/`bonus` (commission_type existants dans le schéma) non
+  // câblés ici, faute de taux résolu ailleurs dans l'écosystème.
+  if (isFirst) {
+    const commissionCents = Math.floor(amount * 0.5)
+    if (commissionCents > 0) {
+      const { data: converted } = await service
+        .from('referrals')
+        .update({
+          status: 'converted',
+          converted_at: new Date().toISOString(),
+          first_subscription_earned_cents: commissionCents,
+        })
+        .eq('referred_id', profile.id)
+        .eq('status', 'pending')
+        .select('id, referrer_id')
+        .maybeSingle()
+
+      if (converted) {
+        await service.from('referral_commissions').insert({
+          referral_id: converted.id,
+          referrer_id: converted.referrer_id,
+          amount_cents: commissionCents,
+          commission_type: 'first_subscription',
+          source_type: 'subscription',
+          source_id: null,
+          status: 'pending',
+        })
+      }
+    }
+  }
 }
 
 async function handleConnectAccountUpdated(account: Stripe.Account) {
