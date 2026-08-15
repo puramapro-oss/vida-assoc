@@ -1217,6 +1217,29 @@ BEGIN
 END;
 $$;
 
+-- Réconciliation wallet ↔ Stripe (cron /api/cron/reconcile, alerte-only,
+-- 0 correction automatique)
+CREATE TABLE IF NOT EXISTS vida_assoc.reconciliation_reports (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  run_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  window_start TIMESTAMPTZ NOT NULL,
+  window_end TIMESTAMPTZ NOT NULL,
+  invoices_without_prime INTEGER NOT NULL DEFAULT 0,
+  referral_commission_mismatches INTEGER NOT NULL DEFAULT 0,
+  wallet_ledger_mismatches INTEGER NOT NULL DEFAULT 0,
+  details JSONB NOT NULL DEFAULT '[]'::jsonb,
+  alert_sent BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+ALTER TABLE vida_assoc.reconciliation_reports ENABLE ROW LEVEL SECURITY;
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname='vida_assoc' AND tablename='reconciliation_reports') THEN
+    CREATE POLICY "service role reconciliation_reports" ON vida_assoc.reconciliation_reports FOR ALL TO service_role USING (TRUE);
+  END IF;
+END $$;
+CREATE INDEX IF NOT EXISTS idx_reconciliation_reports_run_at ON vida_assoc.reconciliation_reports(run_at DESC);
+
 -- Permissions schema
 GRANT USAGE ON SCHEMA vida_assoc TO anon, authenticated, service_role;
 GRANT ALL ON ALL TABLES IN SCHEMA vida_assoc TO authenticated, service_role;
