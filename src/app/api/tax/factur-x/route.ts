@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { createServiceClient } from '@/lib/supabase'
-import { buildFacturXXml, buildSimpleInvoicePdfText, generateInvoiceNumber } from '@/lib/factur-x'
+import { buildFacturXXml, buildSimpleInvoicePdfText } from '@/lib/factur-x'
 import { COMPANY_INFO } from '@/lib/constants'
 
 export const runtime = 'nodejs'
@@ -34,13 +34,7 @@ export async function POST(req: Request) {
     .eq('user_id', user.id)
     .maybeSingle()
 
-  // Compteur annuel pour numéroter
-  const year = new Date().getFullYear()
-  const { count } = await service
-    .from('factur_x_invoices')
-    .select('id', { count: 'exact', head: true })
-    .gte('issued_at', `${year}-01-01`)
-  const invoiceNumber = generateInvoiceNumber(count ?? 0)
+  const { data: invoiceNumber } = await service.rpc('next_invoice_number')
 
   const input = {
     invoice_number: invoiceNumber,
@@ -49,7 +43,7 @@ export async function POST(req: Request) {
     currency: 'EUR' as const,
     seller: {
       name: COMPANY_INFO.name,
-      siret: process.env.SASU_SIRET ?? '98300000000000',
+      siret: process.env.SASU_SIRET ?? "SIRET en cours d'attribution",
       address: {
         street: COMPANY_INFO.address.split(',')[0],
         city: COMPANY_INFO.address.split(',')[1]?.trim().split(' ').slice(1).join(' ') ?? 'Frasne',
