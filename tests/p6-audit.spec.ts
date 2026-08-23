@@ -192,7 +192,7 @@ test.describe('P6 — Forms', () => {
     await expect(page.locator('[data-testid="email-input"]')).toBeVisible()
     await expect(page.locator('[data-testid="password-input"]')).toBeVisible()
     await expect(page.locator('[data-testid="confirm-password-input"]')).toBeVisible()
-    await expect(page.locator('[data-testid="cgu-checkbox"]')).toBeVisible()
+    await expect(page.getByText(/CGU/)).toBeVisible()
     await expect(page.locator('[data-testid="signup-button"]')).toBeVisible()
   })
 

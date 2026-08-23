@@ -7,8 +7,9 @@
     }
   },
   "crons": [
-    { "path": "/api/cron/unlock-primes", "schedule": "0 4 * * *" },
-    { "path": "/api/cron/reset-streak",  "schedule": "1 0 * * *" },
-    { "path": "/api/cron/karma-weekly",  "schedule": "59 23 * * 0" }
+    { "path": "/api/cron/unlock-primes",       "schedule": "0 4 * * *" },
+    { "path": "/api/cron/reset-streak",        "schedule": "1 0 * * *" },
+    { "path": "/api/cron/karma-weekly",        "schedule": "59 23 * * 0" },
+    { "path": "/api/cron/account-deletion",    "schedule": "0 3 * * *" }
   ]
 }

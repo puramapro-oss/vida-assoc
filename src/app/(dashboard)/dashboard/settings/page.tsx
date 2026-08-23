@@ -346,17 +346,19 @@ export default function SettingsPage() {
 
       {/* Danger zone */}
       <Section title="Zone sensible" hint="Tes données t’appartiennent.">
-        <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-5">
-          <div className="flex items-start gap-3">
-            <ShieldAlert className="h-5 w-5 shrink-0 text-red-300" />
-            <div>
-              <p className="text-sm font-semibold text-[var(--text-primary)]">Exporter ou supprimer mes données</p>
-              <p className="mt-1 text-xs text-[var(--text-secondary)]">
-                Écris à <a href="mailto:matiss.frasne@gmail.com?subject=Sangha%20-%20Droit%20RGPD" className="underline decoration-red-300/60 hover:text-red-300">matiss.frasne@gmail.com</a> avec l’objet « Sangha - Droit RGPD ». Ton profil et toutes tes données sont retirés sous 30 jours, conformément à l’article 17 du RGPD.
-              </p>
-            </div>
+        <Link
+          href="/dashboard/ma-memoire"
+          className="flex items-start gap-3 rounded-2xl border border-red-500/20 bg-red-500/5 p-5 transition-all hover:border-red-500/40"
+          data-testid="ma-memoire-link"
+        >
+          <ShieldAlert className="h-5 w-5 shrink-0 text-red-300" />
+          <div>
+            <p className="text-sm font-semibold text-[var(--text-primary)]">Ma mémoire — exporter ou supprimer mes données</p>
+            <p className="mt-1 text-xs text-[var(--text-secondary)]">
+              Exporte une copie complète de tes données (JSON) ou programme la suppression de ton compte, conformément à l’article 17 du RGPD.
+            </p>
           </div>
-        </div>
+        </Link>
       </Section>
     </div>
   )

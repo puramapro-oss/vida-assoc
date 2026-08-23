@@ -17,6 +17,7 @@
   --text-muted: rgba(255,255,255,0.58);
   --border: rgba(255,255,255,0.06);
   --border-glow: rgba(0,212,255,0.3);
+  --danger: #ff5470;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -40,6 +41,22 @@
   --text-muted: rgba(15,23,42,0.45);
   --border: rgba(15,23,42,0.08);
   --border-glow: rgba(8,145,178,0.35);
+  --danger: #dc2626;
+}
+
+/* Mappe les tokens du socle légal partagé (packages/legal/) — bg-background, text-muted-foreground,
+   border-border, text-destructive, rounded-pill... — vers les vraies CSS vars de Sangha
+   (piège connu : Tailwind v4 ne génère ces utilités que si @theme les déclare, cf PIEGES.md §16). */
+@theme inline {
+  --color-background: var(--bg-void);
+  --color-background-soft: var(--bg-nebula);
+  --color-foreground: var(--text-primary);
+  --color-muted-foreground: var(--text-muted);
+  --color-border: var(--border);
+  --color-primary: var(--cyan);
+  --color-primary-on-dark: var(--cyan);
+  --color-destructive: var(--danger);
+  --radius-pill: 9999rem;
 }
 
 [data-theme='light'] body {

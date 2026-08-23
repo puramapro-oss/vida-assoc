@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Send, Sparkles, Loader2 } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import Button from '@/components/ui/Button'
+import AIDisclosure from '@/lib/legal/components/AIDisclosure'
 
 interface Msg {
   role: 'user' | 'assistant'
@@ -106,6 +107,7 @@ export default function ChatVidaPage() {
           <Sparkles className="h-6 w-6 text-[#10B981]" /> Sangha
         </h1>
         <p className="text-sm text-[var(--text-secondary)]">Pose toutes tes questions — Sangha répond avec bienveillance.</p>
+        <AIDisclosure appName="Sangha" />
       </header>
 
       <div
