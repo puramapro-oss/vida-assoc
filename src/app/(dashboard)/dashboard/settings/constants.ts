@@ -1,4 +1,3 @@
-import { Moon, Sun, Monitor, Zap } from 'lucide-react'
 import type { AccessibilityMode, NotificationMode, Theme } from '@/types'
 
 export type LangCode = 'fr' | 'en' | 'es' | 'de' | 'it' | 'pt' | 'ar' | 'zh' | 'ja' | 'ko' | 'hi' | 'ru' | 'tr' | 'nl' | 'pl' | 'sv'
@@ -22,15 +21,15 @@ export const LANGS: Array<{ code: LangCode; label: string; flag: string }> = [
   { code: 'sv', label: 'Svenska', flag: '🇸🇪' },
 ]
 
-export const THEMES: Array<{ id: Theme; label: string; icon: React.ReactNode; hint: string }> = [
-  { id: 'dark', label: 'Sombre', icon: <Moon className="h-4 w-4" />, hint: 'Par défaut' },
-  { id: 'oled', label: 'OLED', icon: <Zap className="h-4 w-4" />, hint: 'Noir absolu, économe' },
-  { id: 'light', label: 'Clair', icon: <Sun className="h-4 w-4" />, hint: 'Mode jour' },
-  { id: 'auto', label: 'Auto', icon: <Monitor className="h-4 w-4" />, hint: 'Suit le système' },
+export const THEMES: Array<{ id: Theme; label: string; iconName: string; hint: string }> = [
+  { id: 'dark', label: 'Sombre', iconName: 'Moon', hint: 'Par défaut' },
+  { id: 'oled', label: 'OLED', iconName: 'Zap', hint: 'Noir absolu, économe' },
+  { id: 'light', label: 'Clair', iconName: 'Sun', hint: 'Mode jour' },
+  { id: 'auto', label: 'Auto', iconName: 'Monitor', hint: 'Suit le système' },
 ]
 
 export const NOTIF_MODES: Array<{ id: NotificationMode; label: string; description: string }> = [
-  { id: 'zen',        label: 'Zen',        description: 'Uniquement l'essentiel (rituels, gains importants).' },
+  { id: 'zen',        label: 'Zen',        description: "Uniquement l'essentiel (rituels, gains importants)." },
   { id: 'normal',     label: 'Normal',     description: 'Rythme équilibré, recommandations IA adaptées.' },
   { id: 'actif',      label: 'Actif',      description: 'Nouvelles missions, communauté, rituels, concours.' },
   { id: 'silencieux', label: 'Silencieux', description: 'Aucune notification push — retour manuel uniquement.' },

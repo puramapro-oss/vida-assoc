@@ -149,7 +149,7 @@ export default function ReferralPage() {
               Parrainage
             </h1>
             <p className="text-sm text-[var(--text-secondary)]">
-              Partage {APP_SHORT_NAME} avec tes proches. Chaque inscription nourrit l'impact collectif.
+              Partage {APP_SHORT_NAME} avec tes proches. Chaque inscription nourrit l&apos;impact collectif.
             </p>
           </div>
         </div>

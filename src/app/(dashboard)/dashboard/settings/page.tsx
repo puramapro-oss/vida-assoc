@@ -1,18 +1,22 @@
 'use client'
 
-import { useEffect, useMemo, useState } from ‘react’
-import { motion } from ‘framer-motion’
+import { useEffect, useMemo, useState } from 'react'
+import { motion } from 'framer-motion'
 import {
   Settings as SettingsIcon,
   Bell, Globe2, Accessibility, Save, CheckCircle2,
   LogOut, ShieldAlert, CreditCard, Loader2,
-} from ‘lucide-react’
-import Link from ‘next/link’
-import { useAuth } from ‘@/hooks/useAuth’
-import type { AccessibilityMode, NotificationMode, Theme } from ‘@/types’
-import Button from ‘@/components/ui/Button’
-import EmptyState from ‘@/components/ui/EmptyState’
-import { LANGS, THEMES, NOTIF_MODES, ACCESS_MODES, type LangCode } from ‘./constants’
+  Moon, Sun, Monitor, Zap,
+} from 'lucide-react'
+import Link from 'next/link'
+import { useAuth } from '@/hooks/useAuth'
+import type { AccessibilityMode, NotificationMode, Theme } from '@/types'
+import Button from '@/components/ui/Button'
+import EmptyState from '@/components/ui/EmptyState'
+import { LANGS, THEMES, NOTIF_MODES, ACCESS_MODES, type LangCode } from './constants'
+import Section from './Section'
+
+const THEME_ICONS = { Moon, Sun, Monitor, Zap }
 
 export default function SettingsPage() {
   const { user, profile, loading: authLoading, signOut, refetch } = useAuth()
@@ -140,6 +144,7 @@ export default function SettingsPage() {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {THEMES.map((t) => {
             const active = theme === t.id
+            const Icon = THEME_ICONS[t.iconName as keyof typeof THEME_ICONS]
             return (
               <button
                 type="button"
@@ -153,7 +158,7 @@ export default function SettingsPage() {
                 }`}
               >
                 <span className={`flex h-8 w-8 items-center justify-center rounded-xl ${active ? 'bg-[var(--cyan)]/20 text-[var(--cyan)]' : 'bg-white/5 text-[var(--text-secondary)]'}`}>
-                  {t.icon}
+                  <Icon className="h-4 w-4" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-[var(--text-primary)]">{t.label}</p>
@@ -212,7 +217,7 @@ export default function SettingsPage() {
       </Section>
 
       {/* Accessibility */}
-      <Section title="Accessibilité" hint="Sangha s’adapte à ta vie. Choisis le mode le plus confortable.">
+      <Section title="Accessibilité" hint="Sangha s&apos;adapte à ta vie. Choisis le mode le plus confortable.">
         <div className="grid gap-3 md:grid-cols-2">
           {ACCESS_MODES.map((a) => {
             const active = accessMode === a.id
@@ -291,7 +296,7 @@ export default function SettingsPage() {
             <div className="flex items-center gap-3">
               <CreditCard className="h-4 w-4 text-[#D4AF37]" />
               <div>
-                <p className="text-sm font-semibold text-[var(--text-primary)]">Changer d’offre</p>
+                <p className="text-sm font-semibold text-[var(--text-primary)]">Changer d'offre</p>
                 <p className="text-xs text-[var(--text-secondary)]">Free · Sangha One · Sangha Premium</p>
               </div>
             </div>
@@ -306,7 +311,7 @@ export default function SettingsPage() {
       </Section>
 
       {/* Danger zone */}
-      <Section title="Zone sensible" hint="Tes données t’appartiennent.">
+      <Section title="Zone sensible" hint="Tes données t&apos;appartiennent.">
         <Link
           href="/dashboard/ma-memoire"
           className="flex items-start gap-3 rounded-2xl border border-red-500/20 bg-red-500/5 p-5 transition-all hover:border-red-500/40"
@@ -316,7 +321,7 @@ export default function SettingsPage() {
           <div>
             <p className="text-sm font-semibold text-[var(--text-primary)]">Ma mémoire — exporter ou supprimer mes données</p>
             <p className="mt-1 text-xs text-[var(--text-secondary)]">
-              Exporte une copie complète de tes données (JSON) ou programme la suppression de ton compte, conformément à l’article 17 du RGPD.
+              Exporte une copie complète de tes données (JSON) ou programme la suppression de ton compte, conformément à l&apos;article 17 du RGPD.
             </p>
           </div>
         </Link>
@@ -325,14 +330,3 @@ export default function SettingsPage() {
   )
 }
 
-function Section({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
-  return (
-    <section>
-      <div className="mb-3 flex items-end justify-between gap-3">
-        <h2 className="font-[family-name:var(--font-display)] text-xl font-semibold">{title}</h2>
-        {hint && <p className="text-xs text-[var(--text-muted)] md:max-w-sm md:text-right">{hint}</p>}
-      </div>
-      {children}
-    </section>
-  )
-}
