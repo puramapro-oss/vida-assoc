@@ -1,61 +1,18 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useMemo, useState } from ‘react’
+import { motion } from ‘framer-motion’
 import {
-  Settings as SettingsIcon, Moon, Sun, Monitor, Zap,
+  Settings as SettingsIcon,
   Bell, Globe2, Accessibility, Save, CheckCircle2,
   LogOut, ShieldAlert, CreditCard, Loader2,
-} from 'lucide-react'
-import Link from 'next/link'
-import { useAuth } from '@/hooks/useAuth'
-import type { AccessibilityMode, NotificationMode, Theme } from '@/types'
-import Button from '@/components/ui/Button'
-import EmptyState from '@/components/ui/EmptyState'
-
-type LangCode = 'fr' | 'en' | 'es' | 'de' | 'it' | 'pt' | 'ar' | 'zh' | 'ja' | 'ko' | 'hi' | 'ru' | 'tr' | 'nl' | 'pl' | 'sv'
-
-const LANGS: Array<{ code: LangCode; label: string; flag: string }> = [
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'es', label: 'Español', flag: '🇪🇸' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { code: 'it', label: 'Italiano', flag: '🇮🇹' },
-  { code: 'pt', label: 'Português', flag: '🇵🇹' },
-  { code: 'ar', label: 'العربية', flag: '🇸🇦' },
-  { code: 'zh', label: '中文', flag: '🇨🇳' },
-  { code: 'ja', label: '日本語', flag: '🇯🇵' },
-  { code: 'ko', label: '한국어', flag: '🇰🇷' },
-  { code: 'hi', label: 'हिन्दी', flag: '🇮🇳' },
-  { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-  { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
-  { code: 'nl', label: 'Nederlands', flag: '🇳🇱' },
-  { code: 'pl', label: 'Polski', flag: '🇵🇱' },
-  { code: 'sv', label: 'Svenska', flag: '🇸🇪' },
-]
-
-const THEMES: Array<{ id: Theme; label: string; icon: React.ReactNode; hint: string }> = [
-  { id: 'dark', label: 'Sombre', icon: <Moon className="h-4 w-4" />, hint: 'Par défaut' },
-  { id: 'oled', label: 'OLED', icon: <Zap className="h-4 w-4" />, hint: 'Noir absolu, économe' },
-  { id: 'light', label: 'Clair', icon: <Sun className="h-4 w-4" />, hint: 'Mode jour' },
-  { id: 'auto', label: 'Auto', icon: <Monitor className="h-4 w-4" />, hint: 'Suit le système' },
-]
-
-const NOTIF_MODES: Array<{ id: NotificationMode; label: string; description: string }> = [
-  { id: 'zen',        label: 'Zen',        description: 'Uniquement l’essentiel (rituels, gains importants).' },
-  { id: 'normal',     label: 'Normal',     description: 'Rythme équilibré, recommandations IA adaptées.' },
-  { id: 'actif',      label: 'Actif',      description: 'Nouvelles missions, communauté, rituels, concours.' },
-  { id: 'silencieux', label: 'Silencieux', description: 'Aucune notification push — retour manuel uniquement.' },
-]
-
-const ACCESS_MODES: Array<{ id: AccessibilityMode; label: string; description: string }> = [
-  { id: 'standard', label: 'Standard',   description: 'Interface classique.' },
-  { id: 'visuel',   label: 'Visuel',     description: 'Texte agrandi, contraste renforcé, narration.' },
-  { id: 'auditif',  label: 'Auditif',    description: 'Sous-titres, retours visuels, vibrations.' },
-  { id: 'moteur',   label: 'Moteur',     description: 'Boutons larges, zones de touche étendues.' },
-  { id: 'enfant',   label: 'Enfant',     description: 'Vocabulaire simple, récompenses visuelles.' },
-  { id: 'senior',   label: 'Senior',     description: 'Texte XXL, contrastes forts, 1 action/écran.' },
-]
+} from ‘lucide-react’
+import Link from ‘next/link’
+import { useAuth } from ‘@/hooks/useAuth’
+import type { AccessibilityMode, NotificationMode, Theme } from ‘@/types’
+import Button from ‘@/components/ui/Button’
+import EmptyState from ‘@/components/ui/EmptyState’
+import { LANGS, THEMES, NOTIF_MODES, ACCESS_MODES, type LangCode } from ‘./constants’
 
 export default function SettingsPage() {
   const { user, profile, loading: authLoading, signOut, refetch } = useAuth()
