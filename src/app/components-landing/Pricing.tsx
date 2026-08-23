@@ -1,7 +1,9 @@
 'use client'
 
-import { Check, Zap } from 'lucide-react'
+import Link from 'next/link'
+import { Check } from 'lucide-react'
 import ScrollReveal from '@/components/shared/ScrollReveal'
+import { StaggerContainer, StaggerItem } from '@/components/shared/Stagger'
 
 
 // ─── Pricing ─────────────────────────────────────────────────────────────────

@@ -1,11 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
-  ArrowRight, Check, Globe, HandHeart, Sparkles, Heart, Users, Trophy,
-  BookOpen, ShoppingBag, Shield, Leaf, PlayCircle, Menu, X, Zap, Quote,
+  ArrowRight, Globe, HandHeart, Sparkles, Heart, Users, Trophy,
+  BookOpen, ShoppingBag, Shield, Leaf, Zap, Quote,
 } from 'lucide-react'
 import ScrollReveal from '@/components/shared/ScrollReveal'
 import { StaggerContainer, StaggerItem } from '@/components/shared/Stagger'

@@ -296,7 +296,7 @@ export default function SettingsPage() {
             <div className="flex items-center gap-3">
               <CreditCard className="h-4 w-4 text-[#D4AF37]" />
               <div>
-                <p className="text-sm font-semibold text-[var(--text-primary)]">Changer d'offre</p>
+                <p className="text-sm font-semibold text-[var(--text-primary)]">Changer d&apos;offre</p>
                 <p className="text-xs text-[var(--text-secondary)]">Free · Sangha One · Sangha Premium</p>
               </div>
             </div>

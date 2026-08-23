@@ -1,7 +1,7 @@
 'use client'
 
+import { useState } from 'react'
 import ScrollReveal from '@/components/shared/ScrollReveal'
-import { StaggerContainer, StaggerItem } from '@/components/shared/Stagger'
 
 export function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(0)
