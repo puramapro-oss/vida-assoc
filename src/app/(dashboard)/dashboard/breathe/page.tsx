@@ -4,60 +4,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Wind, RefreshCw, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
 import Button from '@/components/ui/Button'
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type Technique = '4-7-8' | '4-4-4-4'
-
-interface TechniqueConfig {
-  id: Technique
-  label: string
-  description: string
-  inhale: number
-  hold: number
-  exhale: number
-  holdAfterExhale: number
-  totalPerCycle: number
-}
-
-const TECHNIQUES: Record<Technique, TechniqueConfig> = {
-  '4-7-8': {
-    id: '4-7-8',
-    label: '4-7-8',
-    description: 'Relaxation profonde — inspire 4s, retiens 7s, expire 8s',
-    inhale: 4,
-    hold: 7,
-    exhale: 8,
-    holdAfterExhale: 0,
-    totalPerCycle: 19,
-  },
-  '4-4-4-4': {
-    id: '4-4-4-4',
-    label: 'Cohérence cardiaque',
-    description: 'Équilibre & clarté — inspire 4s, retiens 4s, expire 4s, retiens 4s',
-    inhale: 4,
-    hold: 4,
-    exhale: 4,
-    holdAfterExhale: 4,
-    totalPerCycle: 16,
-  },
-}
-
-type Phase = 'inhale' | 'hold' | 'exhale' | 'holdAfterExhale'
-type AppState = 'ready' | 'breathing' | 'done'
-
-const DEFAULT_CYCLES = 4
-
-// ─── Phase labels ─────────────────────────────────────────────────────────────
-
-const PHASE_LABELS: Record<Phase, string> = {
-  inhale: 'Inspire',
-  hold: 'Retiens',
-  exhale: 'Expire',
-  holdAfterExhale: 'Retiens',
-}
-
-// ─── Component ────────────────────────────────────────────────────────────────
+import type { Technique, TechniqueConfig, Phase, AppState } from './types'
+import { TECHNIQUES, DEFAULT_CYCLES, PHASE_LABELS } from './constants'
 
 export default function BreathePage() {
   const { user } = useAuth()
@@ -139,7 +87,6 @@ export default function BreathePage() {
         return
       }
 
-      // eslint-disable-next-line react-hooks/immutability
       timerRef.current = setTimeout(() => runPhase(phase, remaining - 1), 1000)
     },
     [getNextPhase, getPhaseDuration, config, totalCycles]

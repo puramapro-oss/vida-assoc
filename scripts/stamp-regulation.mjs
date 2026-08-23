@@ -24,15 +24,15 @@ if (!SUPABASE_URL || !SERVICE_ROLE) {
 
 const content = fs.readFileSync(inputPath, 'utf-8')
 const sha256 = crypto.createHash('sha256').update(content, 'utf-8').digest('hex')
-console.log(`SHA-256: ${sha256}`)
+console.warn(`SHA-256: ${sha256}`)
 
 // Stamp OpenTimestamps
-console.log('Stamping to OpenTimestamps calendar servers…')
+console.warn('Stamping to OpenTimestamps calendar servers…')
 const hashBuffer = Buffer.from(sha256, 'hex')
 const detached = ots.DetachedTimestampFile.fromHash(new ots.Ops.OpSHA256(), hashBuffer)
 await ots.stamp(detached)
 const proofBuffer = Buffer.from(detached.serializeToBytes())
-console.log(`Proof size: ${proofBuffer.length} bytes`)
+console.warn(`Proof size: ${proofBuffer.length} bytes`)
 
 // Upload proof to bucket
 const supabase = createClient(SUPABASE_URL, SERVICE_ROLE, {
@@ -41,7 +41,7 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE, {
 })
 
 const fileName = `regulation-karma-${sha256.slice(0, 12)}-${Date.now()}.ots`
-console.log(`Uploading to regulation-proofs/${fileName}…`)
+console.warn(`Uploading to regulation-proofs/${fileName}…`)
 const { error: upErr } = await supabase.storage
   .from('regulation-proofs')
   .upload(fileName, proofBuffer, { contentType: 'application/octet-stream', upsert: false })
@@ -51,7 +51,7 @@ if (upErr) {
 }
 const { data: urlData } = supabase.storage.from('regulation-proofs').getPublicUrl(fileName)
 const proofUrl = urlData.publicUrl
-console.log(`Proof URL: ${proofUrl}`)
+console.warn(`Proof URL: ${proofUrl}`)
 
 // Insert regulation row
 const { data: row, error: insErr } = await supabase
@@ -73,10 +73,10 @@ if (insErr) {
   process.exit(1)
 }
 
-console.log(`\n✓ Regulation published`)
-console.log(`  ID: ${row.id}`)
-console.log(`  Version: ${row.version}`)
-console.log(`  SHA-256: ${row.content_sha256}`)
-console.log(`  OTS proof: ${row.ots_proof_url}`)
-console.log(`  Pending Bitcoin confirmation (~1-6h).`)
-console.log(`  Vérifiable publiquement sur : https://vida-assoc.purama.dev/karma-regulation`)
+console.warn(`\n✓ Regulation published`)
+console.warn(`  ID: ${row.id}`)
+console.warn(`  Version: ${row.version}`)
+console.warn(`  SHA-256: ${row.content_sha256}`)
+console.warn(`  OTS proof: ${row.ots_proof_url}`)
+console.warn(`  Pending Bitcoin confirmation (~1-6h).`)
+console.warn(`  Vérifiable publiquement sur : https://vida-assoc.purama.dev/karma-regulation`)

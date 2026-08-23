@@ -2,123 +2,12 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Gift, Flame, Clock, RefreshCw, Star, Ticket, Zap, Tag } from 'lucide-react'
+import { Flame, Clock } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
-import { createClient } from '@/lib/supabase'
-import Button from '@/components/ui/Button'
 import Confetti from '@/components/shared/Confetti'
-
-// ── Types ────────────────────────────────────────────────────────────────────
-
-type GiftType =
-  | 'points_small'
-  | 'coupon_5'
-  | 'coupon_10'
-  | 'ticket'
-  | 'credits'
-  | 'coupon_20'
-  | 'points_mega'
-  | 'coupon_50'
-
-interface DailyGift {
-  id: string
-  gift_type: GiftType
-  gift_label: string
-  gift_value: string
-  points_earned: number
-  credits_earned: number
-  tickets_earned: number
-  coupon_discount: number | null
-  coupon_days: number | null
-  coupon_expires_at: string | null
-  streak_count: number
-  opened_at: string
-}
-
-type ChestState = 'closed' | 'opening' | 'revealed'
-
-// ── Gift icon/color mapping ───────────────────────────────────────────────────
-
-const GIFT_META: Record<
-  GiftType,
-  { icon: React.ReactNode; color: string; bg: string; emoji: string }
-> = {
-  points_small: {
-    icon: <Star className="w-8 h-8" />,
-    color: '#10B981',
-    bg: 'from-emerald-500/20 to-emerald-600/10',
-    emoji: '⭐',
-  },
-  coupon_5: {
-    icon: <Tag className="w-8 h-8" />,
-    color: '#D4AF37',
-    bg: 'from-yellow-500/20 to-yellow-600/10',
-    emoji: '🏷️',
-  },
-  coupon_10: {
-    icon: <Tag className="w-8 h-8" />,
-    color: '#D4AF37',
-    bg: 'from-yellow-500/20 to-amber-600/10',
-    emoji: '🏷️',
-  },
-  ticket: {
-    icon: <Ticket className="w-8 h-8" />,
-    color: '#a855f7',
-    bg: 'from-purple-500/20 to-purple-600/10',
-    emoji: '🎫',
-  },
-  credits: {
-    icon: <Zap className="w-8 h-8" />,
-    color: '#06b6d4',
-    bg: 'from-cyan-500/20 to-cyan-600/10',
-    emoji: '⚡',
-  },
-  coupon_20: {
-    icon: <Tag className="w-8 h-8" />,
-    color: '#f59e0b',
-    bg: 'from-orange-500/20 to-orange-600/10',
-    emoji: '💥',
-  },
-  points_mega: {
-    icon: <Star className="w-8 h-8" />,
-    color: '#D4AF37',
-    bg: 'from-yellow-400/30 to-emerald-500/20',
-    emoji: '🌟',
-  },
-  coupon_50: {
-    icon: <Gift className="w-8 h-8" />,
-    color: '#ec4899',
-    bg: 'from-pink-500/30 to-pink-600/10',
-    emoji: '🎁',
-  },
-}
-
-// ── Countdown helper ──────────────────────────────────────────────────────────
-
-function useCountdown(targetHour = 0) {
-  const [timeLeft, setTimeLeft] = useState('')
-
-  useEffect(() => {
-    const tick = () => {
-      const now = new Date()
-      const next = new Date()
-      next.setHours(targetHour, 0, 0, 0)
-      if (next <= now) next.setDate(next.getDate() + 1)
-      const diff = next.getTime() - now.getTime()
-      const h = Math.floor(diff / 3_600_000)
-      const m = Math.floor((diff % 3_600_000) / 60_000)
-      const s = Math.floor((diff % 60_000) / 1_000)
-      setTimeLeft(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`)
-    }
-    tick()
-    const id = setInterval(tick, 1_000)
-    return () => clearInterval(id)
-  }, [targetHour])
-
-  return timeLeft
-}
-
-// ── Main page ─────────────────────────────────────────────────────────────────
+import type { DailyGift, ChestState } from './types'
+import { GIFT_META } from './constants'
+import { useCountdown } from './hooks'
 
 export default function DailyGiftPage() {
   const { user } = useAuth()

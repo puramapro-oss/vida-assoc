@@ -84,7 +84,9 @@ export default function SettingsPage() {
           'vida-multisensorial',
           profile.multisensorial_enabled ? '1' : '0'
         )
-      } catch {}
+      } catch (err) {
+        console.error('localStorage access denied', err)
+      }
     })
   }, [profile])
 
@@ -120,7 +122,9 @@ export default function SettingsPage() {
       setSuccess(true)
       try {
         window.localStorage.setItem('vida-multisensorial', multisensorial ? '1' : '0')
-      } catch {}
+      } catch (err) {
+        console.error('localStorage access denied', err)
+      }
       await refetch()
       setTimeout(() => setSuccess(false), 3000)
     } catch (e: unknown) {

@@ -1,19 +1,15 @@
+import 'server-only';
 import Anthropic from '@anthropic-ai/sdk'
+import { smarana } from '@purama/smarana'
 import type { Plan } from '@/types'
 
-// Lazy init per MOKSHA pattern
+// Lazy init per MOKSHA pattern (pour streaming uniquement, hors périmètre smarana)
 let _anthropic: Anthropic | null = null
 export function getAnthropic(): Anthropic {
   if (!_anthropic) {
     _anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! })
   }
   return _anthropic
-}
-
-const TOKEN_LIMITS: Record<Plan, number> = {
-  free: 2048,
-  one: 4096,
-  premium: 8192,
 }
 
 const MODEL_MAP: Record<Plan, string> = {
@@ -52,23 +48,35 @@ RÈGLES :
 ${context ? `CONTEXTE UTILISATEUR :\n${context}` : ''}`
 }
 
-export async function askVida(
-  messages: Array<{ role: 'user' | 'assistant'; content: string }>,
-  plan: Plan = 'free',
-  userContext?: string,
-): Promise<string> {
-  const anthropic = getAnthropic()
-  const response = await anthropic.messages.create({
-    model: resolveModel(plan),
-    max_tokens: TOKEN_LIMITS[plan],
-    system: getVidaSystemPrompt(userContext),
-    messages,
-  })
-  const block = response.content[0]
-  if (block && block.type === 'text') return block.text
-  return ''
+// Mapping plan → tier smarana
+function planToTier(plan: Plan): 'fast' | 'main' | 'pro' {
+  if (plan === 'free') return 'fast'
+  return 'main' // one et premium → main (sonnet)
 }
 
+const MAX_TOKENS: Record<Plan, number> = {
+  free: 2048,
+  one: 4096,
+  premium: 8192,
+}
+
+// Version smarana (non-streaming) — Loi 1 SMARANA : tout passe par smarana.ask()
+export async function askVida(
+  message: string,
+  { plan = 'free', userContext, userId }: { plan?: Plan; userContext?: string; userId?: string } = {}
+): Promise<string> {
+  const result = await smarana.ask({
+    appSlug: 'vida_assoc',
+    userId,
+    system: getVidaSystemPrompt(userContext),
+    message,
+    tier: planToTier(plan),
+    maxTokens: MAX_TOKENS[plan],
+  })
+  return result.text
+}
+
+// Streaming (hors périmètre smarana, garde @anthropic-ai/sdk direct)
 export async function* streamVida(
   messages: Array<{ role: 'user' | 'assistant'; content: string }>,
   plan: Plan = 'free',
@@ -77,7 +85,7 @@ export async function* streamVida(
   const anthropic = getAnthropic()
   const stream = anthropic.messages.stream({
     model: resolveModel(plan),
-    max_tokens: TOKEN_LIMITS[plan],
+    max_tokens: MAX_TOKENS[plan],
     system: getVidaSystemPrompt(userContext),
     messages,
   })

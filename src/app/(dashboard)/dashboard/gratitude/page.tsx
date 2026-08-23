@@ -4,53 +4,9 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Heart, Sparkles, Send, Clock } from 'lucide-react'
 import { useAuth } from '@/hooks/useAuth'
-import { createClient } from '@/lib/supabase'
 import Button from '@/components/ui/Button'
 import EmptyState from '@/components/ui/EmptyState'
-
-interface GratitudeEntry {
-  id: string
-  content: string
-  created_at: string
-  user_id: string
-}
-
-const PROMPTS = [
-  'Pour quoi es-tu reconnaissant aujourd\'hui ?',
-  'Qui veux-tu remercier ?',
-  'Quel moment t\'a rendu heureux ?',
-  'Quelle petite chose belle as-tu remarquée ?',
-  'De quoi ton cœur déborde-t-il en ce moment ?',
-]
-
-function formatTime(iso: string) {
-  const d = new Date(iso)
-  return d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })
-}
-
-function formatDate(iso: string) {
-  const d = new Date(iso)
-  const today = new Date()
-  const yesterday = new Date(today)
-  yesterday.setDate(yesterday.getDate() - 1)
-
-  if (d.toDateString() === today.toDateString()) return 'Aujourd\'hui'
-  if (d.toDateString() === yesterday.toDateString()) return 'Hier'
-  return d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })
-}
-
-function groupEntriesByDate(entries: GratitudeEntry[]): { label: string; items: GratitudeEntry[] }[] {
-  const groups: Record<string, GratitudeEntry[]> = {}
-  for (const entry of entries) {
-    const key = new Date(entry.created_at).toDateString()
-    if (!groups[key]) groups[key] = []
-    groups[key].push(entry)
-  }
-  return Object.entries(groups).map(([, items]) => ({
-    label: formatDate(items[0].created_at),
-    items,
-  }))
-}
+import { GratitudeEntry, PROMPTS, formatTime, groupEntriesByDate } from './utils'
 
 export default function GratitudePage() {
   const { user, loading: authLoading } = useAuth()
