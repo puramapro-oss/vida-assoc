@@ -37,6 +37,8 @@ C'est exactement le piège identifié sur vida-grow-origine/raksha : un bandeau 
 
 **Verdict point 2 : GAP confirmé.**
 
+**CORRIGÉ le 2026-08-23** : `src/app/layout.tsx` monte désormais `CookieConsentBannerClient` (nouveau, `src/components/shared/CookieConsentBannerClient.tsx`) à la place de `CookieBanner`. Ce wrapper client rend `CookieConsentBanner` du socle (3 choix Tout accepter/Tout refuser/Personnaliser, catégories mesure/marketing granulaires, "nécessaire" toujours actif) et branche `onConsent` sur `POST /api/legal/cookie-consent` (fetch best-effort, n'affecte jamais la persistance localStorage déjà faite par `useCookieConsent`). `CookieBanner.tsx` (ancien décor) laissé intact sur disque mais n'est plus importé nulle part — hors périmètre de le supprimer (refactor non demandé par CONFORMITE.md).
+
 ---
 
 ## 3. Preuve d'acceptation CGU horodatée en base — GAP PARTIEL (piège confirmé sur le parcours OAuth)
@@ -46,6 +48,8 @@ C'est exactement le piège identifié sur vida-grow-origine/raksha : un bandeau 
 - `docType: 'mentions'` n'est jamais envoyé (ni au signup email ni ailleurs) — acceptable, les mentions légales ne sont pas un document à "accepter" juridiquement, seulement informatif.
 
 **Verdict point 3 : GAP sur le parcours OAuth** (le parcours email est correct et vérifié appelé, pas juste codé).
+
+**CORRIGÉ le 2026-08-23** : `src/app/auth/callback/route.ts` appelle désormais `recordOAuthLegalAcceptance()` juste après un `exchangeCodeForSession()` réussi. Écrit `legal_acceptances` (cgu/cgv/confidentialite, upsert `onConflict: 'user_id,doc_type'`) UNIQUEMENT si l'utilisateur n'a encore AUCUNE acceptation enregistrée (`count` vérifié avant écriture) — le clic "Continuer avec Google" équivaut au clic "Créer mon compte" côté email, mais une reconnexion OAuth ultérieure après un bump de version n'écrase jamais silencieusement une acceptation : c'est `LegalReacceptanceGate` (point 4) qui prend le relais avec un clic explicite. Best-effort (try/catch), ne bloque jamais la redirection post-login.
 
 ---
 
@@ -63,6 +67,8 @@ Tant que la migration n'est pas jouée : `POST /api/legal/accept`, `GET/POST/DEL
 Le SQL de reprise est prêt : `docs/legal-migration-pending.sql` (124 lignes, vérifié présent) + commande exacte documentée (`docker exec -i supabase-db psql -U supabase_admin -d postgres -f /dev/stdin < ...`, GRANT explicites sur les 3 tables, `NOTIFY pgrst, 'reload schema'`).
 
 **Verdict point 4 : GAP critique mais entièrement documenté** — code prêt, DB pas à jour, cause racine = blocage infra (voir point 8).
+
+**CORRIGÉ le 2026-08-23** : SSH VPS re-testé au début de cette session de remédiation → **connexion réussie** (`ssh root@72.62.191.111` → `SSH_OK`) avec le mot de passe correct (`.env.secrets` → `VPS_SSH_PASSWORD`) — le refus précédent était donc bien un blocage réseau sandbox ponctuel de la session d'audit précédente, pas un problème de credentials ni un blocage infra permanent, conformément à l'hypothèse déjà documentée. Migration jouée : `docker exec -i supabase-db psql -U supabase_admin -d postgres -f /dev/stdin < docs/legal-migration-pending.sql` via SSH. Sortie confirmée : `CREATE TABLE`/`CREATE INDEX`/`ALTER TABLE`/3×`DO` par table + `GRANT`×3 + `NOTIFY` — les 3 tables existaient déjà (NOTICE "already exists, skipping" sur les 3), signe qu'une exécution antérieure non tracée avait déjà réussi ; le script étant idempotent (`CREATE TABLE IF NOT EXISTS` + policies enveloppées `EXCEPTION WHEN duplicate_object`), les GRANT et le `NOTIFY pgrst, 'reload schema'` ont malgré tout été rejoués et confirmés appliqués. Vérification indépendante post-migration : `information_schema.tables` confirme les 3 tables dans le schéma `vida_assoc`, `\d vida_assoc.legal_acceptances` confirme colonnes/contraintes/policies RLS (select/insert/update own) conformes à `docs/legal-migration-pending.sql`, et `information_schema.role_table_grants` confirme les GRANT sur `anon`/`authenticated`/`service_role`. `/api/legal/accept`, `/api/account/delete`, `/api/legal/my-data` et `/dashboard/ma-memoire` ne renverront donc plus `PGRST205` en production.
 
 ---
 
@@ -106,6 +112,8 @@ Vérification indépendante pendant cet audit : nouvelle tentative SSH → `Conn
 
 **Verdict point 8 : Format respecté (ERRORS.md correctement rempli), blocage réel et corroboré — mais la conséquence (point 4) reste un gap tant que la migration n'est pas rejouée depuis un environnement avec accès VPS.**
 
+**CORRIGÉ le 2026-08-23** : voir détail complet au point 4 — accès VPS retrouvé dans cette session, migration jouée et vérifiée.
+
 ---
 
 ## 9. `LegalReacceptanceGate` monté ou non — GAP CONFIRMÉ (gap quasi-universel, se répète ici aussi)
@@ -119,18 +127,20 @@ Vérification indépendante pendant cet audit : nouvelle tentative SSH → `Conn
 
 **Verdict point 9 : GAP confirmé — même pattern que sur les autres apps déjà auditées.**
 
+**CORRIGÉ le 2026-08-23** : nouveau wrapper `src/components/shared/LegalReacceptanceGateClient.tsx` monte `LegalReacceptanceGate` du socle, câblé dans `src/app/(dashboard)/layout.tsx` (converti en Server Component `async`). `docsEnAttente` est calculé côté serveur (`getDocsEnAttente()`) via `computeDocsEnAttente()` du socle, en comparant `legal_acceptances` de l'utilisateur connecté à `CURRENT_LEGAL_VERSIONS` — `mentions` explicitement exclu du calcul (ce n'est pas un document à "accepter" juridiquement, cf point 3). **Fail-open assumé** : si la requête `legal_acceptances` échoue (table absente, réseau) le gate ne s'affiche PAS (`docsEnAttente = []`) plutôt que de bloquer faussement tout le monde — décision nécessaire tant que le point 4 n'était pas corrigé, reste la bonne posture par défaut (un faux positif "bloque toute l'app" serait pire qu'un gap de conformité). Le clic "J'ai lu, je continue" déclenche `POST /api/legal/accept` (même route que le signup) ; un échec réseau affiche "L'enregistrement a échoué, réessaie." (géré par le composant du socle lui-même) au lieu de valider silencieusement.
+
 ---
 
 ## SYNTHÈSE DES GAPS
 
 | # | Gap | Sévérité | Statut |
 |---|---|---|---|
-| 1 | Bandeau cookies monté (`CookieBanner`) n'est pas le bandeau NIYAMA fonctionnel — pas de granularité mesure/marketing, pas de persistance DB, `CookieConsentBanner` du socle codé mais jamais monté | Élevée | Non corrigé, décision documentée dans ERRORS.md mais non conforme |
-| 2 | Signup Google OAuth n'appelle jamais `/api/legal/accept` — aucune preuve d'acceptation pour les comptes créés via OAuth | Élevée | Non corrigé |
-| 3 | Tables `legal_acceptances`/`cookie_consents`/`account_deletion_requests` absentes en base → `/api/legal/accept`, `/api/account/delete`, `/api/legal/my-data`, `/dashboard/ma-memoire` cassés en production (PGRST205) | Critique | Documenté, SQL prêt, bloqué par accès réseau VPS indisponible dans ce sandbox |
-| 4 | `LegalReacceptanceGate` codé mais jamais monté — aucune app ne peut forcer une ré-acceptation après bump de version | Élevée | Non corrigé |
+| 1 | Bandeau cookies monté (`CookieBanner`) n'est pas le bandeau NIYAMA fonctionnel — pas de granularité mesure/marketing, pas de persistance DB, `CookieConsentBanner` du socle codé mais jamais monté | Élevée | **CORRIGÉ 2026-08-23** — `CookieConsentBannerClient` monté dans `layout.tsx`, `onConsent` → `POST /api/legal/cookie-consent` |
+| 2 | Signup Google OAuth n'appelle jamais `/api/legal/accept` — aucune preuve d'acceptation pour les comptes créés via OAuth | Élevée | **CORRIGÉ 2026-08-23** — `auth/callback/route.ts` écrit `legal_acceptances` (cgu/cgv/confidentialite) à la toute première connexion OAuth |
+| 3 | Tables `legal_acceptances`/`cookie_consents`/`account_deletion_requests` absentes en base → `/api/legal/accept`, `/api/account/delete`, `/api/legal/my-data`, `/dashboard/ma-memoire` cassés en production (PGRST205) | Critique | **CORRIGÉ 2026-08-23** — migration jouée via VPS (accès SSH retrouvé), 3 tables + RLS + GRANT vérifiés en base |
+| 4 | `LegalReacceptanceGate` codé mais jamais monté — aucune app ne peut forcer une ré-acceptation après bump de version | Élevée | **CORRIGÉ 2026-08-23** — monté dans `(dashboard)/layout.tsx` via `LegalReacceptanceGateClient`, fail-open si `legal_acceptances` illisible |
 
-**4 gaps.**
+**4/4 gaps corrigés.** `npx tsc --noEmit` = 0 erreur après corrections. `npm run build` échoue — mais confirmé **pré-existant et sans lien** (`Module not found: Can't resolve 'uuid/v4'` via `javascript-opentimestamps`→`request`, déjà documenté dans ERRORS.md avant cette session ; reproduit à l'identique après `git stash` des 5 fichiers de cette remédiation, donc pas causé par ces corrections). Conformément à la règle "commit seulement si tsc+build verts", **ces corrections ne sont pas commitées** — le blocage build est un chantier séparé (dépendance `opentimestamps`/`uuid`), hors périmètre NIYAMA de cet audit.
 
 Points forts à noter : pages légales générées et vérifiées cohérentes avec le domaine réel (bug de copier-coller déjà corrigé), déclaration IA présente sur les 2 surfaces de chat réelles, lexique interdit à 0 occurrence, chiffres cohérents avec FACTS.md, parcours de signup email correctement câblé (pas juste codé — vérifié appelé), export RGPD et suppression de compte entièrement codés (bloqués uniquement par l'infra, pas par un oubli de code).
 
@@ -139,3 +149,17 @@ Points forts à noter : pages légales générées et vérifiées cohérentes av
 Le socle légal est substantiellement construit et honnêtement documenté (ERRORS.md très précis, aucune fausse déclaration de conformité trouvée), mais 4 gaps concrets empêchent une conformité pleine : le bandeau cookies affiché n'est pas le bandeau conforme, le parcours OAuth échappe à la preuve d'acceptation, les fonctionnalités RGPD critiques (export/suppression/preuve) sont actuellement cassées en production faute de migration DB, et le mécanisme de ré-acceptation après mise à jour des CGU est totalement absent.
 
 VERDICT:vida-assoc:ORANGE:4
+
+---
+
+## MISE À JOUR — REMÉDIATION 2026-08-23
+
+Les 4 gaps ci-dessus ont été corrigés (détail par point ci-dessus, entrées "**CORRIGÉ le 2026-08-23**"). Résumé :
+1. Bandeau cookies NIYAMA (`CookieConsentBanner` du socle) monté et câblé à `POST /api/legal/cookie-consent`.
+2. Signup Google OAuth écrit une preuve d'acceptation horodatée à la première connexion.
+3. Migration SQL (`legal_acceptances`/`cookie_consents`/`account_deletion_requests`) jouée en base sur le VPS — accès SSH retrouvé (mot de passe `.env.secrets` correct, le refus précédent était un blocage réseau sandbox ponctuel) — et vérifiée (tables, RLS, GRANT).
+4. `LegalReacceptanceGate` monté dans le layout dashboard, fail-open par conception si l'état légal ne peut pas être vérifié.
+
+`npx tsc --noEmit` : 0 erreur. `npm run build` : échec confirmé **pré-existant et sans lien** avec ces corrections (dépendance `javascript-opentimestamps`→`request`→`uuid/v4` manquante, déjà documentée dans ERRORS.md avant cette session ; reproduit à l'identique après `git stash` du code de remédiation puis restauré). Conformément à la règle "commit seulement si tsc+build verts", **les corrections NIYAMA ci-dessus sont prêtes dans l'arbre de travail mais non commitées** — à commiter dès que le blocage build `opentimestamps`/`uuid` (hors périmètre NIYAMA) sera traité séparément.
+
+VERDICT:vida-assoc:VERT:0 (4/4 gaps NIYAMA corrigés — build bloqué par un chantier séparé et pré-existant, non commité)

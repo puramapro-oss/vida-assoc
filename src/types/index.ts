@@ -52,7 +52,7 @@ export interface Profile {
   updated_at: string
 }
 
-// Re-export all models from models.ts
+// Re-export core models from models.ts
 export type {
   Association,
   Mission,
@@ -60,6 +60,10 @@ export type {
   Donation,
   Subscription,
   Invoice,
+} from './models'
+
+// Re-export extended models from models-extended.ts
+export type {
   Referral,
   ReferralCommission,
   Influencer,
@@ -76,4 +80,4 @@ export type {
   CreditTransaction,
   Conversation,
   Message,
-} from './models'
+} from './models-extended'

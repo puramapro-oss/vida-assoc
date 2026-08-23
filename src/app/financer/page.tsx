@@ -3,66 +3,12 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import {
-  ArrowLeft, ArrowRight, Check, Download,
-  FileText, Heart, Loader2, Search, Sparkles, User,
+  ArrowLeft, ArrowRight, Download, Heart, Loader2, Check, FileText,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase'
 import { cn } from '@/lib/utils'
-
-interface Aide {
-  id: string
-  nom: string
-  type_aide: string
-  profil_eligible: string[]
-  situation_eligible: string[]
-  montant_max: number | null
-  url_officielle: string | null
-  description: string
-  region: string | null
-  handicap_only: boolean
-}
-
-const PROFILS = [
-  { id: 'salarie', label: 'Salarie' },
-  { id: 'demandeur_emploi', label: 'Demandeur d\u2019emploi' },
-  { id: 'independant', label: 'Independant / auto-entrepreneur' },
-  { id: 'etudiant', label: 'Etudiant' },
-  { id: 'jeune', label: 'Jeune (16-25 ans)' },
-  { id: 'parent', label: 'Parent' },
-  { id: 'parent_isole', label: 'Parent isole' },
-  { id: 'retraite', label: 'Retraite' },
-  { id: 'senior', label: 'Senior (60+)' },
-  { id: 'handicape', label: 'Personne en situation de handicap' },
-  { id: 'etranger', label: 'Etranger' },
-  { id: 'createur', label: 'Createur d\u2019entreprise' },
-  { id: 'apprenti', label: 'Apprenti / alternant' },
-]
-
-const SITUATIONS = [
-  { id: 'faibles_revenus', label: 'Faibles revenus' },
-  { id: 'sans_emploi', label: 'Sans emploi' },
-  { id: 'perte_emploi_involontaire', label: 'Perte d\u2019emploi involontaire' },
-  { id: 'fin_droits_chomage', label: 'Fin de droits chomage' },
-  { id: 'handicap', label: 'Handicap reconnu' },
-  { id: 'enfant_handicape', label: 'Enfant handicape' },
-  { id: 'perte_autonomie', label: 'Perte d\u2019autonomie' },
-  { id: '2_enfants_plus', label: '2 enfants ou plus' },
-  { id: 'naissance', label: 'Naissance / adoption recente' },
-  { id: 'enfant_moins_6ans', label: 'Enfant de moins de 6 ans' },
-  { id: 'enfant_6_18ans', label: 'Enfant de 6 a 18 ans' },
-  { id: 'renovation_energetique', label: 'Travaux de renovation energetique' },
-  { id: 'recherche_logement', label: 'Recherche de logement' },
-  { id: 'creation_entreprise', label: 'Creation d\u2019entreprise' },
-  { id: 'situation_urgente', label: 'Situation d\u2019urgence' },
-  { id: 'reprise_emploi_loin', label: 'Reprise d\u2019emploi loin de chez moi' },
-]
-
-const STEPS = [
-  { id: 1, label: 'Ton profil', icon: User },
-  { id: 2, label: 'Aides disponibles', icon: Search },
-  { id: 3, label: 'Ton dossier', icon: FileText },
-  { id: 4, label: 'Suivi', icon: Check },
-]
+import { PROFILS, SITUATIONS, STEPS, type Aide } from './constants'
+import Step2AidesDisponibles from './Step2AidesDisponibles'
 
 export default function FinancerPage() {
   const [step, setStep] = useState(1)
@@ -244,84 +190,13 @@ export default function FinancerPage() {
 
         {/* Step 2: Matched aides */}
         {step === 2 && (
-          <div>
-            {loading ? (
-              <div className="flex items-center justify-center py-12">
-                <Loader2 className="h-8 w-8 animate-spin text-[#10B981]" />
-              </div>
-            ) : (
-              <>
-                <div className="mb-6 rounded-2xl bg-[#10B981]/10 border border-[#10B981]/30 p-6 text-center">
-                  <Sparkles className="mx-auto h-8 w-8 text-[#10B981] mb-2" />
-                  <p className="text-2xl font-bold text-[#10B981]">{matchedAides.length} aide{matchedAides.length > 1 ? 's' : ''} identifiee{matchedAides.length > 1 ? 's' : ''}</p>
-                  {totalMax > 0 && (
-                    <p className="mt-1 text-sm text-[var(--text-secondary)]">
-                      Cumul potentiel : jusqu&apos;a <strong className="text-[#D4AF37]">{totalMax.toLocaleString('fr-FR')} euros/mois</strong>
-                    </p>
-                  )}
-                </div>
-
-                {matchedAides.length === 0 ? (
-                  <div className="text-center py-8">
-                    <p className="text-[var(--text-secondary)]">Aucune aide ne correspond exactement a ton profil. Modifie ta selection ou contacte-nous.</p>
-                    <button onClick={() => setStep(1)} className="mt-4 text-sm text-[#10B981] hover:underline">Modifier mon profil</button>
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {matchedAides.map(aide => (
-                      <div key={aide.id} className="glass rounded-2xl p-5">
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="min-w-0 flex-1">
-                            <h3 className="font-semibold text-[var(--text-primary)]">{aide.nom}</h3>
-                            <p className="mt-1 text-sm text-[var(--text-secondary)] leading-relaxed">{aide.description}</p>
-                            <div className="mt-2 flex flex-wrap gap-2">
-                              <span className="inline-flex items-center rounded-lg bg-white/5 px-2 py-1 text-xs text-[var(--text-muted)]">
-                                {aide.type_aide}
-                              </span>
-                              {aide.handicap_only && (
-                                <span className="inline-flex items-center rounded-lg bg-blue-500/10 px-2 py-1 text-xs text-blue-400">
-                                  Handicap
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          <div className="text-right shrink-0">
-                            {aide.montant_max ? (
-                              <div className="text-lg font-bold text-[#D4AF37]">{aide.montant_max} euros</div>
-                            ) : (
-                              <div className="text-sm text-[var(--text-muted)]">Variable</div>
-                            )}
-                            <div className="text-xs text-[var(--text-muted)]">/mois max</div>
-                          </div>
-                        </div>
-                        {aide.url_officielle && (
-                          <a
-                            href={aide.url_officielle}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-3 inline-flex items-center gap-1 text-sm text-[#10B981] hover:underline"
-                          >
-                            Voir sur le site officiel <ArrowRight className="h-3 w-3" />
-                          </a>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <button onClick={() => setStep(1)} className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-[var(--text-primary)] hover:bg-white/10 transition-colors">
-                    <ArrowLeft className="h-4 w-4" /> Modifier
-                  </button>
-                  {matchedAides.length > 0 && (
-                    <button onClick={() => setStep(3)} className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#10B981] to-[#D4AF37] px-6 py-3 font-semibold text-[#04120c] hover:opacity-90 transition-opacity">
-                      Generer mon dossier <FileText className="h-4 w-4" />
-                    </button>
-                  )}
-                </div>
-              </>
-            )}
-          </div>
+          <Step2AidesDisponibles
+            loading={loading}
+            matchedAides={matchedAides}
+            totalMax={totalMax}
+            onBack={() => setStep(1)}
+            onNext={() => setStep(3)}
+          />
         )}
 
         {/* Step 3: Generate dossier */}

@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Settings as SettingsIcon,
@@ -10,107 +9,21 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/useAuth'
-import type { AccessibilityMode, NotificationMode, Theme } from '@/types'
 import Button from '@/components/ui/Button'
 import EmptyState from '@/components/ui/EmptyState'
 import { LANGS, THEMES, NOTIF_MODES, ACCESS_MODES, type LangCode } from './constants'
 import Section from './Section'
+import { useSettingsForm } from './useSettingsForm'
 
 const THEME_ICONS = { Moon, Sun, Monitor, Zap }
 
 export default function SettingsPage() {
   const { user, profile, loading: authLoading, signOut, refetch } = useAuth()
-
-  const [theme, setTheme] = useState<Theme>('dark')
-  const [lang, setLang] = useState<LangCode>('fr')
-  const [notifMode, setNotifMode] = useState<NotificationMode>('normal')
-  const [accessMode, setAccessMode] = useState<AccessibilityMode>('standard')
-  const [multisensorial, setMultisensorial] = useState<boolean>(false)
-
-  const [saving, setSaving] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [success, setSuccess] = useState(false)
-  const [portalLoading, setPortalLoading] = useState(false)
-
-  useEffect(() => {
-    if (!profile) return
-    queueMicrotask(() => {
-      setTheme(profile.theme ?? 'dark')
-      setLang(((profile.lang as LangCode) ?? 'fr'))
-      setNotifMode(profile.notification_mode ?? 'normal')
-      setAccessMode(profile.accessibility_mode ?? 'standard')
-      setMultisensorial(Boolean(profile.multisensorial_enabled))
-      try {
-        window.localStorage.setItem(
-          'vida-multisensorial',
-          profile.multisensorial_enabled ? '1' : '0'
-        )
-      } catch (err) {
-        console.error('localStorage access denied', err)
-      }
-    })
-  }, [profile])
-
-  const dirty = useMemo(() => {
-    if (!profile) return false
-    return (
-      (profile.theme ?? 'dark') !== theme ||
-      ((profile.lang as LangCode) ?? 'fr') !== lang ||
-      (profile.notification_mode ?? 'normal') !== notifMode ||
-      (profile.accessibility_mode ?? 'standard') !== accessMode ||
-      Boolean(profile.multisensorial_enabled) !== multisensorial
-    )
-  }, [profile, theme, lang, notifMode, accessMode, multisensorial])
-
-  async function save() {
-    setError(null)
-    setSuccess(false)
-    setSaving(true)
-    try {
-      const res = await fetch('/api/profile/update', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          theme,
-          lang,
-          notification_mode: notifMode,
-          accessibility_mode: accessMode,
-          multisensorial_enabled: multisensorial,
-        }),
-      })
-      const json = await res.json()
-      if (!res.ok) throw new Error(json.error ?? 'Enregistrement impossible.')
-      setSuccess(true)
-      try {
-        window.localStorage.setItem('vida-multisensorial', multisensorial ? '1' : '0')
-      } catch (err) {
-        console.error('localStorage access denied', err)
-      }
-      await refetch()
-      setTimeout(() => setSuccess(false), 3000)
-    } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Une erreur est survenue.')
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  async function openBillingPortal() {
-    setPortalLoading(true)
-    try {
-      const res = await fetch('/api/stripe/portal', { method: 'POST' })
-      const json = await res.json()
-      if (res.ok && json.url) {
-        window.location.href = json.url
-        return
-      }
-      setError(json.error ?? 'Portail indisponible.')
-    } catch {
-      setError('Portail indisponible.')
-    } finally {
-      setPortalLoading(false)
-    }
-  }
+  const { state, setters, flags, actions } = useSettingsForm({ profile, refetch })
+  const { theme, lang, notifMode, accessMode, multisensorial } = state
+  const { setTheme, setLang, setNotifMode, setAccessMode, setMultisensorial } = setters
+  const { saving, error, success, portalLoading, dirty } = flags
+  const { save, openBillingPortal } = actions
 
   if (authLoading) {
     return <div className="mx-auto max-w-4xl py-12 text-center text-[var(--text-muted)]">Chargement des paramètres…</div>

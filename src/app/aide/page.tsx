@@ -3,30 +3,14 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import {
-  Search, ChevronRight, HelpCircle, MessageSquare, CreditCard,
-  Users, Wrench, Sparkles, ArrowLeft, Send, X, Bot, Loader2,
+  Search, ChevronRight, ArrowLeft, Send, X, Bot, Loader2, MessageSquare, HelpCircle,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase'
 import { cn } from '@/lib/utils'
 import AIDisclosure from '@/lib/legal/components/AIDisclosure'
 import type { FaqArticle } from '@/types'
-
-const CATEGORIES: { id: string; label: string; icon: React.ReactNode; color: string }[] = [
-  { id: 'general', label: 'General', icon: <HelpCircle className="h-5 w-5" />, color: '#00d4ff' },
-  { id: 'chat', label: 'Chat IA', icon: <MessageSquare className="h-5 w-5" />, color: '#a855f7' },
-  { id: 'creation', label: 'Creation', icon: <Sparkles className="h-5 w-5" />, color: '#f59e0b' },
-  { id: 'agents', label: 'Agents', icon: <Wrench className="h-5 w-5" />, color: '#10b981' },
-  { id: 'billing', label: 'Facturation', icon: <CreditCard className="h-5 w-5" />, color: '#ef4444' },
-  { id: 'referral', label: 'Parrainage', icon: <Users className="h-5 w-5" />, color: '#ec4899' },
-  { id: 'wallet', label: 'Wallet', icon: <CreditCard className="h-5 w-5" />, color: '#3b82f6' },
-  { id: 'points', label: 'Points', icon: <Sparkles className="h-5 w-5" />, color: '#f97316' },
-  { id: 'support', label: 'Support', icon: <HelpCircle className="h-5 w-5" />, color: '#6366f1' },
-]
-
-interface ChatMessage {
-  role: 'user' | 'assistant'
-  content: string
-}
+import { CATEGORIES, type ChatMessage } from './constants'
+import EscalationForm from './EscalationForm'
 
 export default function AidePage() {
   const [articles, setArticles] = useState<FaqArticle[]>([])
@@ -41,14 +25,6 @@ export default function AidePage() {
   const [chatLoading, setChatLoading] = useState(false)
   const chatEndRef = useRef<HTMLDivElement>(null)
   const supabase = createClient()
-
-  // Escalation form state
-  const [escName, setEscName] = useState('')
-  const [escEmail, setEscEmail] = useState('')
-  const [escMessage, setEscMessage] = useState('')
-  const [escSending, setEscSending] = useState(false)
-  const [escSent, setEscSent] = useState(false)
-  const [escError, setEscError] = useState('')
 
   useEffect(() => {
     supabase.from('faq_articles').select('*').order('category')
@@ -94,25 +70,6 @@ export default function AidePage() {
       setChatLoading(false)
     }
   }, [chatInput, chatLoading, chatMessages])
-
-  const sendEscalation = useCallback(async () => {
-    if (!escName.trim() || !escEmail.trim() || !escMessage.trim()) return
-    setEscSending(true)
-    setEscError('')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: escName.trim(), email: escEmail.trim(), subject: 'Escalade aide Sangha', message: escMessage.trim() }),
-      })
-      if (!res.ok) throw new Error('Erreur serveur')
-      setEscSent(true)
-    } catch {
-      setEscError('Impossible d\u2019envoyer le message. Verifie ta connexion et reessaie.')
-    } finally {
-      setEscSending(false)
-    }
-  }, [escName, escEmail, escMessage])
 
   return (
     <div className="min-h-screen bg-[var(--bg-void)]">
@@ -201,44 +158,7 @@ export default function AidePage() {
         )}
 
         {/* Escalation Form */}
-        <div className="mt-12 rounded-2xl bg-gradient-to-r from-[var(--cyan)]/10 to-[var(--purple)]/10 p-8">
-          <h2 className="text-xl font-bold text-[var(--text-primary)] text-center">Tu n&apos;as pas trouve ta reponse ?</h2>
-          <p className="mt-2 text-[var(--text-secondary)] text-center">Ecris-nous directement, notre equipe te repond sous 24h.</p>
-          {escSent ? (
-            <div className="mt-6 text-center">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--green)]/20 text-[var(--green)]">
-                <Send className="h-5 w-5" />
-              </div>
-              <p className="mt-3 font-medium text-[var(--text-primary)]">Message envoye !</p>
-              <p className="mt-1 text-sm text-[var(--text-secondary)]">On revient vers toi rapidement.</p>
-            </div>
-          ) : (
-            <form onSubmit={e => { e.preventDefault(); sendEscalation() }} className="mt-6 space-y-4 max-w-lg mx-auto">
-              <div>
-                <label htmlFor="esc-name" className="block text-xs font-medium text-[var(--text-secondary)] mb-1">Ton prenom</label>
-                <input id="esc-name" type="text" value={escName} onChange={e => setEscName(e.target.value)} required className="w-full rounded-xl border border-[var(--border)] bg-white/5 px-4 py-2.5 text-sm text-[var(--text-primary)] outline-none focus:border-[var(--cyan)]" />
-              </div>
-              <div>
-                <label htmlFor="esc-email" className="block text-xs font-medium text-[var(--text-secondary)] mb-1">Ton email</label>
-                <input id="esc-email" type="email" value={escEmail} onChange={e => setEscEmail(e.target.value)} required className="w-full rounded-xl border border-[var(--border)] bg-white/5 px-4 py-2.5 text-sm text-[var(--text-primary)] outline-none focus:border-[var(--cyan)]" />
-              </div>
-              <div>
-                <label htmlFor="esc-msg" className="block text-xs font-medium text-[var(--text-secondary)] mb-1">Ton message</label>
-                <textarea id="esc-msg" value={escMessage} onChange={e => setEscMessage(e.target.value)} required rows={4} className="w-full resize-none rounded-xl border border-[var(--border)] bg-white/5 px-4 py-2.5 text-sm text-[var(--text-primary)] outline-none focus:border-[var(--cyan)]" />
-              </div>
-              {escError && <p className="text-sm text-red-400">{escError}</p>}
-              <div className="flex flex-wrap gap-3">
-                <button type="submit" disabled={escSending} className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[var(--cyan)] to-[var(--purple)] px-6 py-3 font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50">
-                  {escSending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-                  Envoyer
-                </button>
-                <button type="button" onClick={() => setChatOpen(true)} className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-white/5 px-6 py-3 font-medium text-[var(--text-primary)] hover:bg-white/10 transition-colors">
-                  <Bot className="h-4 w-4" /> Assistant IA
-                </button>
-              </div>
-            </form>
-          )}
-        </div>
+        <EscalationForm onOpenChat={() => setChatOpen(true)} />
       </div>
 
       {/* Floating Chatbot Button */}
