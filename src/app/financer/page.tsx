@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import {
-  ArrowLeft, ArrowRight, Check, ChevronDown, Download,
-  FileText, Heart, Loader2, MapPin, Search, Sparkles, User,
+  ArrowLeft, ArrowRight, Check, Download,
+  FileText, Heart, Loader2, Search, Sparkles, User,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase'
 import { cn } from '@/lib/utils'

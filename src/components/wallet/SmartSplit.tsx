@@ -15,7 +15,7 @@ interface SmartSplitProps {
 export function SmartSplit({
   userSharePercent = 70,
   assoSharePercent = 10,
-  sasuSharePercent = 20,
+  sasuSharePercent: _sasuSharePercent = 20,
   onSave,
   readOnly = false,
 }: SmartSplitProps) {
