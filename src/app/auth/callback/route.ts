@@ -2,22 +2,57 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase-server'
 import { CURRENT_LEGAL_VERSIONS } from '@/lib/legal/versions'
 
+function redirectWithoutCache(destination: URL) {
+  const response = NextResponse.redirect(destination)
+  response.headers.set('Cache-Control', 'private, no-cache, no-store, must-revalidate, max-age=0')
+  response.headers.set('Expires', '0')
+  response.headers.set('Pragma', 'no-cache')
+  return response
+}
+
+function safeRedirectDestination(next: string | null, origin: string): URL {
+  const fallback = new URL('/dashboard', origin)
+  const hasForbiddenCharacters = (value: string) => /[\\\u0000-\u001F\u007F]/u.test(value)
+
+  if (!next || !next.startsWith('/') || next.startsWith('//') || hasForbiddenCharacters(next)) {
+    return fallback
+  }
+
+  try {
+    const destination = new URL(next, origin)
+    // URL normalization can turn dot segments into a leading double slash.
+    // Reject encoded separators/controls in the path as well as their raw forms.
+    const decodedPath = decodeURIComponent(destination.pathname)
+    if (destination.origin !== origin || decodedPath.startsWith('//') || hasForbiddenCharacters(decodedPath)) {
+      return fallback
+    }
+    return destination
+  } catch {
+    return fallback
+  }
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
-  const next = searchParams.get('next') ?? '/dashboard'
+  const destination = safeRedirectDestination(searchParams.get('next'), origin)
+  const loginUrl = new URL('/login?error=auth_failed', origin)
 
-  if (code) {
+  if (!code || searchParams.has('error') || searchParams.has('error_code')) {
+    return redirectWithoutCache(loginUrl)
+  }
+
+  try {
     const supabase = await createServerSupabaseClient()
 
     const { error } = await supabase.auth.exchangeCodeForSession(code)
-    if (!error) {
-      await recordOAuthLegalAcceptance(supabase, request)
-      return NextResponse.redirect(new URL(next, origin))
-    }
-  }
+    if (error) return redirectWithoutCache(loginUrl)
 
-  return NextResponse.redirect(new URL('/login?error=auth_failed', origin))
+    await recordOAuthLegalAcceptance(supabase, request)
+    return redirectWithoutCache(destination)
+  } catch {
+    return redirectWithoutCache(loginUrl)
+  }
 }
 
 /**
