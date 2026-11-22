@@ -1031,9 +1031,19 @@ BEGIN
   IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname='vida_assoc' AND tablename='mission_completions' AND policyname='completions_read_own') THEN
     CREATE POLICY completions_read_own ON vida_assoc.mission_completions FOR SELECT USING (user_id = auth.uid());
   END IF;
-  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname='vida_assoc' AND tablename='mission_completions' AND policyname='completions_insert_own') THEN
-    CREATE POLICY completions_insert_own ON vida_assoc.mission_completions FOR INSERT WITH CHECK (user_id = auth.uid());
-  END IF;
+  -- A user can submit evidence, but cannot attest validation or payment.
+  DROP POLICY IF EXISTS completions_insert_own ON vida_assoc.mission_completions;
+  CREATE POLICY completions_insert_own ON vida_assoc.mission_completions FOR INSERT
+    WITH CHECK (
+      user_id = auth.uid()
+      AND status = 'pending'
+      AND reward_paid = false
+      AND reward_paid_at IS NULL
+      AND validated_at IS NULL
+      AND reviewed_by IS NULL
+      AND ai_validation_score IS NULL
+      AND ai_validation_notes IS NULL
+    );
 
   -- daily_quests : own only
   IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE schemaname='vida_assoc' AND tablename='daily_quests' AND policyname='dq_own') THEN
